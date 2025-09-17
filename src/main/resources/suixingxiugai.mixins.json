@@ -1,0 +1,26 @@
+
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.xiaoyu.suixingxiugai.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "suixingxiugai.refmap.json",
+  "mixins": [
+    "server.iceandfire.entity.DragonEntityMixin",
+    "server.iceandfire.block.BlockIceSpikesMixin",
+    "server.iceandfire.block.BaseFireBlockMixin",
+    "server.iceandfire.entity.EntityDragonChargeMixin",
+    "server.iceandfire.IafDragonDestructionManagerMixin",
+    "server.twilightforest.entity.boss.LichMixin",
+    "server.PrimaryLevelDataMixin"
+  ],
+  "client": [
+    "client.CreateWorldScreenMixin",
+    "client.WorldOpenFlowsMixin"
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
