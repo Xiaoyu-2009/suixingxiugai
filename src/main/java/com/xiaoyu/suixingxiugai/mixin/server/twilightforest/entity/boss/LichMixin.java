@@ -59,20 +59,18 @@ public abstract class LichMixin {
         entityData.set(getShieldStrengthAccessor(), SuixingxiugaiConfig.lichShieldStrength.get());
     }
     
-    @Inject(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerBossEvent;setProgress(F)V", ordinal = 0), cancellable = true)
+    @Inject(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerBossEvent;setProgress(F)V", 
+    ordinal = 0, shift = At.Shift.AFTER))
     private void suixingxiugai$modifyShieldPhaseBossBar(CallbackInfo ci) {
         Lich lich = (Lich) (Object) this;
         if (!lich.level().isClientSide() && lich.getPhase() == 1) {
             int maxShield = SuixingxiugaiConfig.lichShieldStrength.get();
-
             float progress = (float) lich.getShieldStrength() / (float) maxShield;
             this.bossInfo.setProgress(Math.max(0.0F, Math.min(1.0F, progress)));
 
             if (maxShield > 6 && this.bossInfo.getOverlay() == BossEvent.BossBarOverlay.NOTCHED_6) {
                 this.bossInfo.setOverlay(BossEvent.BossBarOverlay.PROGRESS);
             }
-
-            ci.cancel();
         }
     }
 }
