@@ -31,11 +31,11 @@ public class SuixingxiugaiConfig {
         BUILDER.push("Twilight Forest (暮色森林)");
         
         enableLichShieldModification = BUILDER
-                .comment("巫妖法术护盾可被更多伤害破坏 (Whether Lich's spell shield can be destroyed by more types of damage)")
+                .comment("巫妖的护盾可被更多伤害破坏 (Whether Lich's shield can be destroyed by more types of damage)")
                 .define("enableLichShieldModification", false);
                 
         lichShieldStrength = BUILDER
-                .comment("巫妖法术护盾强度 (Strength of Lich's spell shield)")
+                .comment("巫妖的护盾强度 (Strength of Lich's shield)")
                 .defineInRange("lichShieldStrength", 6, 1, Integer.MAX_VALUE);
                 
         enableFortificationWandTargeting = BUILDER

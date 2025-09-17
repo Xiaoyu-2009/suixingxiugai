@@ -63,18 +63,16 @@ public abstract class LichMixin {
     private void suixingxiugai$modifyShieldPhaseBossBar(CallbackInfo ci) {
         Lich lich = (Lich) (Object) this;
         if (!lich.level().isClientSide() && lich.getPhase() == 1) {
-            if (SuixingxiugaiConfig.enableLichShieldModification.get()) {
-                int maxShield = SuixingxiugaiConfig.lichShieldStrength.get();
+            int maxShield = SuixingxiugaiConfig.lichShieldStrength.get();
 
-                float progress = (float) lich.getShieldStrength() / (float) maxShield;
-                this.bossInfo.setProgress(Math.max(0.0F, Math.min(1.0F, progress)));
+            float progress = (float) lich.getShieldStrength() / (float) maxShield;
+            this.bossInfo.setProgress(Math.max(0.0F, Math.min(1.0F, progress)));
 
-                if (maxShield > 6 && this.bossInfo.getOverlay() == BossEvent.BossBarOverlay.NOTCHED_6) {
-                    this.bossInfo.setOverlay(BossEvent.BossBarOverlay.PROGRESS);
-                }
-
-                ci.cancel();
+            if (maxShield > 6 && this.bossInfo.getOverlay() == BossEvent.BossBarOverlay.NOTCHED_6) {
+                this.bossInfo.setOverlay(BossEvent.BossBarOverlay.PROGRESS);
             }
+
+            ci.cancel();
         }
     }
 }
