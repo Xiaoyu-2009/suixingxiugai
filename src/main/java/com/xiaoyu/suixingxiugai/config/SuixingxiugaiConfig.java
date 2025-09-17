@@ -13,6 +13,11 @@ public class SuixingxiugaiConfig {
     public static final ForgeConfigSpec.BooleanValue enableFortificationWandTargeting;
     public static final ForgeConfigSpec.IntValue fortificationWandShieldAmount;
 
+    public static final ForgeConfigSpec.IntValue fortificationWandUses;
+    public static final ForgeConfigSpec.IntValue zombieWandUses;
+    public static final ForgeConfigSpec.IntValue twilightWandUses;
+    public static final ForgeConfigSpec.IntValue lifedrainScepterUses;
+
     static {
         BUILDER.push("Suixingxiugai Config (随性修改配置)");
 
@@ -39,6 +44,22 @@ public class SuixingxiugaiConfig {
         fortificationWandShieldAmount = BUILDER
                 .comment("护盾权杖单次赋予的护盾数量 (Amount of shields granted by fortification wand per use)")
                 .defineInRange("fortificationWandShieldAmount", 5, 1, Integer.MAX_VALUE);
+
+        fortificationWandUses = BUILDER
+                .comment("护盾权杖使用次数 (Fortification wand uses)")
+                .defineInRange("fortificationWandUses", 9, 1, Integer.MAX_VALUE);
+                
+        zombieWandUses = BUILDER
+                .comment("僵尸权杖使用次数 (Zombie wand uses)")
+                .defineInRange("zombieWandUses", 9, 1, Integer.MAX_VALUE);
+                
+        twilightWandUses = BUILDER
+                .comment("黄昏权杖使用次数 (Twilight wand uses)")
+                .defineInRange("twilightWandUses", 99, 1, Integer.MAX_VALUE);
+                
+        lifedrainScepterUses = BUILDER
+                .comment("吸血权杖使用次数 (Lifedrain scepter uses)")
+                .defineInRange("lifedrainScepterUses", 99, 1, Integer.MAX_VALUE);
                 
         BUILDER.pop();
         

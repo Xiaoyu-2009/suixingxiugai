@@ -13,6 +13,9 @@
     "server.twilightforest.entity.boss.LichMixin",
     "server.PrimaryLevelDataMixin",
     "server.twilightforest.item.FortificationWandItemMixin",
+    "server.twilightforest.item.TwilightWandItemMixin",
+    "server.twilightforest.item.ZombieWandItemMixin",
+    "server.twilightforest.item.LifedrainScepterItemMixin",
     "server.twilightforest.capabilities.shield.ShieldCapabilityHandlerMixin"
   ],
   "client": [

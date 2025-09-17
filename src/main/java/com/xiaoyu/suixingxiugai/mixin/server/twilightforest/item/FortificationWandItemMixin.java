@@ -38,7 +38,7 @@ public class FortificationWandItemMixin {
         
         ItemStack stack = player.getItemInHand(hand);
 
-        if (stack.getDamageValue() == stack.getMaxDamage()) {
+        if (stack.getDamageValue() >= SuixingxiugaiConfig.fortificationWandUses.get()) {
             cir.setReturnValue(InteractionResultHolder.fail(stack));
             return;
         }
@@ -78,6 +78,10 @@ public class FortificationWandItemMixin {
         }
 
         cir.setReturnValue(InteractionResultHolder.success(stack));
+    }
+
+    public int getMaxDamage(ItemStack stack) {
+        return SuixingxiugaiConfig.fortificationWandUses.get();
     }
 
     private static void sendShieldUpdatePacket(Entity entity, IShieldCapability cap) {

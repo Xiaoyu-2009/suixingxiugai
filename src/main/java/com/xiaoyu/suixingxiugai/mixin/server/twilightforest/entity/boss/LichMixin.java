@@ -4,7 +4,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.world.BossEvent;
