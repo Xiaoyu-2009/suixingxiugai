@@ -1,0 +1,10 @@
+{
+  "gamerule.iceAndFireDragonPVP": "冰火传说中已驯服的龙与主人PVP",
+  "gamerule.iceAndFireDragonPVP.description": "控制已驯服的龙是否可以与主人进行PVP",
+  "commands.iceandfire.dragonresurrection.insufficient_health": "你的最大生命值不足以复活这条龙",
+  "commands.iceandfire.dragonresurrection.no_entity_found": "未找到实体",
+  "commands.iceandfire.dragonresurrection.not_dragon": "目标不是龙",
+  "commands.iceandfire.dragonresurrection.not_dead": "%s还活着",
+  "commands.iceandfire.dragonresurrection.not_owner": "你不是%s的主人",
+  "commands.iceandfire.dragonresurrection.success": "%s献祭了%s点最大生命值成功复活%s"
+}

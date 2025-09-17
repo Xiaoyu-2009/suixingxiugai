@@ -1,0 +1,10 @@
+{
+  "gamerule.iceAndFireDragonPVP": "Ice and Fire Dragon PVP with Owner",
+  "gamerule.iceAndFireDragonPVP.description": "Controls whether tamed dragons can engage in PVP with their owners",
+  "commands.iceandfire.dragonresurrection.insufficient_health": "Your maximum health is not enough to resurrect this dragon",
+  "commands.iceandfire.dragonresurrection.no_entity_found": "No entity found",
+  "commands.iceandfire.dragonresurrection.not_dragon": "Target is not a dragon",
+  "commands.iceandfire.dragonresurrection.not_dead": "%s is still alive",
+  "commands.iceandfire.dragonresurrection.not_owner": "You are not the owner of %s",
+  "commands.iceandfire.dragonresurrection.success": "%s sacrificed %s maximum health points to resurrect %s"
+}
