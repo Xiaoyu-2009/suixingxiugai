@@ -12,7 +12,8 @@
     "server.iceandfire.IafDragonDestructionManagerMixin",
     "server.twilightforest.entity.boss.LichMixin",
     "server.PrimaryLevelDataMixin",
-    "server.twilightforest.item.FortificationWandItemMixin"
+    "server.twilightforest.item.FortificationWandItemMixin",
+    "server.twilightforest.capabilities.shield.ShieldCapabilityHandlerMixin"
   ],
   "client": [
     "client.CreateWorldScreenMixin",

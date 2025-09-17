@@ -82,11 +82,7 @@ public class FortificationWandItemMixin {
     }
 
     private static void sendShieldUpdatePacket(Entity entity, IShieldCapability cap) {
-        if (entity instanceof ServerPlayer serverPlayer) {
-            TFPacketHandler.CHANNEL.send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> serverPlayer), new UpdateShieldPacket(entity, cap));
-        } else {
-            TFPacketHandler.CHANNEL.send(PacketDistributor.TRACKING_ENTITY.with(() -> entity), new UpdateShieldPacket(entity, cap));
-        }
+        TFPacketHandler.CHANNEL.send(PacketDistributor.TRACKING_ENTITY.with(() -> entity), new UpdateShieldPacket(entity, cap));
     }
 
     private static Entity getEntityAtCursor(Player player, double range) {
