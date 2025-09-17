@@ -1,4 +1,4 @@
-package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item;
+package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -50,6 +50,7 @@ public class FortificationWandItemMixin {
                 LazyOptional<IShieldCapability> shieldCapability = targetEntity.getCapability(CapabilityList.SHIELDS);
                 if (shieldCapability.isPresent()) {
                     shieldCapability.ifPresent(cap -> {
+                        cap.replenishShields();
                         cap.setShields(SuixingxiugaiConfig.fortificationWandShieldAmount.get(), true);
                         sendShieldUpdatePacket(targetEntity, cap);
                     });
@@ -62,6 +63,7 @@ public class FortificationWandItemMixin {
                 LazyOptional<IShieldCapability> shieldCapability = player.getCapability(CapabilityList.SHIELDS);
                 if (shieldCapability.isPresent()) {
                     shieldCapability.ifPresent(cap -> {
+                        cap.replenishShields();
                         cap.setShields(SuixingxiugaiConfig.fortificationWandShieldAmount.get(), true);
                         sendShieldUpdatePacket(player, cap);
                     });

@@ -1,4 +1,4 @@
-package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item;
+package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;

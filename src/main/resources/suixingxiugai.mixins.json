@@ -11,12 +11,13 @@
     "server.iceandfire.entity.EntityDragonChargeMixin",
     "server.iceandfire.IafDragonDestructionManagerMixin",
     "server.twilightforest.entity.boss.LichMixin",
-    "server.PrimaryLevelDataMixin",
-    "server.twilightforest.item.FortificationWandItemMixin",
-    "server.twilightforest.item.TwilightWandItemMixin",
-    "server.twilightforest.item.ZombieWandItemMixin",
-    "server.twilightforest.item.LifedrainScepterItemMixin",
-    "server.twilightforest.capabilities.shield.ShieldCapabilityHandlerMixin"
+    "server.twilightforest.item.wand.FortificationWandItemMixin",
+    "server.twilightforest.item.wand.TwilightWandItemMixin",
+    "server.twilightforest.item.wand.ZombieWandItemMixin",
+    "server.twilightforest.item.wand.LifedrainScepterItemMixin",
+    "server.twilightforest.capabilities.shield.ShieldCapabilityHandlerMixin",
+    "server.minecraft.entity.LivingEntityMixin",
+    "server.PrimaryLevelDataMixin"
   ],
   "client": [
     "client.CreateWorldScreenMixin",

@@ -12,6 +12,7 @@ public class SuixingxiugaiConfig {
     public static final ForgeConfigSpec.BooleanValue enableDragonResurrectionCommand;
     public static final ForgeConfigSpec.BooleanValue enableFortificationWandTargeting;
     public static final ForgeConfigSpec.IntValue fortificationWandShieldAmount;
+    public static final ForgeConfigSpec.BooleanValue enableFortificationWandInvulnerability;
 
     public static final ForgeConfigSpec.IntValue fortificationWandUses;
     public static final ForgeConfigSpec.IntValue zombieWandUses;
@@ -44,6 +45,10 @@ public class SuixingxiugaiConfig {
         fortificationWandShieldAmount = BUILDER
                 .comment("护盾权杖单次赋予的护盾数量 (Amount of shields granted by fortification wand per use)")
                 .defineInRange("fortificationWandShieldAmount", 5, 1, Integer.MAX_VALUE);
+
+        enableFortificationWandInvulnerability = BUILDER
+                .comment("护盾权杖施加的护盾免疫一切伤害 (Fortification wand shields make entities invulnerable to all damage)")
+                .define("enableFortificationWandInvulnerability", false);
 
         fortificationWandUses = BUILDER
                 .comment("护盾权杖使用次数 (Fortification wand uses)")
