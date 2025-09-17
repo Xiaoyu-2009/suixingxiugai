@@ -11,6 +11,7 @@ public class SuixingxiugaiConfig {
     public static final ForgeConfigSpec.IntValue lichShieldStrength;
     public static final ForgeConfigSpec.BooleanValue enableDragonResurrectionCommand;
     public static final ForgeConfigSpec.BooleanValue enableFortificationWandTargeting;
+    public static final ForgeConfigSpec.IntValue fortificationWandShieldAmount;
 
     static {
         BUILDER.push("Suixingxiugai Config (随性修改配置)");
@@ -34,6 +35,10 @@ public class SuixingxiugaiConfig {
         enableFortificationWandTargeting = BUILDER
                 .comment("启用护盾权杖目标选择功能 (Enable fortification wand targeting feature)")
                 .define("enableFortificationWandTargeting", false);
+                
+        fortificationWandShieldAmount = BUILDER
+                .comment("护盾权杖单次赋予的护盾数量 (Amount of shields granted by fortification wand per use)")
+                .defineInRange("fortificationWandShieldAmount", 5, 1, Integer.MAX_VALUE);
                 
         BUILDER.pop();
         

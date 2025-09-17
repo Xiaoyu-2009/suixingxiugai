@@ -1,6 +1,5 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item;
 
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
@@ -51,7 +50,7 @@ public class FortificationWandItemMixin {
                 LazyOptional<IShieldCapability> shieldCapability = targetEntity.getCapability(CapabilityList.SHIELDS);
                 if (shieldCapability.isPresent()) {
                     shieldCapability.ifPresent(cap -> {
-                        cap.replenishShields();
+                        cap.setShields(SuixingxiugaiConfig.fortificationWandShieldAmount.get(), true);
                         sendShieldUpdatePacket(targetEntity, cap);
                     });
 
@@ -63,7 +62,7 @@ public class FortificationWandItemMixin {
                 LazyOptional<IShieldCapability> shieldCapability = player.getCapability(CapabilityList.SHIELDS);
                 if (shieldCapability.isPresent()) {
                     shieldCapability.ifPresent(cap -> {
-                        cap.replenishShields();
+                        cap.setShields(SuixingxiugaiConfig.fortificationWandShieldAmount.get(), true);
                         sendShieldUpdatePacket(player, cap);
                     });
 
