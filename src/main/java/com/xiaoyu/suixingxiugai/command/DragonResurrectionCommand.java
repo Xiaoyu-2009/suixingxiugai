@@ -3,6 +3,7 @@ package com.xiaoyu.suixingxiugai.command;
 import java.util.Collection;
 
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
+import com.github.alexthe666.iceandfire.entity.EntityDragonPart;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -41,7 +42,9 @@ public class DragonResurrectionCommand {
         int successCount = 0;
 
         for (Entity targetEntity : targets) {
-            if (!(targetEntity instanceof EntityDragonBase dragon)) {
+            EntityDragonBase dragon = getDragonFromEntity(targetEntity);
+            
+            if (dragon == null) {
                 context.getSource().sendFailure(Component.translatable("commands.iceandfire.dragonresurrection.not_dragon"));
                 continue;
             }
@@ -73,6 +76,18 @@ public class DragonResurrectionCommand {
         }
 
         return successCount;
+    }
+
+    private static EntityDragonBase getDragonFromEntity(Entity entity) {
+        if (entity instanceof EntityDragonBase dragon) {
+            return dragon;
+        } else if (entity instanceof EntityDragonPart dragonPart) {
+            Entity parent = dragonPart.getParent();
+            if (parent instanceof EntityDragonBase dragon) {
+                return dragon;
+            }
+        }
+        return null;
     }
     
     private static String getDragonTypeName(EntityDragonBase dragon) {
