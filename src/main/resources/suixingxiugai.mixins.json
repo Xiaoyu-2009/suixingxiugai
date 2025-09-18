@@ -17,7 +17,9 @@
     "server.twilightforest.item.wand.LifedrainScepterItemMixin",
     "server.twilightforest.capabilities.shield.ShieldCapabilityHandlerMixin",
     "server.minecraft.entity.LivingEntityMixin",
-    "server.PrimaryLevelDataMixin"
+    "server.PrimaryLevelDataMixin",
+    "server.twilightforest.entity.boss.NagaMixin",
+    "server.twilightforest.entity.boss.NagaMovementPatternMixin"
   ],
   "client": [
     "client.CreateWorldScreenMixin",
