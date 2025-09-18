@@ -31,39 +31,39 @@ public class SuixingxiugaiConfig {
         BUILDER.push("Twilight Forest (暮色森林)");
         
         enableLichShieldModification = BUILDER
-                .comment("巫妖的护盾可被更多伤害破坏 (Whether Lich's shield can be destroyed by more types of damage)")
+                .comment("巫妖的护盾可被更多伤害破坏 (Whether Lich's shield can be broken by more types of damage)")
                 .define("enableLichShieldModification", false);
                 
         lichShieldStrength = BUILDER
-                .comment("巫妖的护盾强度 (Strength of Lich's shield)")
+                .comment("巫妖的护盾数量 (Number of Lich's shields)")
                 .defineInRange("lichShieldStrength", 6, 1, Integer.MAX_VALUE);
                 
         enableFortificationWandTargeting = BUILDER
-                .comment("启用护盾权杖目标选择功能 (Enable fortification wand targeting feature)")
+                .comment("护盾权杖目标选择功能 (Enable target selection for fortification wand)")
                 .define("enableFortificationWandTargeting", false);
                 
         fortificationWandShieldAmount = BUILDER
-                .comment("护盾权杖单次赋予的护盾数量 (Amount of shields granted by fortification wand per use)")
+                .comment("护盾权杖单次施加的护盾数量 (Number of shields granted by fortification wand per use)")
                 .defineInRange("fortificationWandShieldAmount", 5, 1, Integer.MAX_VALUE);
 
         enableFortificationWandInvulnerability = BUILDER
-                .comment("护盾权杖施加的护盾免疫一切伤害 (Fortification wand shields make entities invulnerable to all damage)")
+                .comment("护盾权杖施加的护盾免疫一切伤害 (Entities with fortification wand shields are invulnerable to all damage)")
                 .define("enableFortificationWandInvulnerability", false);
 
         fortificationWandUses = BUILDER
-                .comment("护盾权杖使用次数 (Fortification wand uses)")
+                .comment("护盾权杖使用次数 (Number of uses for fortification wand)")
                 .defineInRange("fortificationWandUses", 9, 1, Integer.MAX_VALUE);
                 
         zombieWandUses = BUILDER
-                .comment("僵尸权杖使用次数 (Zombie wand uses)")
+                .comment("僵尸权杖使用次数 (Number of uses for zombie wand)")
                 .defineInRange("zombieWandUses", 9, 1, Integer.MAX_VALUE);
                 
         twilightWandUses = BUILDER
-                .comment("黄昏权杖使用次数 (Twilight wand uses)")
+                .comment("黄昏权杖使用次数 (Number of uses for twilight wand)")
                 .defineInRange("twilightWandUses", 99, 1, Integer.MAX_VALUE);
                 
         lifedrainScepterUses = BUILDER
-                .comment("吸血权杖使用次数 (Lifedrain scepter uses)")
+                .comment("吸血权杖使用次数 (Number of uses for lifedrain scepter)")
                 .defineInRange("lifedrainScepterUses", 99, 1, Integer.MAX_VALUE);
                 
         BUILDER.pop();
