@@ -1,9 +1,11 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.boss;
 
-import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+
+import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
+
 import twilightforest.entity.boss.Naga;
 
 @Mixin(Naga.class)

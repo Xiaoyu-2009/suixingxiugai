@@ -19,7 +19,8 @@
     "server.minecraft.entity.LivingEntityMixin",
     "server.PrimaryLevelDataMixin",
     "server.twilightforest.entity.boss.NagaMixin",
-    "server.twilightforest.entity.boss.NagaMovementPatternMixin"
+    "server.twilightforest.entity.boss.NagaMovementPatternMixin",
+    "server.twilightforest.events.CapabilityEventsMixin"
   ],
   "client": [
     "client.CreateWorldScreenMixin",
