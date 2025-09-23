@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(CreateWorldScreen.class)
 public class CreateWorldScreenMixin {
+    
     @ModifyVariable(method = "tryApplyNewDataPacks", at = @At("HEAD"), argsOnly = true)
     public boolean dontShowWarning(boolean showWarning) {
         if (SuixingxiugaiConfig.disableExperimentalWarning.get()) {

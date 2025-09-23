@@ -14,8 +14,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BlockIceSpikes.class)
 public class BlockIceSpikesMixin {
-    @Inject(method = "stepOn(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/Entity;)V",
-            at = @At("HEAD"), cancellable = true)
+    
+    @Inject(
+        method = "stepOn(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/Entity;)V",
+        at = @At("HEAD"), 
+        cancellable = true
+    )
     private void onStepOn(Level worldIn, BlockPos pos, BlockState pState, Entity entityIn, CallbackInfo ci) {
         if (entityIn instanceof Player) {
             Player player = (Player) entityIn;

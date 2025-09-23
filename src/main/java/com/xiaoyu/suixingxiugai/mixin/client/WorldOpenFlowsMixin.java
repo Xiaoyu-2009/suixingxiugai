@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(WorldOpenFlows.class)
 public class WorldOpenFlowsMixin {
+    
     @ModifyVariable(method = "confirmWorldCreation", at = @At("HEAD"), argsOnly = true)
     private static Lifecycle alwaysStable(Lifecycle cycle) {
         if (SuixingxiugaiConfig.disableExperimentalWarning.get()) {

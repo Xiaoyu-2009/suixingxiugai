@@ -7,14 +7,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import twilightforest.capabilities.CapabilityList;
-import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
     
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void onHurt(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (SuixingxiugaiConfig.enableFortificationWandInvulnerability.get()) {
+        if (WandConfig.enableFortificationWandInvulnerability.get()) {
             LivingEntity entity = (LivingEntity) (Object) this;
 
             entity.getCapability(CapabilityList.SHIELDS).ifPresent(cap -> {

@@ -12,8 +12,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EntityDragonBase.class)
 public class DragonEntityMixin {
-    @Inject(method = "wantsToAttack(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z",
-            at = @At("HEAD"), cancellable = true)
+    
+    @Inject(
+        method = "wantsToAttack(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z",
+        at = @At("HEAD"), 
+        cancellable = true
+    )
     private void onWantsToAttack(LivingEntity target, LivingEntity owner, CallbackInfoReturnable<Boolean> cir) {
         EntityDragonBase dragon = (EntityDragonBase) (Object) this;
 
@@ -25,7 +29,11 @@ public class DragonEntityMixin {
         }
     }
 
-    @Inject(method = "hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("HEAD"), cancellable = true)
+    @Inject(
+        method = "hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", 
+        at = @At("HEAD"), 
+        cancellable = true
+    )
     private void onHurt(DamageSource dmg, float i, CallbackInfoReturnable<Boolean> cir) {
         EntityDragonBase dragon = (EntityDragonBase) (Object) this;
 

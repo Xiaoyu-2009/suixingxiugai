@@ -19,12 +19,18 @@ public abstract class EntityDragonChargeMixin {
     @Nullable
     private UUID ownerUUID;
 
-    @Inject(method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V", at = @At("TAIL"))
+    @Inject(
+        method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V", 
+        at = @At("TAIL")
+    )
     private void onInit(EntityType<? extends EntityDragonCharge> type, Level worldIn, CallbackInfo ci) {
         setOwnerUUIDFromShooter();
     }
 
-    @Inject(method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;Lcom/github/alexthe666/iceandfire/entity/EntityDragonBase;DDD)V", at = @At("TAIL"))
+    @Inject(
+        method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;Lcom/github/alexthe666/iceandfire/entity/EntityDragonBase;DDD)V", 
+        at = @At("TAIL")
+    )
     private void onInitWithShooter(EntityType<? extends EntityDragonCharge> type, Level worldIn, com.github.alexthe666.iceandfire.entity.EntityDragonBase shooter, double accelX, double accelY, double accelZ, CallbackInfo ci) {
         setOwnerUUIDFromShooter();
     }

@@ -21,10 +21,16 @@ import java.util.UUID;
 
 @Mixin(IafDragonDestructionManager.class)
 public class IafDragonDestructionManagerMixin {
-    @Inject(method = "attackBlock(Lnet/minecraft/world/level/Level;Lcom/github/alexthe666/iceandfire/entity/EntityDragonBase;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V",
-    at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;setBlockAndUpdate(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z", 
-    shift = At.Shift.AFTER, ordinal = 1), locals = LocalCapture.CAPTURE_FAILSOFT)
 
+    @Inject(
+        method = "attackBlock(Lnet/minecraft/world/level/Level;Lcom/github/alexthe666/iceandfire/entity/EntityDragonBase;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V",
+        at = @At(
+            value = "INVOKE", 
+            target = "Lnet/minecraft/world/level/Level;setBlockAndUpdate(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z", 
+            shift = At.Shift.AFTER, ordinal = 1
+        ), 
+        locals = LocalCapture.CAPTURE_FAILSOFT
+    )
     private static void onSetBlockAndUpdate(Level level, EntityDragonBase dragon, BlockPos position, BlockState state, 
     CallbackInfo ci, BlockState transformed, net.minecraft.world.level.block.Block elementalBlock, 
     boolean doPlaceBlock, BlockState stateAbove) {

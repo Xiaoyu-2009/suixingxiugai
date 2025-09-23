@@ -1,9 +1,12 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -14,12 +17,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import twilightforest.item.FortificationWandItem;
+
 import twilightforest.capabilities.CapabilityList;
 import twilightforest.capabilities.shield.IShieldCapability;
+import twilightforest.item.FortificationWandItem;
 import twilightforest.network.TFPacketHandler;
 import twilightforest.network.UpdateShieldPacket;
-import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,16 +33,19 @@ import javax.annotation.Nonnull;
 @Mixin(FortificationWandItem.class)
 public class FortificationWandItemMixin {
 
-    @Inject(method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;", 
-            at = @At("HEAD"), cancellable = true)
+    @Inject(
+        method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;", 
+        at = @At("HEAD"), 
+        cancellable = true
+    )
     private void onUse(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
-        if (!SuixingxiugaiConfig.enableFortificationWandTargeting.get()) {
+        if (!WandConfig.enableFortificationWandTargeting.get()) {
             return;
         }
         
         ItemStack stack = player.getItemInHand(hand);
 
-        if (stack.getDamageValue() >= SuixingxiugaiConfig.fortificationWandUses.get()) {
+        if (stack.getDamageValue() >= WandConfig.fortificationWandUses.get()) {
             cir.setReturnValue(InteractionResultHolder.fail(stack));
             return;
         }
@@ -51,7 +58,7 @@ public class FortificationWandItemMixin {
                 if (shieldCapability.isPresent()) {
                     shieldCapability.ifPresent(cap -> {
                         cap.replenishShields();
-                        cap.setShields(SuixingxiugaiConfig.fortificationWandShieldAmount.get(), true);
+                        cap.setShields(WandConfig.fortificationWandShieldAmount.get(), true);
                         sendShieldUpdatePacket(targetEntity, cap);
                     });
 
@@ -64,7 +71,7 @@ public class FortificationWandItemMixin {
                 if (shieldCapability.isPresent()) {
                     shieldCapability.ifPresent(cap -> {
                         cap.replenishShields();
-                        cap.setShields(SuixingxiugaiConfig.fortificationWandShieldAmount.get(), true);
+                        cap.setShields(WandConfig.fortificationWandShieldAmount.get(), true);
                         sendShieldUpdatePacket(player, cap);
                     });
 
@@ -83,7 +90,7 @@ public class FortificationWandItemMixin {
     }
 
     public int getMaxDamage(ItemStack stack) {
-        return SuixingxiugaiConfig.fortificationWandUses.get();
+        return WandConfig.fortificationWandUses.get();
     }
 
     private static void sendShieldUpdatePacket(Entity entity, IShieldCapability cap) {

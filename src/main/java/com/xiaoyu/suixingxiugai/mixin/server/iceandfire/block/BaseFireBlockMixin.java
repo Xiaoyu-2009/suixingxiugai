@@ -14,8 +14,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BaseFireBlock.class)
 public class BaseFireBlockMixin {
-    @Inject(method = "entityInside(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;)V",
-            at = @At("HEAD"), cancellable = true)
+    
+    @Inject(
+        method = "entityInside(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;)V",
+        at = @At("HEAD"), 
+        cancellable = true
+    )
     private void onEntityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn, CallbackInfo ci) {
         if (entityIn instanceof Player) {
             Player player = (Player) entityIn;

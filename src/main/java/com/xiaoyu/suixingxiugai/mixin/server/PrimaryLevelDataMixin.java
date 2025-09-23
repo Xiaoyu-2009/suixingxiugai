@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.PrimaryLevelData;
 
 @Mixin(value = PrimaryLevelData.class, remap = false)
 public class PrimaryLevelDataMixin {
+    
     @Inject(method = "hasConfirmedExperimentalWarning", at = @At("HEAD"), cancellable = true)
     public void hasConfirmedExperimentalWarning(CallbackInfoReturnable<Boolean> cir) {
         if (SuixingxiugaiConfig.disableExperimentalWarning.get()) {

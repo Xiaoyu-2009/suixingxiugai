@@ -2,7 +2,7 @@ package com.xiaoyu.suixingxiugai.event;
 
 import com.xiaoyu.suixingxiugai.SuixingXiugai;
 import com.xiaoyu.suixingxiugai.command.DragonResurrectionCommand;
-import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.entity.dragon.DragonConfig;
 
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,7 +13,7 @@ public class CommonSetup {
 
     @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
-        if (SuixingxiugaiConfig.enableDragonResurrectionCommand.get()) {
+        if (DragonConfig.enableDragonResurrectionCommand.get()) {
             DragonResurrectionCommand.register(event.getDispatcher());
         }
     }
