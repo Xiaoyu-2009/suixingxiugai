@@ -6,5 +6,9 @@
   "commands.iceandfire.dragonresurrection.not_dragon": "目标不是龙",
   "commands.iceandfire.dragonresurrection.not_dead": "%s还活着",
   "commands.iceandfire.dragonresurrection.not_owner": "你不是%s的主人",
-  "commands.iceandfire.dragonresurrection.success": "%s献祭了%s点最大生命值成功复活%s"
+  "commands.iceandfire.dragonresurrection.success": "%s献祭了%s点最大生命值成功复活%s",
+  "commands.iceandfire.statuerestore.not_statue": "目标不是石像",
+  "commands.iceandfire.statuerestore.invalid_entity_type": "无效的实体类型",
+  "commands.iceandfire.statuerestore.restore_failed": "无法将%s解除石化状态",
+  "commands.iceandfire.statuerestore.success": "成功将%s解除石化状态"
 }

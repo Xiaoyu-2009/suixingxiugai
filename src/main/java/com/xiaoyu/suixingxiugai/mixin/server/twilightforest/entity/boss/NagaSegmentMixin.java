@@ -5,11 +5,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.naga.NagaConfig;
-import com.xiaoyu.suixingxiugai.util.NagaPhysicsUtil;
+import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Animal;
+
 import twilightforest.entity.boss.Naga;
 import twilightforest.entity.boss.NagaSegment;
 

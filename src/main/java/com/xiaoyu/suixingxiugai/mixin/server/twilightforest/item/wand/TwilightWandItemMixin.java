@@ -5,12 +5,15 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import twilightforest.item.TwilightWandItem;
+
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
+
+import twilightforest.item.TwilightWandItem;
 
 import javax.annotation.Nonnull;
 

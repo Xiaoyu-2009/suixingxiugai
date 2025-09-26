@@ -1,23 +1,28 @@
-package com.xiaoyu.suixingxiugai.util;
+package com.xiaoyu.suixingxiugai.util.twilightforest.entity;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.naga.NagaConfig;
 
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+
 import twilightforest.entity.boss.Naga;
 
 public class NagaPhysicsUtil {
     
     public static void applyHeadPushAndRecoilForces(Naga naga, Entity target) {
-        applyPushAndRecoilForces(naga, target, 
+        applyPushAndRecoilForces(
+            naga, target, 
             NagaConfig.nagaHeadChargePushForce.get(), 
-            NagaConfig.nagaHeadChargeRecoilForce.get());
+            NagaConfig.nagaHeadChargeRecoilForce.get()
+        );
     }
     
     public static void applySegmentPushAndRecoilForces(Naga naga, Entity target) {
-        applyPushAndRecoilForces(naga, target, 
+        applyPushAndRecoilForces(
+            naga, target, 
             NagaConfig.nagaSegmentChargePushForce.get(), 
-            NagaConfig.nagaSegmentChargeRecoilForce.get());
+            NagaConfig.nagaSegmentChargeRecoilForce.get()
+        );
     }
     
     private static void applyPushAndRecoilForces(Naga naga, Entity target, double pushForce, double recoilForce) {

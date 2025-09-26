@@ -12,25 +12,28 @@ public class NagaConfig {
     public static final ForgeConfigSpec.DoubleValue nagaMovementSpeed;
     public static final ForgeConfigSpec.DoubleValue nagaAttackDamage;
     public static final ForgeConfigSpec.DoubleValue nagaSegmentAttackDamage;
+    public static final ForgeConfigSpec.DoubleValue nagaSegmentAttackDamageMultiplierAgainstAnimals;
     public static final ForgeConfigSpec.DoubleValue nagaFollowRange;
     public static final ForgeConfigSpec.DoubleValue nagaKnockbackResistance;
     public static final ForgeConfigSpec.IntValue nagaXpReward;
     public static final ForgeConfigSpec.IntValue nagaDifficultyHealthBoostNormal;
     public static final ForgeConfigSpec.IntValue nagaDifficultyHealthBoostHard;
-    public static final ForgeConfigSpec.DoubleValue nagaSegmentAttackDamageMultiplierAgainstAnimals;
     public static final ForgeConfigSpec.IntValue nagaHealingDelay;
     public static final ForgeConfigSpec.IntValue nagaCourtyardBoundX;
     public static final ForgeConfigSpec.IntValue nagaCourtyardBoundZ;
     public static final ForgeConfigSpec.IntValue nagaCourtyardBoundY;
     public static final ForgeConfigSpec.IntValue nagaShieldDamageOnCharge;
+    public static final ForgeConfigSpec.IntValue nagaShieldDamageOnChargeEnraged;
     public static final ForgeConfigSpec.IntValue nagaShieldCooldown;
     public static final ForgeConfigSpec.DoubleValue nagaHeadChargePushForce;
     public static final ForgeConfigSpec.DoubleValue nagaHeadChargeRecoilForce;
     public static final ForgeConfigSpec.DoubleValue nagaSegmentChargePushForce;
     public static final ForgeConfigSpec.DoubleValue nagaSegmentChargeRecoilForce;
     public static final ForgeConfigSpec.DoubleValue nagaAttackKnockbackForce;
+    public static final ForgeConfigSpec.DoubleValue nagaAttackKnockbackForceEnraged;
     public static final ForgeConfigSpec.DoubleValue nagaSegmentDamageTransferRatio;
     public static final ForgeConfigSpec.BooleanValue nagaCanDestroyBlocks;
+    public static final ForgeConfigSpec.BooleanValue nagaCanDestroyBlocksOnCharge;
     public static final ForgeConfigSpec.IntValue nagaDeathAnimationStartDelay;
     public static final ForgeConfigSpec.IntValue nagaDeathAnimationDuration;
 
@@ -91,7 +94,8 @@ public class NagaConfig {
                 .defineInRange("nagaHealingDelay", 600, 0, Integer.MAX_VALUE);
                 
         nagaCourtyardBoundX = BUILDER
-                .comment("当实体或娜迦走出庭院边界时，娜迦会尝试回到中心点 (When entities or Naga go beyond the courtyard boundary, Naga will try to return to the center point)",
+                .comment("当实体或娜迦走出庭院边界时，娜迦会尝试回到中心点",
+                "(When entities or Naga go beyond the courtyard boundary, Naga will try to return to the center point)",
                 "娜迦庭院边界范围 X方向 (Naga courtyard boundary range X direction)")
                 .defineInRange("nagaCourtyardBoundX", 46, 1, Integer.MAX_VALUE);
                 
@@ -104,8 +108,12 @@ public class NagaConfig {
                 .defineInRange("nagaCourtyardBoundY", 7, 1, Integer.MAX_VALUE);
                 
         nagaShieldDamageOnCharge = BUILDER
-                .comment("娜迦冲撞盾牌后盾牌的耐久消耗 (Naga shield durability consumption after charging shield)")
-                .defineInRange("nagaShieldDamageOnCharge", 5, 0, Integer.MAX_VALUE);
+                .comment("娜迦正常状态冲撞盾牌后盾牌的耐久消耗 (Naga normal state shield durability consumption after charging shield)")
+                .defineInRange("nagaShieldDamageOnChargeNormal", 5, 0, Integer.MAX_VALUE);
+                
+        nagaShieldDamageOnChargeEnraged = BUILDER
+                .comment("娜迦愤怒状态冲撞盾牌后盾牌的耐久消耗 (Naga enraged state shield durability consumption after charging shield)")
+                .defineInRange("nagaShieldDamageOnChargeEnraged", 10, 0, Integer.MAX_VALUE);
                 
         nagaShieldCooldown = BUILDER
                 .comment("娜迦冲撞盾牌后盾牌的冷却时间 (tick) (Naga shield cooldown after charge (tick))")
@@ -128,8 +136,12 @@ public class NagaConfig {
                 .defineInRange("nagaSegmentChargeRecoilForce", 0.0D, 0.0D, Double.MAX_VALUE);
                 
         nagaAttackKnockbackForce = BUILDER
-                .comment("娜迦冲撞盾牌自身受到的伤害 (Naga self damage when charging shield)")
-                .defineInRange("nagaAttackKnockbackForce", 2.0D, 0.0D, Double.MAX_VALUE);
+                .comment("娜迦正常状态冲撞盾牌自身受到的伤害 (Naga self damage when charging shield in normal state)")
+                .defineInRange("nagaAttackKnockbackForceNormal", 2.0D, 0.0D, Double.MAX_VALUE);
+                
+        nagaAttackKnockbackForceEnraged = BUILDER
+                .comment("娜迦愤怒状态冲撞盾牌自身受到的伤害 (Naga self damage when charging shield in enraged state)")
+                .defineInRange("nagaAttackKnockbackForceEnraged", 4.0D, 0.0D, Double.MAX_VALUE);
                 
         nagaSegmentDamageTransferRatio = BUILDER
                 .comment("娜迦每段身体受到伤害时传递给主体的伤害比例 (Naga segment damage transfer ratio to main body)")
@@ -137,6 +149,10 @@ public class NagaConfig {
         nagaCanDestroyBlocks = BUILDER
                 .comment("娜迦是否可以破坏方块 (Whether Naga can destroy blocks)")
                 .define("nagaCanDestroyBlocks", true);
+
+        nagaCanDestroyBlocksOnCharge = BUILDER
+                .comment("娜迦冲撞时是否破坏方块 (Whether Naga can destroy blocks when charging)")
+                .define("nagaCanDestroyBlocksOnCharge", true);
 
         nagaDeathAnimationStartDelay = BUILDER
                 .comment("娜迦死亡动画开始延迟 (tick) (Naga death animation start delay (tick))")

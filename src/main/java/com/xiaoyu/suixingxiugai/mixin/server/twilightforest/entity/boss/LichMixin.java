@@ -1,10 +1,7 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.boss;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.lich.LichConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.naga.NagaConfig;
 
-import net.minecraft.server.level.ServerBossEvent;
-import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,6 +10,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.BossEvent;
@@ -91,6 +90,4 @@ public abstract class LichMixin {
             }
         }
     }
-    
-    // 移除错误的@Inject方法
 }

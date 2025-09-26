@@ -2,7 +2,9 @@ package com.xiaoyu.suixingxiugai.event;
 
 import com.xiaoyu.suixingxiugai.SuixingXiugai;
 import com.xiaoyu.suixingxiugai.command.DragonResurrectionCommand;
+import com.xiaoyu.suixingxiugai.command.StatueRestoreCommand;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.dragon.DragonConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.IceandfireConfig;
 
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,6 +17,10 @@ public class CommonSetup {
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         if (DragonConfig.enableDragonResurrectionCommand.get()) {
             DragonResurrectionCommand.register(event.getDispatcher());
+        }
+
+        if (IceandfireConfig.enableStatueRestoreCommand.get()) {
+            StatueRestoreCommand.register(event.getDispatcher());
         }
     }
 }

@@ -9,6 +9,7 @@ import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+
 import twilightforest.capabilities.CapabilityList;
 
 @Mixin(targets = "twilightforest.events.CapabilityEvents", remap = false)

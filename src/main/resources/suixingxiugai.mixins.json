@@ -7,11 +7,17 @@
   "mixins": [
     "server.PrimaryLevelDataMixin",
     "server.minecraft.entity.LivingEntityMixin",
-    "server.iceandfire.entity.DragonEntityMixin",
     "server.iceandfire.block.BlockIceSpikesMixin",
     "server.iceandfire.block.BaseFireBlockMixin",
+    "server.iceandfire.entity.DragonEntityMixin",
     "server.iceandfire.entity.EntityDragonChargeMixin",
+    "server.iceandfire.entity.GorgonBlindnessMixin",
+    "server.iceandfire.entity.CockatriceBlindnessMixin",
+    "server.iceandfire.entity.HydraDamageMixin",
+    "server.iceandfire.item.DeathwormGauntletMixin",
     "server.iceandfire.IafDragonDestructionManagerMixin",
+    "server.iceandfire.WildDragonSleepingMixin",
+    "server.iceandfire.DragonCaveSleepingMixin",
     "server.twilightforest.entity.boss.LichMixin",
     "server.twilightforest.entity.boss.NagaMixin",
     "server.twilightforest.entity.ai.goal.NagaMovementPatternMixin",
@@ -22,11 +28,14 @@
     "server.twilightforest.item.wand.TwilightWandItemMixin",
     "server.twilightforest.item.wand.ZombieWandItemMixin",
     "server.twilightforest.item.wand.LifedrainScepterItemMixin",
-    "server.twilightforest.capabilities.shield.ShieldCapabilityHandlerMixin"
+    "server.twilightforest.capabilities.shield.ShieldCapabilityHandlerMixin",
+    "server.alex.TendonWhipMixin",
+    "server.alex.EntityTendonSegmentMixin"
   ],
   "client": [
     "client.CreateWorldScreenMixin",
-    "client.WorldOpenFlowsMixin"
+    "client.WorldOpenFlowsMixin",
+    "client.iceandfire.entity.CockatriceClientGazeMixin"
   ],
   "server": [
   ],
