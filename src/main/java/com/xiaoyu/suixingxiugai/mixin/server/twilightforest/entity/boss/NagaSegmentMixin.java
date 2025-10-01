@@ -1,11 +1,11 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.boss;
 
+import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
+import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.naga.NagaConfig;
-import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;

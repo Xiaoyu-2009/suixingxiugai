@@ -1,5 +1,9 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.boss;
 
+import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
+import com.xiaoyu.suixingxiugai.entity.ai.goal.TeleportToHomeGoal;
+import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -8,10 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.naga.NagaConfig;
-import com.xiaoyu.suixingxiugai.entity.ai.goal.TeleportToHomeGoal;
-import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
 
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;

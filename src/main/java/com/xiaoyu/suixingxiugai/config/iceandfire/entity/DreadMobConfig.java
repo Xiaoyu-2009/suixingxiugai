@@ -16,7 +16,6 @@ public class DreadMobConfig {
     public static final ForgeConfigSpec.BooleanValue dreadKnightHorseAttackMobs;
 
     static {
-        BUILDER.push("IceAndFire (冰火传说)");
         BUILDER.push("Dread Mob Config (悚怖生物配置)");
 
         dreadMobsAttackAllMobs = BUILDER
@@ -59,7 +58,6 @@ public class DreadMobConfig {
                 "Whether Dread Knight Horse attacks other mobs unconditionally - Secondary priority")
                 .define("dreadKnightHorseAttackMobs", true);
 
-        BUILDER.pop();
         BUILDER.pop();
         SPEC = BUILDER.build();
     }

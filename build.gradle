@@ -115,7 +115,7 @@ dependencies {
     // Citadel
     implementation fg.deobf("curse.maven:citadel-331936:6702068")
 
-/*    // 祸乱鬼魅Forge版
+    // 祸乱鬼魅Forge版
     implementation fg.deobf("curse.maven:bosses-of-mass-destruction-forge-941573:5067728")
 
     // CERBON's API
@@ -124,16 +124,16 @@ dependencies {
     // Cloth Config API
     implementation fg.deobf("curse.maven:cloth-config-348521:5729105")
 
-     // 天神剑技
+/*     // 天神剑技
     implementation fg.deobf("curse.maven:celestisynth-872712:6900952")*/
 
     // Alex生物
     implementation fg.deobf("curse.maven:alexs-mobs-426558:5698791")
 
-/*    // 血肉重铸
+    // 血肉重铸
     implementation fg.deobf("curse.maven:biomancy-492939:5886758")
 
-    // PlayerAnimator
+/*    // PlayerAnimator
     implementation fg.deobf("curse.maven:playeranimator-658587:4587214")*/
 
     // GeckoLib

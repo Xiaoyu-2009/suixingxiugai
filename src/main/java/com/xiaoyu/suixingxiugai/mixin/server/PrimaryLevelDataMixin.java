@@ -1,11 +1,11 @@
 package com.xiaoyu.suixingxiugai.mixin.server;
 
+import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
 
 import net.minecraft.world.level.storage.PrimaryLevelData;
 

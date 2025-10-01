@@ -1,8 +1,10 @@
 package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.entity;
 
 import com.github.alexthe666.iceandfire.entity.EntityCockatrice;
-import com.xiaoyu.suixingxiugai.util.iceandfire.GazeImmunityHelper;
+import com.xiaoyu.suixingxiugai.util.iceandfire.entity.GazeImmunityHelper;
+
 import net.minecraft.world.entity.LivingEntity;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

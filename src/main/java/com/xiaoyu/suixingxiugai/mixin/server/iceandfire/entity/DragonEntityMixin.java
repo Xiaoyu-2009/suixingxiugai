@@ -1,11 +1,11 @@
 package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.entity;
 
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
+import com.xiaoyu.suixingxiugai.gamerule.SuixingxiugaiGameRules;
+
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.damagesource.DamageSource;
-
-import com.xiaoyu.suixingxiugai.gamerule.SuixingxiugaiGameRules;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

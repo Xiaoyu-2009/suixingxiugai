@@ -1,5 +1,7 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -12,8 +14,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import twilightforest.item.ZombieWandItem;
-
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
 
 import javax.annotation.Nonnull;
 

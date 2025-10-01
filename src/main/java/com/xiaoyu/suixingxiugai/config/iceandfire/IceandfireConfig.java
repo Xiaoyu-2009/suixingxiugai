@@ -5,6 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class IceandfireConfig {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec SPEC;
+    
     public static final ForgeConfigSpec.BooleanValue enableStatueRestoreCommand;
 
     static {

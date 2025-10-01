@@ -1,7 +1,8 @@
 package com.xiaoyu.suixingxiugai.mixin.server.iceandfire;
 
 import com.github.alexthe666.iceandfire.world.gen.WorldGenDragonCave;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.dragon.DragonConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DragonConfig;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;

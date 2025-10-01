@@ -7,6 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
+
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 
@@ -147,7 +148,7 @@ public class ItemConfigHelper {
     }
 
     private static boolean isSingleCurioEquipped(LivingEntity entity, String curioConfig) {
-        return CuriosApi.getCuriosHelper().getCuriosHandler(entity)
+        return CuriosApi.getCuriosInventory(entity)
             .map(handler -> !handler.findCurios(stack -> {
                 return isItemMatchForSlot(stack, curioConfig);
             }).isEmpty())
@@ -202,7 +203,7 @@ public class ItemConfigHelper {
         }
 
         if (isCurios) {
-            CuriosApi.getCuriosHelper().getCuriosHandler(entity).ifPresent(handler -> {
+            CuriosApi.getCuriosInventory(entity).ifPresent(handler -> {
                 Map<String, ICurioStacksHandler> curios = handler.getCurios();
                 for (Map.Entry<String, ICurioStacksHandler> entry : curios.entrySet()) {
                     ICurioStacksHandler stacksHandler = entry.getValue();

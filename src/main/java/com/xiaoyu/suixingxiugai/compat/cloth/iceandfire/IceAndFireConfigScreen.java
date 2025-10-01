@@ -1,0 +1,120 @@
+package com.xiaoyu.suixingxiugai.compat.cloth.iceandfire;
+
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DragonConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DreadMobConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.HydraConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.CyclopsEyeConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.DeathwormGauntletConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.HydraHeartConfigScreen;
+import com.xiaoyu.suixingxiugai.config.iceandfire.GazeImmunityConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.IceandfireConfig;
+
+import me.shedaniel.clothconfig2.api.ConfigBuilder;
+import me.shedaniel.clothconfig2.api.ConfigCategory;
+import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
+import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
+
+import net.minecraft.network.chat.Component;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.List;
+import java.util.ArrayList;
+
+@OnlyIn(Dist.CLIENT)
+public class IceAndFireConfigScreen {
+    
+    public static void createIceAndFireConfigScreen(ConfigBuilder builder) {
+        ConfigEntryBuilder entryBuilder = builder.entryBuilder();
+
+        ConfigCategory iceAndFireCategory = builder.getOrCreateCategory(Component.translatable("config.suixingxiugai.iceandfire"));
+
+        SubCategoryBuilder generalSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.general"));
+        generalSubCategoryBuilder.setExpanded(false);
+        generalSubCategoryBuilder.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.iceandfire.enableStatueRestoreCommand"), IceandfireConfig.enableStatueRestoreCommand.get())
+                .setDefaultValue(true)
+                .setSaveConsumer(IceandfireConfig.enableStatueRestoreCommand::set)
+                .build());
+        iceAndFireCategory.addEntry(generalSubCategoryBuilder.build());
+
+        SubCategoryBuilder gazeImmunitySubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.gaze_immunity"));
+        gazeImmunitySubCategoryBuilder.setExpanded(false);
+        List<String> gazeImmunityArmorList = new ArrayList<>(GazeImmunityConfig.gazeImmunityArmorList.get());
+        gazeImmunitySubCategoryBuilder.add(entryBuilder.startStrList(Component.translatable("config.suixingxiugai.iceandfire.gazeImmunityArmorList"), gazeImmunityArmorList)
+                .setDefaultValue(new ArrayList<>())
+                .setSaveConsumer(list -> GazeImmunityConfig.gazeImmunityArmorList.set(new ArrayList<>(list)))
+                .build());
+                
+        List<String> gazeImmunityItemList = new ArrayList<>(GazeImmunityConfig.gazeImmunityItemList.get());
+        gazeImmunitySubCategoryBuilder.add(entryBuilder.startStrList(Component.translatable("config.suixingxiugai.iceandfire.gazeImmunityItemList"), gazeImmunityItemList)
+                .setDefaultValue(new ArrayList<>())
+                .setSaveConsumer(list -> GazeImmunityConfig.gazeImmunityItemList.set(new ArrayList<>(list)))
+                .build());
+                
+        List<String> gazeImmunityCuriosList = new ArrayList<>(GazeImmunityConfig.gazeImmunityCuriosList.get());
+        gazeImmunitySubCategoryBuilder.add(entryBuilder.startStrList(Component.translatable("config.suixingxiugai.iceandfire.gazeImmunityCuriosList"), gazeImmunityCuriosList)
+                .setDefaultValue(new ArrayList<>())
+                .setSaveConsumer(list -> GazeImmunityConfig.gazeImmunityCuriosList.set(new ArrayList<>(list)))
+                .build());
+        iceAndFireCategory.addEntry(gazeImmunitySubCategoryBuilder.build());
+
+        SubCategoryBuilder entitySubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity"));
+        entitySubCategoryBuilder.setExpanded(false);
+
+        SubCategoryBuilder dragonSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.dragon"));
+        dragonSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> dragonEntries = DragonConfigScreen.createDragonConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : dragonEntries) {
+            dragonSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(dragonSubCategoryBuilder.build());
+
+        SubCategoryBuilder dreadMobSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.dread_mob"));
+        dreadMobSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> dreadMobEntries = DreadMobConfigScreen.createDreadMobConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : dreadMobEntries) {
+            dreadMobSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(dreadMobSubCategoryBuilder.build());
+
+        SubCategoryBuilder hydraSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra"));
+        hydraSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> hydraEntries = HydraConfigScreen.createHydraConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : hydraEntries) {
+            hydraSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(hydraSubCategoryBuilder.build());
+        
+        iceAndFireCategory.addEntry(entitySubCategoryBuilder.build());
+
+        SubCategoryBuilder itemSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.item"));
+        itemSubCategoryBuilder.setExpanded(false);
+
+        SubCategoryBuilder cyclopsEyeSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.item.cyclops_eye"));
+        cyclopsEyeSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> cyclopsEyeEntries = CyclopsEyeConfigScreen.createCyclopsEyeConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : cyclopsEyeEntries) {
+            cyclopsEyeSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(cyclopsEyeSubCategoryBuilder.build());
+
+        SubCategoryBuilder deathwormGauntletSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.item.deathworm_gauntlet"));
+        deathwormGauntletSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> deathwormGauntletEntries = DeathwormGauntletConfigScreen.createDeathwormGauntletConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : deathwormGauntletEntries) {
+            deathwormGauntletSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(deathwormGauntletSubCategoryBuilder.build());
+
+        SubCategoryBuilder hydraHeartSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart"));
+        hydraHeartSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> hydraHeartEntries = HydraHeartConfigScreen.createHydraHeartConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : hydraHeartEntries) {
+            hydraHeartSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(hydraHeartSubCategoryBuilder.build());
+        
+        iceAndFireCategory.addEntry(itemSubCategoryBuilder.build());
+    }
+}

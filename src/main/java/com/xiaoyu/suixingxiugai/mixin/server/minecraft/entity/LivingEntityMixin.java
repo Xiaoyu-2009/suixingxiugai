@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import twilightforest.capabilities.CapabilityList;
 
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {

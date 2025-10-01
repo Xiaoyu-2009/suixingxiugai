@@ -1,10 +1,10 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.ai.goal;
 
+import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.naga.NagaConfig;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;

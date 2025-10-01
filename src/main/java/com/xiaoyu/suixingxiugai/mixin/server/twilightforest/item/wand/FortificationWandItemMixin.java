@@ -1,5 +1,7 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -21,8 +23,6 @@ import twilightforest.capabilities.shield.IShieldCapability;
 import twilightforest.item.FortificationWandItem;
 import twilightforest.network.TFPacketHandler;
 import twilightforest.network.UpdateShieldPacket;
-
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
 
 import java.util.List;
 import java.util.Optional;

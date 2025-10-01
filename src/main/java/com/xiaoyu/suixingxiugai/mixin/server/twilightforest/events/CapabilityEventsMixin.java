@@ -1,11 +1,11 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.events;
 
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.WandConfig;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;

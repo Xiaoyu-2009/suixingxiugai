@@ -1,6 +1,6 @@
 package com.xiaoyu.suixingxiugai.util.twilightforest.entity;
 
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.naga.NagaConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
 
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;

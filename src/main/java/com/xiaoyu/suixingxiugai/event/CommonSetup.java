@@ -3,7 +3,7 @@ package com.xiaoyu.suixingxiugai.event;
 import com.xiaoyu.suixingxiugai.SuixingXiugai;
 import com.xiaoyu.suixingxiugai.command.DragonResurrectionCommand;
 import com.xiaoyu.suixingxiugai.command.StatueRestoreCommand;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.dragon.DragonConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DragonConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.IceandfireConfig;
 
 import net.minecraftforge.event.RegisterCommandsEvent;
