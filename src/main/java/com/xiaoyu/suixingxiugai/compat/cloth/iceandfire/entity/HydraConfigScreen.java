@@ -17,16 +17,26 @@ public class HydraConfigScreen {
     
     public static List<AbstractConfigListEntry> createHydraConfigEntries(ConfigEntryBuilder entryBuilder) {
         List<AbstractConfigListEntry> entries = new ArrayList<>();
+
+        entries.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.enableSingleHitKill"), HydraConfig.enableSingleHitKill.get())
+                .setDefaultValue(false)
+                .setSaveConsumer(HydraConfig.enableSingleHitKill::set)
+                .build());
         
         entries.add(entryBuilder.startDoubleField(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.singleHitDamageToKill"), HydraConfig.singleHitDamageToKill.get())
-                .setDefaultValue(0.0)
+                .setDefaultValue(2009.0)
                 .setMin(0.0)
                 .setMax(Double.MAX_VALUE)
                 .setSaveConsumer(HydraConfig.singleHitDamageToKill::set)
                 .build());
+
+        entries.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.enableCumulativeDamageKill"), HydraConfig.enableCumulativeDamageKill.get())
+                .setDefaultValue(false)
+                .setSaveConsumer(HydraConfig.enableCumulativeDamageKill::set)
+                .build());
                 
         entries.add(entryBuilder.startDoubleField(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.cumulativeDamageToKill"), HydraConfig.cumulativeDamageToKill.get())
-                .setDefaultValue(0.0)
+                .setDefaultValue(2009.0)
                 .setMin(0.0)
                 .setMax(Double.MAX_VALUE)
                 .setSaveConsumer(HydraConfig.cumulativeDamageToKill::set)

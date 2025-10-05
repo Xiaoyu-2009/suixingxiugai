@@ -1,5 +1,6 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item;
 
+import com.xiaoyu.suixingxiugai.util.ConfigEntryHelper;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.HydraHeartConfig;
 
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
@@ -18,39 +19,51 @@ public class HydraHeartConfigScreen {
     public static List<AbstractConfigListEntry> createHydraHeartConfigEntries(ConfigEntryBuilder entryBuilder) {
         List<AbstractConfigListEntry> entries = new ArrayList<>();
         
-        List<Double> potionThresholds = new ArrayList<>(HydraHeartConfig.hydraHeartPotionThresholds.get());
-        entries.add(entryBuilder.startDoubleList(Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_thresholds"), potionThresholds)
-                .setDefaultValue(new ArrayList<>(List.of(0.75, 0.5, 0.25)))
-                .setSaveConsumer(list -> HydraHeartConfig.hydraHeartPotionThresholds.set(new ArrayList<>(list)))
-                .build());
+        entries.add(ConfigEntryHelper.createDoubleList(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_thresholds"),
+                new ArrayList<>(HydraHeartConfig.hydraHeartPotionThresholds.get()),
+                new ArrayList<>(List.of(0.75, 0.5, 0.25)),
+                list -> HydraHeartConfig.hydraHeartPotionThresholds.set(new ArrayList<>(list))
+        ));
                 
-        List<Integer> potionLevels = new ArrayList<>(HydraHeartConfig.hydraHeartPotionLevels.get());
-        entries.add(entryBuilder.startIntList(Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_levels"), potionLevels)
-                .setDefaultValue(new ArrayList<>(List.of(0, 1, 2, 3)))
-                .setSaveConsumer(list -> HydraHeartConfig.hydraHeartPotionLevels.set(new ArrayList<>(list)))
-                .build());
+        entries.add(ConfigEntryHelper.createIntList(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_levels"),
+                new ArrayList<>(HydraHeartConfig.hydraHeartPotionLevels.get()),
+                new ArrayList<>(List.of(0, 1, 2, 3)),
+                list -> HydraHeartConfig.hydraHeartPotionLevels.set(new ArrayList<>(list))
+        ));
                 
-        entries.add(entryBuilder.startStrField(Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_effect"), HydraHeartConfig.hydraHeartPotionEffect.get())
-                .setDefaultValue("minecraft:regeneration")
-                .setSaveConsumer(HydraHeartConfig.hydraHeartPotionEffect::set)
-                .build());
+        entries.add(ConfigEntryHelper.createStringField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_effect"),
+                HydraHeartConfig.hydraHeartPotionEffect,
+                "minecraft:regeneration"
+        ));
                 
-        entries.add(entryBuilder.startIntField(Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_duration"), HydraHeartConfig.hydraHeartPotionDuration.get())
-                .setDefaultValue(900)
-                .setMin(1)
-                .setMax(Integer.MAX_VALUE)
-                .setSaveConsumer(HydraHeartConfig.hydraHeartPotionDuration::set)
-                .build());
+        entries.add(ConfigEntryHelper.createIntField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.potion_duration"),
+                HydraHeartConfig.hydraHeartPotionDuration,
+                900,
+                1,
+                Integer.MAX_VALUE
+        ));
                 
-        entries.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.apply_effect_if_already_has"), HydraHeartConfig.hydraHeartApplyEffectIfAlreadyHas.get())
-                .setDefaultValue(true)
-                .setSaveConsumer(HydraHeartConfig.hydraHeartApplyEffectIfAlreadyHas::set)
-                .build());
+        entries.add(ConfigEntryHelper.createBooleanToggle(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.apply_effect_if_already_has"),
+                HydraHeartConfig.hydraHeartApplyEffectIfAlreadyHas,
+                true
+        ));
                 
-        entries.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.stack_potion_levels"), HydraHeartConfig.hydraHeartStackPotionLevels.get())
-                .setDefaultValue(true)
-                .setSaveConsumer(HydraHeartConfig.hydraHeartStackPotionLevels::set)
-                .build());
+        entries.add(ConfigEntryHelper.createBooleanToggle(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.hydra_heart.stack_potion_levels"),
+                HydraHeartConfig.hydraHeartStackPotionLevels,
+                true
+        ));
 
         return entries;
     }

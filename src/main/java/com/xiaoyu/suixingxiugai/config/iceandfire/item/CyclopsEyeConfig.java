@@ -25,7 +25,7 @@ public class CyclopsEyeConfig {
 
         cyclopsEyePotionEffectLevel = BUILDER
                 .comment("巨人独眼施加药水效果的等级 (Cyclops eye potion effect level)")
-                .defineInRange("cyclopsEyePotionEffectLevel", 1, 1, Integer.MAX_VALUE);
+                .defineInRange("cyclopsEyePotionEffectLevel", 1, 0, Integer.MAX_VALUE);
 
         cyclopsEyePotionEffectId = BUILDER
                 .comment("巨人独眼施加药水效果的ID (Cyclops eye potion effect ID)")

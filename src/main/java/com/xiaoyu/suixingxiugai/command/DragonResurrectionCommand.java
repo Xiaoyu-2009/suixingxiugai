@@ -1,7 +1,5 @@
 package com.xiaoyu.suixingxiugai.command;
 
-import java.util.Collection;
-
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.entity.EntityDragonPart;
 import com.mojang.brigadier.CommandDispatcher;
@@ -18,6 +16,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+
+import java.util.Collection;
 
 public class DragonResurrectionCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {

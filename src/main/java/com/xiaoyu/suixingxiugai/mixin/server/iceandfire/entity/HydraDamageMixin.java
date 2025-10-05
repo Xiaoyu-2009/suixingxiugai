@@ -28,19 +28,23 @@ public abstract class HydraDamageMixin extends Monster {
 
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void onHydraHurt(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        double singleHitThreshold = HydraConfig.singleHitDamageToKill.get();
-        if (amount >= singleHitThreshold) {
-            EntityHydra hydra = (EntityHydra) (Object) this;
-            hydra.setHealth(0.0f);
-            return;
+        if (HydraConfig.enableSingleHitKill.get()) {
+            double singleHitThreshold = HydraConfig.singleHitDamageToKill.get();
+            if (amount >= singleHitThreshold) {
+                EntityHydra hydra = (EntityHydra) (Object) this;
+                hydra.setHealth(0.0f);
+                return;
+            }
         }
 
-        cumulativeDamage += amount;
-        double cumulativeThreshold = HydraConfig.cumulativeDamageToKill.get();
-        if (cumulativeDamage >= cumulativeThreshold) {
-            EntityHydra hydra = (EntityHydra) (Object) this;
-            hydra.setHealth(0.0f);
-            return;
+        if (HydraConfig.enableCumulativeDamageKill.get()) {
+            cumulativeDamage += amount;
+            double cumulativeThreshold = HydraConfig.cumulativeDamageToKill.get();
+            if (cumulativeDamage >= cumulativeThreshold) {
+                EntityHydra hydra = (EntityHydra) (Object) this;
+                hydra.setHealth(0.0f);
+                return;
+            }
         }
 
         List<? extends String> damageTypesToKill = HydraConfig.damageTypesToKill.get();

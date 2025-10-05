@@ -1,7 +1,5 @@
 package com.xiaoyu.suixingxiugai.entity.ai.goal;
 
-import java.util.EnumSet;
-
 import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
 
 import net.minecraft.world.entity.PathfinderMob;
@@ -10,6 +8,8 @@ import net.minecraft.world.phys.Vec3;
 
 import twilightforest.entity.EnforcedHomePoint;
 import twilightforest.entity.boss.Naga;
+
+import java.util.EnumSet;
 
 public class TeleportToHomeGoal<T extends PathfinderMob & EnforcedHomePoint> extends Goal {
     private final T mob;

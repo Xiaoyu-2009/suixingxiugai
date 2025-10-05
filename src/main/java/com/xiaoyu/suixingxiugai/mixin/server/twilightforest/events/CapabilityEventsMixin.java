@@ -2,17 +2,18 @@ package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.events;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
 
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-
 import twilightforest.capabilities.CapabilityList;
+import twilightforest.events.CapabilityEvents;
 
-@Mixin(targets = "twilightforest.events.CapabilityEvents", remap = false)
+@Mixin(CapabilityEvents.class)
 public class CapabilityEventsMixin {
     
     @Inject(method = "livingAttack", at = @At("HEAD"), cancellable = true, remap = false)

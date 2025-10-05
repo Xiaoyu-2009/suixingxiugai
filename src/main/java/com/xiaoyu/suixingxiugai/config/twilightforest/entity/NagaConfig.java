@@ -18,6 +18,10 @@ public class NagaConfig {
     public static final ForgeConfigSpec.IntValue nagaXpReward;
     public static final ForgeConfigSpec.IntValue nagaDifficultyHealthBoostNormal;
     public static final ForgeConfigSpec.IntValue nagaDifficultyHealthBoostHard;
+    public static final ForgeConfigSpec.DoubleValue nagaDifficultyAttackDamageBoostNormal;
+    public static final ForgeConfigSpec.DoubleValue nagaDifficultyAttackDamageBoostHard;
+    public static final ForgeConfigSpec.DoubleValue nagaDifficultySegmentAttackDamageBoostNormal;
+    public static final ForgeConfigSpec.DoubleValue nagaDifficultySegmentAttackDamageBoostHard;
     public static final ForgeConfigSpec.IntValue nagaHealingDelay;
     public static final ForgeConfigSpec.IntValue nagaCourtyardBoundX;
     public static final ForgeConfigSpec.IntValue nagaCourtyardBoundZ;
@@ -79,6 +83,22 @@ public class NagaConfig {
         nagaDifficultyHealthBoostHard = BUILDER
                 .comment("娜迦在困难难度下的血量加成 (Naga health boost on hard difficulty)")
                 .defineInRange("nagaDifficultyHealthBoostHard", 130, 0, Integer.MAX_VALUE);
+        
+        nagaDifficultyAttackDamageBoostNormal = BUILDER
+                .comment("娜迦头部在普通难度下的攻击伤害加成 (Naga head attack damage boost on normal difficulty)")
+                .defineInRange("nagaDifficultyAttackDamageBoostNormal", 2.0D, 0.0D, Double.MAX_VALUE);
+                
+        nagaDifficultyAttackDamageBoostHard = BUILDER
+                .comment("娜迦头部在困难难度下的攻击伤害加成 (Naga head attack damage boost on hard difficulty)")
+                .defineInRange("nagaDifficultyAttackDamageBoostHard", 3.0D, 0.0D, Double.MAX_VALUE);
+        
+        nagaDifficultySegmentAttackDamageBoostNormal = BUILDER
+                .comment("娜迦身体段在普通难度下的攻击伤害加成 (Naga segment attack damage boost on normal difficulty)")
+                .defineInRange("nagaDifficultySegmentAttackDamageBoostNormal", 1.0D, 0.0D, Double.MAX_VALUE);
+                
+        nagaDifficultySegmentAttackDamageBoostHard = BUILDER
+                .comment("娜迦身体段在困难难度下的攻击伤害加成 (Naga segment attack damage boost on hard difficulty)")
+                .defineInRange("nagaDifficultySegmentAttackDamageBoostHard", 1.5D, 0.0D, Double.MAX_VALUE);
         
         nagaStunDuration = BUILDER
                 .comment("娜迦眩晕持续时间 (Naga stun duration)")

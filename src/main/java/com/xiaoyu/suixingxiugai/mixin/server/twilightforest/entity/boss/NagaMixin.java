@@ -4,30 +4,36 @@ import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
 import com.xiaoyu.suixingxiugai.entity.ai.goal.TeleportToHomeGoal;
 import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
 
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.goal.GoalSelector;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ai.goal.GoalSelector;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.LivingEntity;
-
 import twilightforest.entity.boss.Naga;
 import twilightforest.entity.ai.goal.NagaMovementPattern;
+
+import java.util.Objects;
 
 @Mixin(Naga.class)
 public class NagaMixin {
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void modifyAttributes(CallbackInfo ci) {
+    private void modifyAttributes(EntityType<? extends Naga> type, Level level, CallbackInfo ci) {
         Naga naga = (Naga) (Object) this;
 
         AttributeInstance maxHealthAttribute = naga.getAttribute(Attributes.MAX_HEALTH);
@@ -74,6 +80,19 @@ public class NagaMixin {
     @ModifyConstant(method = "finalizeSpawn", constant = @Constant(doubleValue = 130.0))
     private double modifyHardDifficultyHealthBoost(double original) {
         return NagaConfig.nagaDifficultyHealthBoostHard.get();
+    }
+
+    @Inject(method = "finalizeSpawn", at = @At("RETURN"))
+    private void addDifficultyAttackDamageBoost(net.minecraft.world.level.ServerLevelAccessor accessor, net.minecraft.world.DifficultyInstance difficulty, net.minecraft.world.entity.MobSpawnType type, net.minecraft.world.entity.SpawnGroupData data, net.minecraft.nbt.CompoundTag tag, CallbackInfoReturnable<net.minecraft.world.entity.SpawnGroupData> cir) {
+        Naga naga = (Naga) (Object) this;
+        
+        if (naga.level().getDifficulty() != net.minecraft.world.Difficulty.EASY && naga.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
+            boolean hard = naga.level().getDifficulty() == net.minecraft.world.Difficulty.HARD;
+            AttributeModifier modifier = new AttributeModifier("Difficulty Attack Damage Boost", hard ? NagaConfig.nagaDifficultyAttackDamageBoostHard.get() : NagaConfig.nagaDifficultyAttackDamageBoostNormal.get(), AttributeModifier.Operation.ADDITION);
+            if (!Objects.requireNonNull(naga.getAttribute(Attributes.ATTACK_DAMAGE)).hasModifier(modifier)) {
+                Objects.requireNonNull(naga.getAttribute(Attributes.ATTACK_DAMAGE)).addPermanentModifier(modifier);
+            }
+        }
     }
 
     @ModifyConstant(method = "customServerAiStep", constant = @Constant(intValue = 600))

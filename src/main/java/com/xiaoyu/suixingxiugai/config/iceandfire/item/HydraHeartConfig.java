@@ -1,8 +1,8 @@
 package com.xiaoyu.suixingxiugai.config.iceandfire.item;
 
-import java.util.List;
-
 import net.minecraftforge.common.ForgeConfigSpec;
+
+import java.util.List;
 
 public class HydraHeartConfig {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();

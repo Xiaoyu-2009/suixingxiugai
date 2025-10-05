@@ -1,5 +1,6 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.alex.entity;
 
+import com.xiaoyu.suixingxiugai.util.ConfigEntryHelper;
 import com.xiaoyu.suixingxiugai.config.alex.entity.KomodoDragonConfig;
 
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
@@ -18,10 +19,12 @@ public class KomodoDragonConfigScreen {
     public static List<AbstractConfigListEntry> createKomodoDragonConfigEntries(ConfigEntryBuilder entryBuilder) {
         List<AbstractConfigListEntry> entries = new ArrayList<>();
         
-        entries.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.alex.entity.komodo_dragon.will_attack"), KomodoDragonConfig.komodoDragonWillAttack.get())
-                .setDefaultValue(true)
-                .setSaveConsumer(KomodoDragonConfig.komodoDragonWillAttack::set)
-                .build());
+        entries.add(ConfigEntryHelper.createBooleanToggle(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.alex.entity.komodo_dragon.will_attack"),
+                KomodoDragonConfig.komodoDragonWillAttack,
+                true
+        ));
 
         return entries;
     }

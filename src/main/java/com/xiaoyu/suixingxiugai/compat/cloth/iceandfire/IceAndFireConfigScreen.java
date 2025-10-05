@@ -1,10 +1,12 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.iceandfire;
 
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DeathWormConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DragonConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DreadMobConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.HydraConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.CyclopsEyeConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.DeathwormGauntletConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.GorgonHeadConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.HydraHeartConfigScreen;
 import com.xiaoyu.suixingxiugai.config.iceandfire.GazeImmunityConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.IceandfireConfig;
@@ -62,6 +64,14 @@ public class IceAndFireConfigScreen {
         SubCategoryBuilder entitySubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity"));
         entitySubCategoryBuilder.setExpanded(false);
 
+        SubCategoryBuilder deathWormSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.deathworm"));
+        deathWormSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> deathWormEntries = DeathWormConfigScreen.createDeathWormConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : deathWormEntries) {
+            deathWormSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(deathWormSubCategoryBuilder.build());
+
         SubCategoryBuilder dragonSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.dragon"));
         dragonSubCategoryBuilder.setExpanded(false);
         List<AbstractConfigListEntry> dragonEntries = DragonConfigScreen.createDragonConfigEntries(entryBuilder);
@@ -114,6 +124,14 @@ public class IceAndFireConfigScreen {
             hydraHeartSubCategoryBuilder.add(entry);
         }
         itemSubCategoryBuilder.add(hydraHeartSubCategoryBuilder.build());
+        
+        SubCategoryBuilder gorgonHeadSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.item.gorgon_head"));
+        gorgonHeadSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> gorgonHeadEntries = GorgonHeadConfigScreen.createGorgonHeadConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : gorgonHeadEntries) {
+            gorgonHeadSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(gorgonHeadSubCategoryBuilder.build());
         
         iceAndFireCategory.addEntry(itemSubCategoryBuilder.build());
     }

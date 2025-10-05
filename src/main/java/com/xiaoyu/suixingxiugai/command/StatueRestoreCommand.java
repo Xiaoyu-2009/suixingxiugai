@@ -1,7 +1,5 @@
 package com.xiaoyu.suixingxiugai.command;
 
-import java.util.Collection;
-
 import com.github.alexthe666.iceandfire.entity.EntityStoneStatue;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
@@ -17,6 +15,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Collection;
 
 public class StatueRestoreCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {

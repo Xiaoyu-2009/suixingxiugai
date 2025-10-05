@@ -2,13 +2,13 @@ package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.ai.goal;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
 
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
-
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
 import twilightforest.entity.boss.Naga;
 import twilightforest.entity.ai.goal.NagaSmashGoal;

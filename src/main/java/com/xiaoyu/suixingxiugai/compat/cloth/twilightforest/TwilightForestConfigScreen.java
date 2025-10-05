@@ -1,13 +1,15 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.twilightforest;
 
+import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.AlphaYetiConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.LichConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.MinoshroomConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.NagaConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.item.WandConfigScreen;
 
+import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
-import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 
 import net.minecraft.network.chat.Component;
@@ -42,6 +44,22 @@ public class TwilightForestConfigScreen {
             nagaSubCategoryBuilder.add(entry);
         }
         entitySubCategoryBuilder.add(nagaSubCategoryBuilder.build());
+        
+        SubCategoryBuilder minoshroomSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.minoshroom"));
+        minoshroomSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> minoshroomEntries = MinoshroomConfigScreen.createMinoshroomConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : minoshroomEntries) {
+            minoshroomSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(minoshroomSubCategoryBuilder.build());
+
+        SubCategoryBuilder alphaYetiSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.alpha_yeti"));
+        alphaYetiSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> alphaYetiEntries = AlphaYetiConfigScreen.createAlphaYetiConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : alphaYetiEntries) {
+            alphaYetiSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(alphaYetiSubCategoryBuilder.build());
         
         twilightForestCategory.addEntry(entitySubCategoryBuilder.build());
 

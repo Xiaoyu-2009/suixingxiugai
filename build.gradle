@@ -112,6 +112,9 @@ dependencies {
     // 冰火传说
     implementation fg.deobf("curse.maven:ice-and-fire-dragons-264231:5633453")
 
+    // 暮色森林
+    implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
+
     // Citadel
     implementation fg.deobf("curse.maven:citadel-331936:6702068")
 
@@ -139,6 +142,12 @@ dependencies {
     // GeckoLib
     implementation fg.deobf("curse.maven:geckolib-388172:7025129")
 
+    // 试验假人
+    implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:6860192")
+
+    // Moonlight Lib
+    implementation fg.deobf("curse.maven:selene-499980:7027387")
+
     // JEI物品管理器
     implementation fg.deobf("curse.maven:jei-238222:4712868")
     implementation fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220")
@@ -152,9 +161,6 @@ dependencies {
 
     // Curios
     implementation fg.deobf("curse.maven:curios-309927:6418456")
-
-    // 暮色森林
-    implementation fg.deobf("teamtwilight:twilightforest:4.3.2145:universal")
 
     // Mixin
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
@@ -209,7 +215,7 @@ jar {
     finalizedBy 'reobfJar'
 
     // 设置自定义文件名
-    archiveFileName = "${mod_id}-${version}.jar"
+    archiveFileName = "${mod_id}-${version}-.jar"
 }
 
 publishing {

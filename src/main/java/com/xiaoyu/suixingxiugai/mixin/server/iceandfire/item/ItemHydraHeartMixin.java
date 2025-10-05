@@ -1,12 +1,5 @@
 package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.item;
 
-import java.util.List;
-
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
 import com.github.alexthe666.iceandfire.item.ItemHydraHeart;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.HydraHeartConfig;
 
@@ -17,7 +10,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-import top.theillusivec4.curios.api.CuriosApi;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.List;
 
 @Mixin(ItemHydraHeart.class)
 public class ItemHydraHeartMixin {
@@ -34,20 +33,24 @@ public class ItemHydraHeartMixin {
             return;
         }
 
-        if (com.xiaoyu.suixingxiugai.config.curios.iceandfire.HydraHeartConfig.hydraHeartWorkAsCurio.get()) {
+        /*
+        if (HydraHeartCuriosConfig.hydraHeartWorkAsCurio.get()) {
             if (entity instanceof Player player && isWornAsCurio(player, stack)) {
                 applyHydraHeartEffect(player, stack);
                 ci.cancel();
             }
         }
+        */
     }
-    
+
+    /*
     private boolean isWornAsCurio(Player player, ItemStack stack) {
         return CuriosApi.getCuriosInventory(player)
         .resolve()
         .flatMap(inv -> inv.findFirstCurio(itemStack -> itemStack == stack))
         .isPresent();
     }
+    */
     
     private void applyHydraHeartEffect(Player player, ItemStack stack) {
         double healthPercentage = player.getHealth() / Math.max(1, player.getMaxHealth());
@@ -80,13 +83,16 @@ public class ItemHydraHeartMixin {
             }
         }
 
-        if (com.xiaoyu.suixingxiugai.config.curios.iceandfire.HydraHeartConfig.hydraHeartWorkAsCurio.get()) {
+        /*
+        if (HydraHeartCuriosConfig.hydraHeartWorkAsCurio.get()) {
             totalLevel += getCurioPotionLevels(player, healthPercentage);
         }
+        */
         
         return totalLevel;
     }
-    
+
+    /*
     private int getCurioPotionLevels(Player player, double healthPercentage) {
         int levels = 0;
         var curiosInv = CuriosApi.getCuriosInventory(player).resolve();
@@ -104,6 +110,7 @@ public class ItemHydraHeartMixin {
         }
         return levels;
     }
+    */
     
     private int getPotionLevelFromConfig(double healthPercentage) {
         List<? extends Double> thresholds = HydraHeartConfig.hydraHeartPotionThresholds.get();

@@ -1,8 +1,5 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DragonConfig;
 
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
@@ -10,6 +7,9 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class DragonConfigScreen {

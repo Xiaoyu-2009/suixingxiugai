@@ -1,7 +1,5 @@
 package com.xiaoyu.suixingxiugai.event.bosses_of_mass_destruction;
 
-import java.util.WeakHashMap;
-
 import com.xiaoyu.suixingxiugai.config.bosses_of_mass_destruction.entity.GauntletConfig;
 
 import net.minecraft.world.entity.LivingEntity;
@@ -9,6 +7,8 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.WeakHashMap;
 
 @Mod.EventBusSubscriber
 public class GauntletEventHandler {
