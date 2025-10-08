@@ -34,6 +34,13 @@ public class GorgonHeadConfigScreen {
                 GorgonHeadConfig.gorgonHeadPlayBreakSound,
                 true
         ));
+        
+        entries.add(ConfigEntryHelper.createBooleanToggle(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadMustPetrifyToConsume"),
+                GorgonHeadConfig.gorgonHeadMustPetrifyToConsume,
+                true
+        ));
 
         return entries;
     }

@@ -1,6 +1,7 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.twilightforest;
 
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.AlphaYetiConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.KnightPhantomConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.LichConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.MinoshroomConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.NagaConfigScreen;
@@ -60,6 +61,14 @@ public class TwilightForestConfigScreen {
             alphaYetiSubCategoryBuilder.add(entry);
         }
         entitySubCategoryBuilder.add(alphaYetiSubCategoryBuilder.build());
+        
+        SubCategoryBuilder knightPhantomSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.knight_phantom"));
+        knightPhantomSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> knightPhantomEntries = KnightPhantomConfigScreen.createKnightPhantomConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : knightPhantomEntries) {
+            knightPhantomSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(knightPhantomSubCategoryBuilder.build());
         
         twilightForestCategory.addEntry(entitySubCategoryBuilder.build());
 

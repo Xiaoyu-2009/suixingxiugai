@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EntityCockatrice.class)
-public class CockatriceBlindnessMixin {
+public class EntityCockatriceMixin {
 
     @Inject(method = "shouldMelee", at = @At("HEAD"), cancellable = true, remap = false)
     private void onShouldMelee(CallbackInfoReturnable<Boolean> cir) {

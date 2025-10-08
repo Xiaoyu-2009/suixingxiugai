@@ -17,12 +17,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 
 @Mixin(EntityHydra.class)
-public abstract class HydraDamageMixin extends Monster {
+public abstract class EntityHydraMixin extends Monster {
     
     @Unique
     private float cumulativeDamage = 0.0f;
 
-    protected HydraDamageMixin(EntityType<? extends Monster> entityType, Level level) {
+    protected EntityHydraMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
 

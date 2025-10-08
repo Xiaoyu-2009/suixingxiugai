@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(RenderCockatrice.class)
-public class CockatriceClientGazeMixin {
+public class RenderCockatriceMixin {
     
     @Inject(
         method = "render(Lcom/github/alexthe666/iceandfire/entity/EntityCockatrice;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", 

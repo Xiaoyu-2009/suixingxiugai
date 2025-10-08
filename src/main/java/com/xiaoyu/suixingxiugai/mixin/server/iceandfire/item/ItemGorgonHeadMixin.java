@@ -33,6 +33,14 @@ public class ItemGorgonHeadMixin {
     @Unique
     private static boolean successfullyTurnedToStone = false;
     
+    @Inject(
+        method = "releaseUsing(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V",
+        at = @At("HEAD")
+    )
+    private void onReleaseUsingHead(ItemStack stack, Level worldIn, LivingEntity entity, int timeLeft, CallbackInfo ci) {
+        successfullyTurnedToStone = false;
+    }
+    
     @Redirect(
         method = "releaseUsing(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V",
         at = @At(
@@ -42,6 +50,10 @@ public class ItemGorgonHeadMixin {
     )
     private void redirectShrink(ItemStack stack, int amount, ItemStack stack2, Level worldIn, LivingEntity entity, int timeLeft) {
         if (entity instanceof Player player && player.isCreative()) {
+            return;
+        }
+
+        if (GorgonHeadConfig.gorgonHeadMustPetrifyToConsume.get() && !successfullyTurnedToStone) {
             return;
         }
         
@@ -90,7 +102,7 @@ public class ItemGorgonHeadMixin {
         method = "releaseUsing(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V",
         at = @At("TAIL")
     )
-    private void onReleaseUsing(net.minecraft.world.item.ItemStack stack, net.minecraft.world.level.Level worldIn, net.minecraft.world.entity.LivingEntity entity, int timeLeft, CallbackInfo ci) {
+    private void onReleaseUsingTail(net.minecraft.world.item.ItemStack stack, net.minecraft.world.level.Level worldIn, net.minecraft.world.entity.LivingEntity entity, int timeLeft, CallbackInfo ci) {
         if (successfullyTurnedToStone && GorgonHeadConfig.gorgonHeadPlayBreakSound.get()) {
             if (!(entity instanceof Player player && player.isCreative())) {
                 worldIn.playSound(
@@ -99,7 +111,5 @@ public class ItemGorgonHeadMixin {
                 );
             }
         }
-
-        successfullyTurnedToStone = false;
     }
 }

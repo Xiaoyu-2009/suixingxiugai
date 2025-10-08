@@ -34,11 +34,27 @@ public class LifedrainScepterItemMixin {
         }
     }
     
-    @Inject(method = "onUseTick(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;I)V", at = @At("HEAD"), cancellable = true)
+    @Inject(
+        method = "onUseTick(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;I)V", 
+        at = @At("HEAD"), 
+        cancellable = true
+    )
     private void onUseTick(Level level, net.minecraft.world.entity.LivingEntity living, ItemStack stack, int count, CallbackInfo ci) {
         if (stack.getDamageValue() >= WandConfig.lifedrainScepterUses.get()) {
             living.stopUsingItem();
             ci.cancel();
+        }
+    }
+    
+    @Inject(
+        method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;", 
+        at = @At("TAIL")
+    )
+    private void onUseTail(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+        ItemStack stack = player.getItemInHand(hand);
+
+        if (!player.isCreative() && stack.getDamageValue() < WandConfig.lifedrainScepterUses.get()) {
+            player.getCooldowns().addCooldown(stack.getItem(), WandConfig.lifedrainScepterCooldown.get());
         }
     }
 

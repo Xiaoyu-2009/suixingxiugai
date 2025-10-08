@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemTendonWhip.class)
-public class TendonWhipMixin {
+public class ItemTendonWhipMixin {
     
     @Redirect(
         method = "onLeftClick", 

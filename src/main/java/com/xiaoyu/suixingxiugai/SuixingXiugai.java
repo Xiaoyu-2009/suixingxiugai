@@ -6,15 +6,18 @@ import com.xiaoyu.suixingxiugai.config.alex.item.TendonWhipConfig;
 import com.xiaoyu.suixingxiugai.config.bosses_of_mass_destruction.entity.GauntletConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.GazeImmunityConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.IceandfireConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.entity.CyclopsConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DeathWormConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DragonConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DreadMobConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.HydraConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.entity.SirenConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.CyclopsEyeConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.DeathwormGauntletConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.GorgonHeadConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.HydraHeartConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.AlphaYetiConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.entity.KnightPhantomConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.LichConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.MinoshroomConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
@@ -46,14 +49,17 @@ public class SuixingXiugai {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, LichConfig.SPEC, "suixingxiugai/twilightforest/entity/lich/lich-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, NagaConfig.SPEC, "suixingxiugai/twilightforest/entity/naga/naga-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MinoshroomConfig.SPEC, "suixingxiugai/twilightforest/entity/minoshroom/minoshroom-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KnightPhantomConfig.SPEC, "suixingxiugai/twilightforest/entity/knight_phantom/knight_phantom-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, WandConfig.SPEC, "suixingxiugai/twilightforest/item/wand/wand-common.toml");
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DragonConfig.SPEC, "suixingxiugai/iceandfire/entity/dragon/dragon-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CyclopsConfig.SPEC, "suixingxiugai/iceandfire/entity/cyclops/cyclops-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GazeImmunityConfig.SPEC, "suixingxiugai/iceandfire/entity/gaze_immunity-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, IceandfireConfig.SPEC, "suixingxiugai/iceandfire/entity/iceandfire-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HydraConfig.SPEC, "suixingxiugai/iceandfire/entity/hydra/hydra-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DreadMobConfig.SPEC, "suixingxiugai/iceandfire/entity/dread/dread-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeathWormConfig.SPEC, "suixingxiugai/iceandfire/entity/deathworm/deathworm-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SirenConfig.SPEC, "suixingxiugai/iceandfire/entity/siren/siren-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeathwormGauntletConfig.SPEC, "suixingxiugai/iceandfire/item/deathworm_gauntlet-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HydraHeartConfig.SPEC, "suixingxiugai/iceandfire/item/hydra_heart-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CyclopsEyeConfig.SPEC, "suixingxiugai/iceandfire/item/cyclops_eye-common.toml");
@@ -61,8 +67,8 @@ public class SuixingXiugai {
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GauntletConfig.SPEC, "suixingxiugai/bosses_of_mass_destruction/entity/gauntlet-common.toml");
 
-        // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CyclopsEyeCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/cyclops_eye-common.toml");
-        // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HydraHeartCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/hydra_heart-common.toml");
+        /* ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CyclopsEyeCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/cyclops_eye-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HydraHeartCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/hydra_heart-common.toml"); */
         
         ClientEvents.PARTICLE_TYPES.register(modEventBus);
         

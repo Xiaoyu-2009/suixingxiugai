@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ItemDeathwormGauntlet.class)
-public abstract class DeathwormGauntletMixin {
+public abstract class ItemDeathwormGauntletMixin {
 
     @Shadow
     private boolean deathwormReceded;

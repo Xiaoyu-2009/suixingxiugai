@@ -27,6 +27,7 @@
   "config.suixingxiugai.damage_number_display_blacklist_entities": "伤害数字显示黑名单实体列表",
   "config.suixingxiugai.damage_number_color": "伤害数字颜色",
   "config.suixingxiugai.crit_damage_number_color": "暴击伤害数字颜色",
+  "config.suixingxiugai.enable_keep_inventory_on_enter_world": "是否进入存档自动开启死亡不掉落",
 
   "config.suixingxiugai.twilightforest": "暮色森林配置",
   "config.suixingxiugai.twilightforest.entity": "实体配置",
@@ -124,6 +125,22 @@
   "config.suixingxiugai.twilightforest.alpha_yeti.ice_rampage_tired_duration": "寒冰狂暴技能结束后疲劳时间 (tick)",
   "config.suixingxiugai.twilightforest.alpha_yeti.can_use_falling_ice": "寒冰狂暴期间是否会使用落冰",
 
+  "config.suixingxiugai.twilightforest.knight_phantom": "幻影骑士配置",
+  "config.suixingxiugai.twilightforest.knight_phantom.max_health": "最大血量",
+  "config.suixingxiugai.twilightforest.knight_phantom.flight_speed": "飞行速度",
+  "config.suixingxiugai.twilightforest.knight_phantom.attack_damage": "攻击伤害",
+  "config.suixingxiugai.twilightforest.knight_phantom.xp_reward": "经验值奖励",
+  "config.suixingxiugai.twilightforest.knight_phantom.armor": "护甲值",
+  "config.suixingxiugai.twilightforest.knight_phantom.can_no_clip": "是否能穿过方块",
+  "config.suixingxiugai.twilightforest.knight_phantom.helmet_item": "头盔物品",
+  "config.suixingxiugai.twilightforest.knight_phantom.chestplate_item": "胸甲物品",
+  "config.suixingxiugai.twilightforest.knight_phantom.leggings_item": "护腿物品",
+  "config.suixingxiugai.twilightforest.knight_phantom.boots_item": "靴子物品",
+  "config.suixingxiugai.twilightforest.knight_phantom.main_hand_number0_item": "主手序号0物品",
+  "config.suixingxiugai.twilightforest.knight_phantom.main_hand_number1_item": "主手序号1物品",
+  "config.suixingxiugai.twilightforest.knight_phantom.main_hand_number2_item": "主手序号2物品",
+  "config.suixingxiugai.twilightforest.knight_phantom.off_hand_item": "副手物品",
+
   "config.suixingxiugai.twilightforest.wand": "权杖配置",
   "config.suixingxiugai.twilightforest.wand.enable_fortification_targeting": "护盾权杖目标选择功能",
   "config.suixingxiugai.twilightforest.wand.fortification_shield_amount": "护盾权杖单次施加的护盾数量",
@@ -132,6 +149,10 @@
   "config.suixingxiugai.twilightforest.wand.zombie_uses": "僵尸权杖使用次数",
   "config.suixingxiugai.twilightforest.wand.twilight_uses": "黄昏权杖使用次数",
   "config.suixingxiugai.twilightforest.wand.lifedrain_uses": "吸血权杖使用次数",
+  "config.suixingxiugai.twilightforest.wand.fortification_cooldown": "护盾权杖冷却时间",
+  "config.suixingxiugai.twilightforest.wand.zombie_cooldown": "僵尸权杖冷却时间",
+  "config.suixingxiugai.twilightforest.wand.twilight_cooldown": "黄昏权杖冷却时间",
+  "config.suixingxiugai.twilightforest.wand.lifedrain_cooldown": "吸血权杖冷却时间",
   
   "config.suixingxiugai.iceandfire": "冰火传说配置",
   "config.suixingxiugai.iceandfire.entity": "实体配置",
@@ -144,6 +165,12 @@
   "config.suixingxiugai.iceandfire.gazeImmunityArmorList": "免疫凝视装备列表",
   "config.suixingxiugai.iceandfire.gazeImmunityItemList": "免疫凝视背包列表",
   "config.suixingxiugai.iceandfire.gazeImmunityCuriosList": "免疫凝视饰品列表",
+
+  "config.suixingxiugai.iceandfire.entity.cyclops": "独眼巨人配置",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsBiteStrength": "独眼巨人抓起攻击啃食目标造成的伤害",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsCanStompAttack": "独眼巨人是否能踩踏攻击",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsCanGrabAttack": "独眼巨人是否能抓取攻击",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsCanKickAttack": "独眼巨人是否能踢击攻击",
 
   "config.suixingxiugai.iceandfire.entity.dragon": "龙配置",
   "config.suixingxiugai.iceandfire.entity.dragon.enableDragonResurrectionCommand": "启用龙复活指令",
@@ -167,6 +194,9 @@
   "config.suixingxiugai.iceandfire.entity.hydra.enableCumulativeDamageKill": "是否启用九头蛇累计伤害直接死亡",
   "config.suixingxiugai.iceandfire.entity.hydra.cumulativeDamageToKill": "九头蛇累计受到多少伤害直接死亡",
   "config.suixingxiugai.iceandfire.entity.hydra.damageTypesToKill": "九头蛇受到特定伤害类型直接死亡",
+
+  "config.suixingxiugai.iceandfire.entity.siren": "塞壬配置",
+  "config.suixingxiugai.iceandfire.entity.siren.sirenCanSing": "塞壬是否能唱歌",
 
   "config.suixingxiugai.iceandfire.entity.deathworm": "死亡蠕虫",
   "config.suixingxiugai.iceandfire.entity.deathworm.passable_blocks": "可穿透方块列表",
@@ -200,6 +230,7 @@
   "config.suixingxiugai.iceandfire.item.gorgon_head": "蛇发女妖头颅配置",
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadUses": "蛇发女妖头颅使用次数",
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadPlayBreakSound": "是否播放蛇发女妖头颅碎裂音效",
+  "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadMustPetrifyToConsume": "蛇发女妖头颅是否必须石化目标实体才减少物品",
   "item.suixingxiugai.gorgon_head.uses": "还可以使用%s次",
   
   "config.suixingxiugai.curios": "饰品配置",

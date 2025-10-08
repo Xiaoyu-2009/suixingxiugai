@@ -25,11 +25,22 @@ public class PlayerMixin {
 
         Player player = (Player) (Object) this;
 
-        if (!player.level().isClientSide && damageAmount != 0) {
-            if (damageSrc.getEntity() instanceof ServerPlayer && damageSrc.is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)) {
-                boolean isCrit = CriticalHitEventHandler.isLastAttackCritical(player);
-                DamageDisplayMessage message = new DamageDisplayMessage(player, damageAmount, damageSrc, isCrit);
-                ServerPlayer attacker = (ServerPlayer) damageSrc.getEntity();
+        if (player.level().isClientSide || damageAmount == 0) {
+            return;
+        }
+
+        boolean isCrit = CriticalHitEventHandler.isLastAttackCritical(player);
+        DamageDisplayMessage message = new DamageDisplayMessage(player, damageAmount, damageSrc, isCrit);
+
+        if (player instanceof ServerPlayer) {
+            NetworkHandler.sendToPlayer((ServerPlayer) player, message);
+        }
+
+        if (damageSrc.getEntity() instanceof ServerPlayer && 
+            damageSrc.is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)
+        ) {
+            ServerPlayer attacker = (ServerPlayer) damageSrc.getEntity();
+            if (attacker != player) {
                 NetworkHandler.sendToPlayer(attacker, message);
             }
         }

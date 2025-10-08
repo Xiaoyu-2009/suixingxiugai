@@ -8,6 +8,7 @@ public class GorgonHeadConfig {
 
     public static final ForgeConfigSpec.IntValue gorgonHeadUses;
     public static final ForgeConfigSpec.BooleanValue gorgonHeadPlayBreakSound;
+    public static final ForgeConfigSpec.BooleanValue gorgonHeadMustPetrifyToConsume;
 
     static {
         BUILDER.push("Gorgon Head Configuration (蛇发女妖头颅配置)");
@@ -19,6 +20,10 @@ public class GorgonHeadConfig {
         gorgonHeadPlayBreakSound = BUILDER
                 .comment("是否播放蛇发女妖头颅碎裂音效 (Whether to play gorgon head break sound)")
                 .define("gorgonHeadPlayBreakSound", true);
+                
+        gorgonHeadMustPetrifyToConsume = BUILDER
+                .comment("蛇发女妖头颅是否必须石化目标实体才减少物品 (Whether the gorgon head must petrify the target entity to consume the item)")
+                .define("gorgonHeadMustPetrifyToConsume", true);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

@@ -133,8 +133,11 @@ dependencies {
     // Alex生物
     implementation fg.deobf("curse.maven:alexs-mobs-426558:5698791")
 
-    // 血肉重铸
-    implementation fg.deobf("curse.maven:biomancy-492939:5886758")
+    // 属性修复
+    implementation fg.deobf("curse.maven:attributefix-280510:4911084")
+
+/*    // 血肉重铸
+    implementation fg.deobf("curse.maven:biomancy-492939:5886758")*/
 
 /*    // PlayerAnimator
     implementation fg.deobf("curse.maven:playeranimator-658587:4587214")*/

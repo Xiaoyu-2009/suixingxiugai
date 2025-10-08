@@ -9,11 +9,23 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = EntityDeathWorm.class, priority = 1100)
-public class DeathWormPassableBlocksMixin {
+public class EntityDeathWormMixin {
+    
+    @Redirect(
+        method = "isInSandStrict()Z",
+        at = @At(
+            value = "INVOKE", 
+            target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z"
+        )
+    )
+    private boolean redirectIsSand(BlockState state, net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> tag) {
+        return DeathWormBlockMatcher.canPassThrough(state);
+    }
     
     @Inject(
         method = "canPassThrough(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/phys/shapes/VoxelShape;)Z", 

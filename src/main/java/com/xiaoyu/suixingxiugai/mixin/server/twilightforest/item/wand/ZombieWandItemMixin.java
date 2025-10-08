@@ -22,14 +22,18 @@ public class ZombieWandItemMixin {
 
     @Inject(
         method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;", 
-        at = @At("HEAD"), 
-        cancellable = true
+        at = @At("TAIL")
     )
     private void onUse(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
 
         if (stack.getDamageValue() >= WandConfig.zombieWandUses.get()) {
             cir.setReturnValue(InteractionResultHolder.fail(stack));
+            return;
+        }
+
+        if (!player.isCreative()) {
+            player.getCooldowns().addCooldown(stack.getItem(), WandConfig.zombieWandCooldown.get());
         }
     }
 

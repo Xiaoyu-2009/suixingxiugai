@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(WorldGenDragonCave.class)
-public class DragonCaveSleepingMixin {
+public class WorldGenDragonCaveMixin {
     
     @ModifyArg(
         method = "createDragon", 

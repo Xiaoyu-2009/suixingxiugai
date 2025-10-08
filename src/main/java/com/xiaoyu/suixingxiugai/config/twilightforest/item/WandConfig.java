@@ -13,6 +13,10 @@ public class WandConfig {
     public static final ForgeConfigSpec.IntValue zombieWandUses;
     public static final ForgeConfigSpec.IntValue twilightWandUses;
     public static final ForgeConfigSpec.IntValue lifedrainScepterUses;
+    public static final ForgeConfigSpec.IntValue fortificationWandCooldown;
+    public static final ForgeConfigSpec.IntValue zombieWandCooldown;
+    public static final ForgeConfigSpec.IntValue twilightWandCooldown;
+    public static final ForgeConfigSpec.IntValue lifedrainScepterCooldown;
 
     static {
         BUILDER.push("Wand Config (权杖配置)");
@@ -44,6 +48,22 @@ public class WandConfig {
         lifedrainScepterUses = BUILDER
                 .comment("吸血权杖使用次数 (Number of uses for lifedrain scepter)")
                 .defineInRange("lifedrainScepterUses", 99, 1, Integer.MAX_VALUE);
+
+        fortificationWandCooldown = BUILDER
+                .comment("护盾权杖冷却时间 (Cooldown time for fortification wand in ticks)")
+                .defineInRange("fortificationWandCooldown", 1200, 0, Integer.MAX_VALUE);
+                
+        zombieWandCooldown = BUILDER
+                .comment("僵尸权杖冷却时间 (Cooldown time for zombie wand in ticks)")
+                .defineInRange("zombieWandCooldown", 0, 0, Integer.MAX_VALUE);
+                
+        twilightWandCooldown = BUILDER
+                .comment("黄昏权杖冷却时间 (Cooldown time for twilight wand in ticks)")
+                .defineInRange("twilightWandCooldown", 0, 0, Integer.MAX_VALUE);
+                
+        lifedrainScepterCooldown = BUILDER
+                .comment("吸血权杖冷却时间 (Cooldown time for lifedrain scepter in ticks)")
+                .defineInRange("lifedrainScepterCooldown", 0, 0, Integer.MAX_VALUE);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

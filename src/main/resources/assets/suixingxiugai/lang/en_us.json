@@ -27,6 +27,7 @@
   "config.suixingxiugai.damage_number_display_blacklist_entities": "Damage Number Display Blacklist Entity List",
   "config.suixingxiugai.damage_number_color": "Damage Number Color",
   "config.suixingxiugai.crit_damage_number_color": "Critical Damage Number Color",
+  "config.suixingxiugai.enable_keep_inventory_on_enter_world": "Auto Enable Keep Inventory on World Entry",
 
   "config.suixingxiugai.twilightforest": "Twilight Forest Config",
   "config.suixingxiugai.twilightforest.entity": "Entity Config",
@@ -124,6 +125,22 @@
   "config.suixingxiugai.twilightforest.alpha_yeti.ice_rampage_tired_duration": "Ice Rampage Tired Duration (tick)",
   "config.suixingxiugai.twilightforest.alpha_yeti.can_use_falling_ice": "Can Use Falling Ice During Ice Rampage",
 
+  "config.suixingxiugai.twilightforest.knight_phantom": "Knight Phantom Config",
+  "config.suixingxiugai.twilightforest.knight_phantom.max_health": "Max Health",
+  "config.suixingxiugai.twilightforest.knight_phantom.flight_speed": "Flight Speed",
+  "config.suixingxiugai.twilightforest.knight_phantom.attack_damage": "Attack Damage",
+  "config.suixingxiugai.twilightforest.knight_phantom.xp_reward": "XP Reward",
+  "config.suixingxiugai.twilightforest.knight_phantom.armor": "Armor Value",
+  "config.suixingxiugai.twilightforest.knight_phantom.can_no_clip": "Can No Clip",
+  "config.suixingxiugai.twilightforest.knight_phantom.helmet_item": "Helmet Item",
+  "config.suixingxiugai.twilightforest.knight_phantom.chestplate_item": "Chestplate Item",
+  "config.suixingxiugai.twilightforest.knight_phantom.leggings_item": "Leggings Item",
+  "config.suixingxiugai.twilightforest.knight_phantom.boots_item": "Boots Item",
+  "config.suixingxiugai.twilightforest.knight_phantom.main_hand_number0_item": "Main Hand Number 0 Item",
+  "config.suixingxiugai.twilightforest.knight_phantom.main_hand_number1_item": "Main Hand Number 1 Item",
+  "config.suixingxiugai.twilightforest.knight_phantom.main_hand_number2_item": "Main Hand Number 2 Item",
+  "config.suixingxiugai.twilightforest.knight_phantom.off_hand_item": "Off Hand Item",
+
   "config.suixingxiugai.twilightforest.wand": "Wand Config",
   "config.suixingxiugai.twilightforest.wand.enable_fortification_targeting": "Fortification Wand Target Selection",
   "config.suixingxiugai.twilightforest.wand.fortification_shield_amount": "Fortification Wand Shield Amount",
@@ -132,6 +149,10 @@
   "config.suixingxiugai.twilightforest.wand.zombie_uses": "Zombie Wand Uses",
   "config.suixingxiugai.twilightforest.wand.twilight_uses": "Twilight Wand Uses",
   "config.suixingxiugai.twilightforest.wand.lifedrain_uses": "Lifedrain Scepter Uses",
+  "config.suixingxiugai.twilightforest.wand.fortification_cooldown": "Fortification Wand Cooldown",
+  "config.suixingxiugai.twilightforest.wand.zombie_cooldown": "Zombie Wand Cooldown",
+  "config.suixingxiugai.twilightforest.wand.twilight_cooldown": "Twilight Wand Cooldown",
+  "config.suixingxiugai.twilightforest.wand.lifedrain_cooldown": "Lifedrain Scepter Cooldown",
   
   "config.suixingxiugai.iceandfire": "Ice and Fire Config",
   "config.suixingxiugai.iceandfire.entity": "Entity Config",
@@ -144,6 +165,12 @@
   "config.suixingxiugai.iceandfire.gazeImmunityArmorList": "Gaze Immunity Armor List",
   "config.suixingxiugai.iceandfire.gazeImmunityItemList": "Gaze Immunity Inventory List",
   "config.suixingxiugai.iceandfire.gazeImmunityCuriosList": "Gaze Immunity Curios List",
+
+  "config.suixingxiugai.iceandfire.entity.cyclops": "Cyclops Config",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsBiteStrength": "Amount of damage done with cyclops bite attack when grabbing and eating a target",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsCanStompAttack": "Whether cyclops can perform stomp attacks",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsCanGrabAttack": "Whether cyclops can perform grab attacks",
+  "config.suixingxiugai.iceandfire.entity.cyclops.cyclopsCanKickAttack": "Whether cyclops can perform kick attacks",
 
   "config.suixingxiugai.iceandfire.entity.dragon": "Dragon Config",
   "config.suixingxiugai.iceandfire.entity.dragon.enableDragonResurrectionCommand": "Enable Dragon Resurrection Command",
@@ -167,6 +194,9 @@
   "config.suixingxiugai.iceandfire.entity.hydra.enableCumulativeDamageKill": "Enable Cumulative Damage Kill for Hydra",
   "config.suixingxiugai.iceandfire.entity.hydra.cumulativeDamageToKill": "Cumulative Damage to Kill",
   "config.suixingxiugai.iceandfire.entity.hydra.damageTypesToKill": "Damage Types that Kill Instantly",
+
+  "config.suixingxiugai.iceandfire.entity.siren": "Siren Config",
+  "config.suixingxiugai.iceandfire.entity.siren.sirenCanSing": "Whether siren can sing",
 
   "config.suixingxiugai.iceandfire.entity.deathworm": "Death Worm",
   "config.suixingxiugai.iceandfire.entity.deathworm.passable_blocks": "Passable Blocks List",
@@ -200,6 +230,7 @@
   "config.suixingxiugai.iceandfire.item.gorgon_head": "Gorgon Head Config",
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadUses": "Gorgon Head Uses",
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadPlayBreakSound": "Play Break Sound",
+  "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadMustPetrifyToConsume": "Must Petrify Target to Consume",
   "item.suixingxiugai.gorgon_head.uses": "Can be used %s more times",
   
   "config.suixingxiugai.curios": "Curios Config",

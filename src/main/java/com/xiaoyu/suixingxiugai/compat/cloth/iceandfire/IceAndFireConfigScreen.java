@@ -1,9 +1,11 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.iceandfire;
 
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.CyclopsConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DeathWormConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DragonConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.DreadMobConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.HydraConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.SirenConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.CyclopsEyeConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.DeathwormGauntletConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.GorgonHeadConfigScreen;
@@ -64,6 +66,14 @@ public class IceAndFireConfigScreen {
         SubCategoryBuilder entitySubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity"));
         entitySubCategoryBuilder.setExpanded(false);
 
+        SubCategoryBuilder cyclopsSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.cyclops"));
+        cyclopsSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> cyclopsEntries = CyclopsConfigScreen.createCyclopsConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : cyclopsEntries) {
+            cyclopsSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(cyclopsSubCategoryBuilder.build());
+
         SubCategoryBuilder deathWormSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.deathworm"));
         deathWormSubCategoryBuilder.setExpanded(false);
         List<AbstractConfigListEntry> deathWormEntries = DeathWormConfigScreen.createDeathWormConfigEntries(entryBuilder);
@@ -95,6 +105,14 @@ public class IceAndFireConfigScreen {
             hydraSubCategoryBuilder.add(entry);
         }
         entitySubCategoryBuilder.add(hydraSubCategoryBuilder.build());
+        
+        SubCategoryBuilder sirenSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.entity.siren"));
+        sirenSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> sirenEntries = SirenConfigScreen.createSirenConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : sirenEntries) {
+            sirenSubCategoryBuilder.add(entry);
+        }
+        entitySubCategoryBuilder.add(sirenSubCategoryBuilder.build());
         
         iceAndFireCategory.addEntry(entitySubCategoryBuilder.build());
 

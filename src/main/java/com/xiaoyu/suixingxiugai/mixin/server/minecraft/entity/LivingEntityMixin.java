@@ -19,36 +19,48 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Optional;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
     
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void onHurt(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-
         if (WandConfig.enableFortificationWandInvulnerability.get()) {
             LivingEntity entity = (LivingEntity) (Object) this;
-
-            try {
-                Class<?> capabilityListClass = Class.forName("twilightforest.capabilities.CapabilityList");
-                Object shieldsCapability = capabilityListClass.getDeclaredField("SHIELDS").get(null);
-                
-                Object lazyOptional = entity.getClass()
-                    .getMethod("getCapability", Object.class)
-                    .invoke(entity, shieldsCapability);
-                
-                lazyOptional.getClass().getMethod("ifPresent", java.util.function.Consumer.class)
-                    .invoke(lazyOptional, (java.util.function.Consumer<?>) cap -> {
-                        try {
-                            int shieldsLeft = (int) cap.getClass().getMethod("shieldsLeft").invoke(cap);
-                            if (shieldsLeft > 0) {
-                                cir.cancel();
-                            }
-                        } catch (Exception e) {}
-                    });
-            } catch (Exception e) {}
+            
+            if (hasShieldsViaReflection(entity)) {
+                cir.cancel();
+            }
         }
+    }
+
+    private static boolean hasShieldsViaReflection(LivingEntity entity) {
+        try {
+            Class<?> capabilityListClass = Class.forName("twilightforest.capabilities.CapabilityList");
+            Object shieldCapability = capabilityListClass.getField("SHIELDS").get(null);
+            Object lazyOptional = entity.getClass().getMethod("getCapability", Class.forName("net.minecraftforge.common.capabilities.Capability")).invoke(entity, shieldCapability);
+            boolean isPresent = (Boolean) lazyOptional.getClass().getMethod("isPresent").invoke(lazyOptional);
+
+            if (isPresent) {
+                Method resolveMethod = lazyOptional.getClass().getMethod("resolve");
+                Object capOptional = resolveMethod.invoke(lazyOptional);
+                
+                if (capOptional instanceof Optional) {
+                    Optional<?> optionalCap = (Optional<?>) capOptional;
+                    if (optionalCap.isPresent()) {
+                        Object capInstance = optionalCap.get();
+                        int shieldsLeft = (Integer) capInstance.getClass().getMethod("shieldsLeft").invoke(capInstance);
+                        return shieldsLeft > 0;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
     }
     
     @Inject(method = "actuallyHurt", at = @At("TAIL"))

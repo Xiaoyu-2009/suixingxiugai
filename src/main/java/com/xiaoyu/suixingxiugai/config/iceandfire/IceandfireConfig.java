@@ -1,5 +1,6 @@
 package com.xiaoyu.suixingxiugai.config.iceandfire;
 
+import com.xiaoyu.suixingxiugai.config.iceandfire.entity.CyclopsConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class IceandfireConfig {

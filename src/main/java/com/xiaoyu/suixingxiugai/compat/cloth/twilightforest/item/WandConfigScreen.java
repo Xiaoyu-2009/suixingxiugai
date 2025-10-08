@@ -87,6 +87,42 @@ public class WandConfigScreen {
                 1,
                 Integer.MAX_VALUE
         ));
+
+        entries.add(ConfigEntryHelper.createIntField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.twilightforest.wand.fortification_cooldown"),
+                WandConfig.fortificationWandCooldown,
+                1200,
+                0,
+                Integer.MAX_VALUE
+        ));
+        
+        entries.add(ConfigEntryHelper.createIntField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.twilightforest.wand.zombie_cooldown"),
+                WandConfig.zombieWandCooldown,
+                0,
+                0,
+                Integer.MAX_VALUE
+        ));
+        
+        entries.add(ConfigEntryHelper.createIntField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.twilightforest.wand.twilight_cooldown"),
+                WandConfig.twilightWandCooldown,
+                0,
+                0,
+                Integer.MAX_VALUE
+        ));
+        
+        entries.add(ConfigEntryHelper.createIntField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.twilightforest.wand.lifedrain_cooldown"),
+                WandConfig.lifedrainScepterCooldown,
+                0,
+                0,
+                Integer.MAX_VALUE
+        ));
                 
         return entries;
     }
