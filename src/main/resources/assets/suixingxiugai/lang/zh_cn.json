@@ -33,6 +33,26 @@
   "config.suixingxiugai.twilightforest.entity": "实体配置",
   "config.suixingxiugai.twilightforest.item": "物品配置",
   
+  "config.suixingxiugai.twilightforest.wand": "权杖配置",
+  "config.suixingxiugai.twilightforest.wand.fortification": "护盾权杖配置",
+  "config.suixingxiugai.twilightforest.wand.fortification.enable_fortification_targeting": "护盾权杖目标选择功能",
+  "config.suixingxiugai.twilightforest.wand.fortification.fortification_shield_amount": "护盾权杖单次施加的护盾数量",
+  "config.suixingxiugai.twilightforest.wand.fortification.enable_fortification_invulnerability": "护盾权杖施加的护盾免疫一切伤害",
+  "config.suixingxiugai.twilightforest.wand.fortification.fortification_uses": "护盾权杖使用次数",
+  "config.suixingxiugai.twilightforest.wand.fortification.fortification_cooldown": "护盾权杖冷却时间",
+  
+  "config.suixingxiugai.twilightforest.wand.zombie": "僵尸权杖配置",
+  "config.suixingxiugai.twilightforest.wand.zombie.zombie_uses": "僵尸权杖使用次数",
+  "config.suixingxiugai.twilightforest.wand.zombie.zombie_cooldown": "僵尸权杖冷却时间",
+  
+  "config.suixingxiugai.twilightforest.wand.twilight": "黄昏权杖配置",
+  "config.suixingxiugai.twilightforest.wand.twilight.twilight_uses": "黄昏权杖使用次数",
+  "config.suixingxiugai.twilightforest.wand.twilight.twilight_cooldown": "黄昏权杖冷却时间",
+  
+  "config.suixingxiugai.twilightforest.wand.lifedrain": "吸血权杖配置",
+  "config.suixingxiugai.twilightforest.wand.lifedrain.lifedrain_uses": "吸血权杖使用次数",
+  "config.suixingxiugai.twilightforest.wand.lifedrain.lifedrain_cooldown": "吸血权杖冷却时间",
+  
   "config.suixingxiugai.twilightforest.lich": "巫妖配置",
   "config.suixingxiugai.twilightforest.lich.max_health": "最大血量",
   "config.suixingxiugai.twilightforest.lich.movement_speed": "移动速度",
@@ -141,19 +161,6 @@
   "config.suixingxiugai.twilightforest.knight_phantom.main_hand_number2_item": "主手序号2物品",
   "config.suixingxiugai.twilightforest.knight_phantom.off_hand_item": "副手物品",
 
-  "config.suixingxiugai.twilightforest.wand": "权杖配置",
-  "config.suixingxiugai.twilightforest.wand.enable_fortification_targeting": "护盾权杖目标选择功能",
-  "config.suixingxiugai.twilightforest.wand.fortification_shield_amount": "护盾权杖单次施加的护盾数量",
-  "config.suixingxiugai.twilightforest.wand.enable_fortification_invulnerability": "护盾权杖施加的护盾免疫一切伤害",
-  "config.suixingxiugai.twilightforest.wand.fortification_uses": "护盾权杖使用次数",
-  "config.suixingxiugai.twilightforest.wand.zombie_uses": "僵尸权杖使用次数",
-  "config.suixingxiugai.twilightforest.wand.twilight_uses": "黄昏权杖使用次数",
-  "config.suixingxiugai.twilightforest.wand.lifedrain_uses": "吸血权杖使用次数",
-  "config.suixingxiugai.twilightforest.wand.fortification_cooldown": "护盾权杖冷却时间",
-  "config.suixingxiugai.twilightforest.wand.zombie_cooldown": "僵尸权杖冷却时间",
-  "config.suixingxiugai.twilightforest.wand.twilight_cooldown": "黄昏权杖冷却时间",
-  "config.suixingxiugai.twilightforest.wand.lifedrain_cooldown": "吸血权杖冷却时间",
-  
   "config.suixingxiugai.iceandfire": "冰火传说配置",
   "config.suixingxiugai.iceandfire.entity": "实体配置",
   "config.suixingxiugai.iceandfire.item": "物品配置",
@@ -177,7 +184,20 @@
   "config.suixingxiugai.iceandfire.entity.dragon.wildDragonDefaultSleeping": "野生龙默认是否处于睡眠状态",
   "config.suixingxiugai.iceandfire.entity.dragon.wildDragonDefaultSleepingSurface": "地表生成的野生龙默认是否处于睡眠状态",
   "config.suixingxiugai.iceandfire.entity.dragon.wildDragonDefaultSleepingUnderground": "地下龙巢生成的野生龙默认是否处于睡眠状态",
-
+  
+  "config.suixingxiugai.iceandfire.entity.dragon_egg": "龙蛋配置",
+  "config.suixingxiugai.iceandfire.entity.dragon_egg.dragonEggHatchTime": "龙蛋孵化时间",
+  "config.suixingxiugai.iceandfire.entity.dragon_egg.fireDragonEggHatchTime": "火龙蛋孵化时间",
+  "config.suixingxiugai.iceandfire.entity.dragon_egg.iceDragonEggHatchTime": "冰龙蛋孵化时间",
+  "config.suixingxiugai.iceandfire.entity.dragon_egg.lightningDragonEggHatchTime": "电龙蛋孵化时间",
+  "config.suixingxiugai.iceandfire.entity.dragon_egg.iceDragonEggFreezeProbability": "冰龙蛋结冰概率",
+  "config.suixingxiugai.iceandfire.entity.dragon_egg.lightningDragonEggSpawnLightning": "电龙蛋孵化时是否降下雷电",
+  
+  "config.suixingxiugai.iceandfire.dragonden": "龙巢配置",
+  "config.suixingxiugai.iceandfire.dragonden.undergroundDragonDenMinYLevel": "地下龙巢生成Y轴最低高度",
+  "config.suixingxiugai.iceandfire.dragonden.undergroundDragonDenMaxYLevel": "地下龙巢生成Y轴最大高度",
+  "config.suixingxiugai.iceandfire.dragonden.undergroundDragonDenCanGenerateInMidAir": "地下龙巢是否可以凭空生成",
+  
   "config.suixingxiugai.iceandfire.entity.dread_mob": "悚怖生物配置",
   "config.suixingxiugai.iceandfire.entity.dread_mob.dreadMobsAttackAllMobs": "悚怖所有生物是否无差别攻击其他生物",
   "config.suixingxiugai.iceandfire.entity.dread_mob.dreadLichAttackMobs": "悚怖尸巫是否无差别攻击其他生物",
@@ -197,6 +217,11 @@
 
   "config.suixingxiugai.iceandfire.entity.siren": "塞壬配置",
   "config.suixingxiugai.iceandfire.entity.siren.sirenCanSing": "塞壬是否能唱歌",
+
+  "config.suixingxiugai.iceandfire.entity.gorgon": "蛇发女妖配置",
+  "config.suixingxiugai.iceandfire.entity.gorgon.gorgonCanUsePetrify": "蛇发女妖是否能使用石化",
+  "config.suixingxiugai.iceandfire.entity.gorgon.gorgonCanUsePoisonFang": "蛇发女妖是否能使用毒牙",
+  "config.suixingxiugai.iceandfire.entity.gorgon.gorgonCanUseMeleeAttack": "蛇发女妖是否能近战攻击",
 
   "config.suixingxiugai.iceandfire.entity.deathworm": "死亡蠕虫",
   "config.suixingxiugai.iceandfire.entity.deathworm.passable_blocks": "可穿透方块列表",
@@ -231,6 +256,7 @@
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadUses": "蛇发女妖头颅使用次数",
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadPlayBreakSound": "是否播放蛇发女妖头颅碎裂音效",
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadMustPetrifyToConsume": "蛇发女妖头颅是否必须石化目标实体才减少物品",
+  "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadCanPetrifyAllEntities": "蛇发女妖头颅是否能石化一切实体",
   "item.suixingxiugai.gorgon_head.uses": "还可以使用%s次",
   
   "config.suixingxiugai.curios": "饰品配置",
@@ -257,10 +283,28 @@
   "config.suixingxiugai.alex.item.tendon_whip.require_full_charge": "筋腱长鞭是否需要蓄力满才能攻击",
   "config.suixingxiugai.alex.item.tendon_whip.quick_retract": "筋腱长鞭是否开启右键快速收回",
   
+  "config.suixingxiugai.alex.item.blood_sprayer": "血液喷射器配置",
+  "config.suixingxiugai.alex.item.blood_sprayer.damage": "血液喷射器造成的伤害",
+  
+  "config.suixingxiugai.alex.item.hemolymph_blaster": "血淋巴喷射器配置",
+  "config.suixingxiugai.alex.item.hemolymph_blaster.damage": "血淋巴喷射器造成的伤害",
+  
+  "config.suixingxiugai.alex.item.pocket_sand": "含沙射之袋配置",
+  "config.suixingxiugai.alex.item.pocket_sand.damage": "含沙射之袋造成的伤害",
+  "config.suixingxiugai.alex.item.pocket_sand.effect_level": "含沙射之袋施加药水效果的等级",
+  "config.suixingxiugai.alex.item.pocket_sand.effect_id": "含沙射之袋施加药水效果的ID",
+  "config.suixingxiugai.alex.item.pocket_sand.effect_duration": "含沙射之袋施加药水效果的持续时间 (tick)",
+  
   "config.suixingxiugai.bosses_of_mass_destruction": "祸乱鬼魅配置",
   "config.suixingxiugai.bosses_of_mass_destruction.entity": "实体配置",
   "config.suixingxiugai.bosses_of_mass_destruction.item": "物品配置",
   "config.suixingxiugai.bosses_of_mass_destruction.entity.gauntlet": "下界铁掌配置",
   "config.suixingxiugai.bosses_of_mass_destruction.entity.gauntlet.defense_can_be_attacked": "下界铁掌防御状态下是否可以被攻击",
-  "config.suixingxiugai.bosses_of_mass_destruction.entity.gauntlet.idle_heal_enabled": "下界铁掌脱战后是否会自行恢复生命值"
+  "config.suixingxiugai.bosses_of_mass_destruction.entity.gauntlet.idle_heal_enabled": "下界铁掌脱战后是否会自行恢复生命值",
+  
+  "config.suixingxiugai.cataclysm": "灾变配置",
+  "config.suixingxiugai.cataclysm.entity": "实体配置",
+  "config.suixingxiugai.cataclysm.item": "物品配置",
+  "config.suixingxiugai.cataclysm.item.meat_shredder": "绞肉锯配置",
+  "config.suixingxiugai.cataclysm.item.meat_shredder_right_click_damage": "绞肉锯右键造成的伤害"
 }

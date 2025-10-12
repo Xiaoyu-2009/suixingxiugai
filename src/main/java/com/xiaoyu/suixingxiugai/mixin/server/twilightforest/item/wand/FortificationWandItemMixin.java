@@ -1,6 +1,6 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.FortificationWandConfig;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -40,20 +40,20 @@ public class FortificationWandItemMixin {
     private void onUse(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (stack.getDamageValue() >= WandConfig.fortificationWandUses.get()) {
+        if (stack.getDamageValue() >= FortificationWandConfig.fortificationWandUses.get()) {
             cir.setReturnValue(InteractionResultHolder.fail(stack));
             return;
         }
 
         if (!level.isClientSide()) {
-            Entity targetEntity = WandConfig.enableFortificationWandTargeting.get() ? getEntityAtCursor(player, 20.0D) : null;
+            Entity targetEntity = FortificationWandConfig.enableFortificationWandTargeting.get() ? getEntityAtCursor(player, 20.0D) : null;
             Entity target = (targetEntity != null) ? targetEntity : player;
             LazyOptional<IShieldCapability> shieldCapability = target.getCapability(CapabilityList.SHIELDS);
             
             if (shieldCapability.isPresent()) {
                 shieldCapability.ifPresent(cap -> {
                     cap.replenishShields();
-                    cap.setShields(WandConfig.fortificationWandShieldAmount.get(), true);
+                    cap.setShields(FortificationWandConfig.fortificationWandShieldAmount.get(), true);
                     sendShieldUpdatePacket(target, cap);
                 });
 
@@ -64,14 +64,14 @@ public class FortificationWandItemMixin {
         }
 
         if (!player.isCreative()) {
-            player.getCooldowns().addCooldown(stack.getItem(), WandConfig.fortificationWandCooldown.get());
+            player.getCooldowns().addCooldown(stack.getItem(), FortificationWandConfig.fortificationWandCooldown.get());
         }
 
         cir.setReturnValue(InteractionResultHolder.success(stack));
     }
 
     public int getMaxDamage(ItemStack stack) {
-        return WandConfig.fortificationWandUses.get();
+        return FortificationWandConfig.fortificationWandUses.get();
     }
 
     private static void sendShieldUpdatePacket(Entity entity, IShieldCapability cap) {

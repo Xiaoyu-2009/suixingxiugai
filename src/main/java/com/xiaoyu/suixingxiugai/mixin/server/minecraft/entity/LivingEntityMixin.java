@@ -1,6 +1,6 @@
 package com.xiaoyu.suixingxiugai.mixin.server.minecraft.entity;
 
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.FortificationWandConfig;
 import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
 import com.xiaoyu.suixingxiugai.util.EntityTypeHelper;
 import com.xiaoyu.suixingxiugai.network.DamageDisplayMessage;
@@ -28,7 +28,7 @@ public class LivingEntityMixin {
     
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void onHurt(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (WandConfig.enableFortificationWandInvulnerability.get()) {
+        if (FortificationWandConfig.enableFortificationWandInvulnerability.get()) {
             LivingEntity entity = (LivingEntity) (Object) this;
             
             if (hasShieldsViaReflection(entity)) {

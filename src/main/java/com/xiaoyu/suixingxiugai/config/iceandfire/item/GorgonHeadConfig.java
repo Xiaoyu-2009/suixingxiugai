@@ -9,6 +9,7 @@ public class GorgonHeadConfig {
     public static final ForgeConfigSpec.IntValue gorgonHeadUses;
     public static final ForgeConfigSpec.BooleanValue gorgonHeadPlayBreakSound;
     public static final ForgeConfigSpec.BooleanValue gorgonHeadMustPetrifyToConsume;
+    public static final ForgeConfigSpec.BooleanValue gorgonHeadCanPetrifyAllEntities;
 
     static {
         BUILDER.push("Gorgon Head Configuration (蛇发女妖头颅配置)");
@@ -24,6 +25,10 @@ public class GorgonHeadConfig {
         gorgonHeadMustPetrifyToConsume = BUILDER
                 .comment("蛇发女妖头颅是否必须石化目标实体才减少物品 (Whether the gorgon head must petrify the target entity to consume the item)")
                 .define("gorgonHeadMustPetrifyToConsume", true);
+                
+        gorgonHeadCanPetrifyAllEntities = BUILDER
+                .comment("蛇发女妖头颅是否能石化一切实体 (Whether the gorgon head can petrify all entities)")
+                .define("gorgonHeadCanPetrifyAllEntities", false);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

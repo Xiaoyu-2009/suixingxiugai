@@ -2,12 +2,14 @@ package com.xiaoyu.suixingxiugai.compat.cloth;
 
 import com.xiaoyu.suixingxiugai.compat.cloth.alex.AlexConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.bosses_of_mass_destruction.BossesOfMassDestructionConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.cataclysm.CataclysmConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.IceAndFireConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.TwilightForestConfigScreen;
 import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
 import com.xiaoyu.suixingxiugai.config.alex.entity.KomodoDragonConfig;
 import com.xiaoyu.suixingxiugai.config.alex.item.TendonWhipConfig;
 import com.xiaoyu.suixingxiugai.config.bosses_of_mass_destruction.entity.GauntletConfig;
+import com.xiaoyu.suixingxiugai.config.cataclysm.item.MeatShredderConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.GazeImmunityConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.IceandfireConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DragonConfig;
@@ -20,7 +22,10 @@ import com.xiaoyu.suixingxiugai.config.twilightforest.entity.AlphaYetiConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.LichConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.MinoshroomConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.FortificationWandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.ZombieWandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.TwilightWandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.LifedrainScepterConfig;
 import com.xiaoyu.suixingxiugai.util.ConfigEntryHelper;
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
@@ -47,7 +52,11 @@ public class SuixingxiugaiConfigScreen {
             LichConfig.SPEC.save();
             NagaConfig.SPEC.save();
             MinoshroomConfig.SPEC.save();
-            WandConfig.SPEC.save();
+            /*WandConfig.SPEC.save();*/
+            FortificationWandConfig.SPEC.save();
+            ZombieWandConfig.SPEC.save();
+            TwilightWandConfig.SPEC.save();
+            LifedrainScepterConfig.SPEC.save();
             IceandfireConfig.SPEC.save();
             GazeImmunityConfig.SPEC.save();
             DragonConfig.SPEC.save();
@@ -62,6 +71,7 @@ public class SuixingxiugaiConfigScreen {
             TendonWhipConfig.SPEC.save();
             GauntletConfig.SPEC.save();
             AlphaYetiConfig.SPEC.save();
+            MeatShredderConfig.SPEC.save();
         });
 
         createMainConfigScreen(builder);
@@ -70,6 +80,7 @@ public class SuixingxiugaiConfigScreen {
         /* CuriosConfigScreen.createCuriosConfigScreen(builder); */
         AlexConfigScreen.createAlexConfigScreen(builder);
         BossesOfMassDestructionConfigScreen.createBossesOfMassDestructionConfigScreen(builder);
+        CataclysmConfigScreen.createCataclysmConfigScreen(builder);
 
         return builder.build();
     }
@@ -164,3 +175,6 @@ public class SuixingxiugaiConfigScreen {
                 false));
     }
 }
+
+//我的X世界大战奥特曼i贝利亚a之宇o宙大y蛇u2009
+/* 奥特X曼宇宙i无敌贝利亚 */

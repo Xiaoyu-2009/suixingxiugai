@@ -1,4 +1,4 @@
-package com.xiaoyu.suixingxiugai.mixin.client;
+package com.xiaoyu.suixingxiugai.mixin.client.minecraft.client.gui.screens.worldselection;
 
 import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
 import com.mojang.serialization.Lifecycle;

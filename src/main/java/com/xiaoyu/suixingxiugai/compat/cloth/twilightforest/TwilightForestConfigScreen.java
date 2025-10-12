@@ -5,7 +5,10 @@ import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.KnightPhantom
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.LichConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.MinoshroomConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.entity.NagaConfigScreen;
-import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.item.WandConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.item.wand.FortificationWandConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.item.wand.ZombieWandConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.item.wand.TwilightWandConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.item.wand.LifedrainScepterConfigScreen;
 
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
@@ -75,13 +78,37 @@ public class TwilightForestConfigScreen {
         SubCategoryBuilder itemSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.item"));
         itemSubCategoryBuilder.setExpanded(false);
 
-        SubCategoryBuilder wandSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.wand"));
-        wandSubCategoryBuilder.setExpanded(false);
-        List<AbstractConfigListEntry> wandEntries = WandConfigScreen.createWandConfigEntries(entryBuilder);
-        for (AbstractConfigListEntry entry : wandEntries) {
-            wandSubCategoryBuilder.add(entry);
+        SubCategoryBuilder fortificationWandSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.wand.fortification"));
+        fortificationWandSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> fortificationWandEntries = FortificationWandConfigScreen.createFortificationWandConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : fortificationWandEntries) {
+            fortificationWandSubCategoryBuilder.add(entry);
         }
-        itemSubCategoryBuilder.add(wandSubCategoryBuilder.build());
+        itemSubCategoryBuilder.add(fortificationWandSubCategoryBuilder.build());
+
+        SubCategoryBuilder zombieWandSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.wand.zombie"));
+        zombieWandSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> zombieWandEntries = ZombieWandConfigScreen.createZombieWandConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : zombieWandEntries) {
+            zombieWandSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(zombieWandSubCategoryBuilder.build());
+
+        SubCategoryBuilder twilightWandSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.wand.twilight"));
+        twilightWandSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> twilightWandEntries = TwilightWandConfigScreen.createTwilightWandConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : twilightWandEntries) {
+            twilightWandSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(twilightWandSubCategoryBuilder.build());
+
+        SubCategoryBuilder lifedrainScepterSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.twilightforest.wand.lifedrain"));
+        lifedrainScepterSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> lifedrainScepterEntries = LifedrainScepterConfigScreen.createLifedrainScepterConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : lifedrainScepterEntries) {
+            lifedrainScepterSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(lifedrainScepterSubCategoryBuilder.build());
         
         twilightForestCategory.addEntry(itemSubCategoryBuilder.build());
     }

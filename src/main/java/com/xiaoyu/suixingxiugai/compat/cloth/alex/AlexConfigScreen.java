@@ -1,6 +1,9 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.alex;
 
 import com.xiaoyu.suixingxiugai.compat.cloth.alex.entity.KomodoDragonConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.alex.item.BloodSprayerConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.alex.item.HemolymphBlasterConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.alex.item.PocketSandConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.alex.item.TendonWhipConfigScreen;
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
@@ -38,6 +41,30 @@ public class AlexConfigScreen {
         SubCategoryBuilder itemSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.alex.item"));
         itemSubCategoryBuilder.setExpanded(false);
 
+        SubCategoryBuilder bloodSprayerSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.alex.item.blood_sprayer"));
+        bloodSprayerSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> bloodSprayerEntries = BloodSprayerConfigScreen.createBloodSprayerConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : bloodSprayerEntries) {
+            bloodSprayerSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(bloodSprayerSubCategoryBuilder.build());
+        
+        SubCategoryBuilder hemolymphBlasterSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.alex.item.hemolymph_blaster"));
+        hemolymphBlasterSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> hemolymphBlasterEntries = HemolymphBlasterConfigScreen.createHemolymphBlasterConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : hemolymphBlasterEntries) {
+            hemolymphBlasterSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(hemolymphBlasterSubCategoryBuilder.build());
+        
+        SubCategoryBuilder pocketSandSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.alex.item.pocket_sand"));
+        pocketSandSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> pocketSandEntries = PocketSandConfigScreen.createPocketSandConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : pocketSandEntries) {
+            pocketSandSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(pocketSandSubCategoryBuilder.build());
+        
         SubCategoryBuilder tendonWhipSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.alex.item.tendon_whip"));
         tendonWhipSubCategoryBuilder.setExpanded(false);
         List<AbstractConfigListEntry> tendonWhipEntries = TendonWhipConfigScreen.createTendonWhipConfigEntries(entryBuilder);

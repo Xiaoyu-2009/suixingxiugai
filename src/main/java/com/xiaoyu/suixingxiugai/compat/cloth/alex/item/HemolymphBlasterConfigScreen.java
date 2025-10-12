@@ -1,0 +1,33 @@
+package com.xiaoyu.suixingxiugai.compat.cloth.alex.item;
+
+import com.xiaoyu.suixingxiugai.util.ConfigEntryHelper;
+import com.xiaoyu.suixingxiugai.config.alex.item.HemolymphBlasterConfig;
+
+import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
+
+import net.minecraft.network.chat.Component;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@OnlyIn(Dist.CLIENT)
+public class HemolymphBlasterConfigScreen {
+    
+    public static List<AbstractConfigListEntry> createHemolymphBlasterConfigEntries(ConfigEntryBuilder entryBuilder) {
+        List<AbstractConfigListEntry> entries = new ArrayList<>();
+        
+        entries.add(ConfigEntryHelper.createDoubleField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.alex.item.hemolymph_blaster.damage"),
+                HemolymphBlasterConfig.hemolymphBlasterDamage,
+                7.0,
+                0.0,
+                Double.MAX_VALUE
+        ));
+
+        return entries;
+    }
+}

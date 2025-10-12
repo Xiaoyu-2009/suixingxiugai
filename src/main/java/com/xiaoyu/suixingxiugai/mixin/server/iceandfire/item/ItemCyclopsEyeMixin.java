@@ -3,9 +3,11 @@ package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.item;
 import com.github.alexthe666.iceandfire.item.ItemCyclopsEye;
 import com.xiaoyu.suixingxiugai.util.EntityTypeHelper;
 
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -37,14 +39,14 @@ public class ItemCyclopsEyeMixin {
             target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Ljava/util/function/Consumer;)V"
         )
     )
-    private void onAboutToBreak(ItemStack stack, net.minecraft.world.level.Level world,
-        net.minecraft.world.entity.Entity entity, int itemSlot, boolean isSelected, CallbackInfo ci) {
+    private void onAboutToBreak(ItemStack stack, Level world,
+        Entity entity, int itemSlot, boolean isSelected, CallbackInfo ci) {
         ABOUT_TO_BREAK.set(true);
     }
 
     @Inject(method = "inventoryTick", at = @At("TAIL"))
-    private void onInventoryTickEnd(ItemStack stack, net.minecraft.world.level.Level world,
-        net.minecraft.world.entity.Entity entity, int itemSlot, boolean isSelected, CallbackInfo ci) {
+    private void onInventoryTickEnd(ItemStack stack, Level world,
+        Entity entity, int itemSlot, boolean isSelected, CallbackInfo ci) {
         if (ABOUT_TO_BREAK.get() && stack.isEmpty() && entity instanceof LivingEntity) {
             if (cyclopsEyePlayBreakSound.get()) {
                 world.playSound(
@@ -162,7 +164,7 @@ public class ItemCyclopsEyeMixin {
             if (shouldApplyEffect(targetEntity, living, targetType)) {
                 if (targetEntity instanceof LivingEntity) {
                     LivingEntity targetLiving = (LivingEntity) targetEntity;
-                    targetLiving.addEffect(new net.minecraft.world.effect.MobEffectInstance(
+                    targetLiving.addEffect(new MobEffectInstance(
                         effect,
                         duration,
                         level
@@ -188,7 +190,7 @@ public class ItemCyclopsEyeMixin {
                 return !targetMob.isAlliedTo(holder) && 
                 (
                     targetMob.getTarget() == holder || targetMob.getLastHurtByMob() == holder || 
-                    targetMob instanceof net.minecraft.world.entity.monster.Enemy
+                    targetMob instanceof Enemy
                 );
             } else {
                 return !targetMob.isAlliedTo(holder);

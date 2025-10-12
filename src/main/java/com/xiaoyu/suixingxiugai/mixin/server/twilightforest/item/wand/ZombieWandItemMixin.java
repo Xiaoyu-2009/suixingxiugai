@@ -1,6 +1,6 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.ZombieWandConfig;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
@@ -27,17 +27,17 @@ public class ZombieWandItemMixin {
     private void onUse(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (stack.getDamageValue() >= WandConfig.zombieWandUses.get()) {
+        if (stack.getDamageValue() >= ZombieWandConfig.zombieWandUses.get()) {
             cir.setReturnValue(InteractionResultHolder.fail(stack));
             return;
         }
 
         if (!player.isCreative()) {
-            player.getCooldowns().addCooldown(stack.getItem(), WandConfig.zombieWandCooldown.get());
+            player.getCooldowns().addCooldown(stack.getItem(), ZombieWandConfig.zombieWandCooldown.get());
         }
     }
 
     public int getMaxDamage(ItemStack stack) {
-        return WandConfig.zombieWandUses.get();
+        return ZombieWandConfig.zombieWandUses.get();
     }
 }

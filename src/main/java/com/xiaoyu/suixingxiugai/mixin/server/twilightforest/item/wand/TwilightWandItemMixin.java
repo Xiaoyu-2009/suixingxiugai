@@ -1,6 +1,6 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.TwilightWandConfig;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
@@ -22,22 +22,31 @@ public class TwilightWandItemMixin {
 
     @Inject(
         method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;", 
-        at = @At("TAIL")
+        at = @At("HEAD"),
+        cancellable = true
     )
     private void onUse(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (stack.getDamageValue() >= WandConfig.twilightWandUses.get()) {
+        if (stack.getDamageValue() >= TwilightWandConfig.twilightWandUses.get()) {
             cir.setReturnValue(InteractionResultHolder.fail(stack));
             return;
         }
+    }
+    
+    @Inject(
+        method = "use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;", 
+        at = @At("TAIL")
+    )
+    private void onUseTail(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+        ItemStack stack = player.getItemInHand(hand);
 
         if (!player.isCreative()) {
-            player.getCooldowns().addCooldown(stack.getItem(), WandConfig.twilightWandCooldown.get());
+            player.getCooldowns().addCooldown(stack.getItem(), TwilightWandConfig.twilightWandCooldown.get());
         }
     }
 
     public int getMaxDamage(ItemStack stack) {
-        return WandConfig.twilightWandUses.get();
+        return TwilightWandConfig.twilightWandUses.get();
     }
 }

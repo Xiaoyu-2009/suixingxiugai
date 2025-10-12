@@ -4,6 +4,8 @@ import com.xiaoyu.suixingxiugai.util.iceandfire.entity.DeathWormBlockMatcher;
 import com.github.alexthe666.iceandfire.entity.EntityDeathWorm;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -23,7 +25,7 @@ public class EntityDeathWormMixin {
             target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z"
         )
     )
-    private boolean redirectIsSand(BlockState state, net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> tag) {
+    private boolean redirectIsSand(BlockState state, TagKey<Block> tag) {
         return DeathWormBlockMatcher.canPassThrough(state);
     }
     

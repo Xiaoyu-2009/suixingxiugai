@@ -4,6 +4,7 @@ import com.github.alexthe666.iceandfire.item.ItemHydraHeart;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.HydraHeartConfig;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -63,7 +64,7 @@ public class ItemHydraHeartMixin {
             
             int potionDuration = HydraHeartConfig.hydraHeartPotionDuration.get();
             String potionEffectId = HydraHeartConfig.hydraHeartPotionEffect.get();
-            net.minecraft.world.effect.MobEffect effect = ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.tryParse(potionEffectId));
+            MobEffect effect = ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.tryParse(potionEffectId));
             
             if (effect != null && potionLevel >= 0) {
                 if (HydraHeartConfig.hydraHeartApplyEffectIfAlreadyHas.get() || !player.hasEffect(effect)) {

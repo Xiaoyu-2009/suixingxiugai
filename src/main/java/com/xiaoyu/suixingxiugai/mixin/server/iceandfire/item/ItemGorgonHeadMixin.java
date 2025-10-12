@@ -2,8 +2,11 @@ package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.item;
 
 import com.github.alexthe666.iceandfire.item.ItemGorgonHead;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.GorgonHeadConfig;
+import com.github.alexthe666.iceandfire.entity.util.DragonUtils;
+import com.github.alexthe666.iceandfire.datagen.tags.IafEntityTags;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -13,6 +16,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.phys.AABB;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -22,6 +27,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
+import java.util.function.Predicate;
 import javax.annotation.Nullable;
 
 @Mixin(ItemGorgonHead.class)
@@ -102,7 +108,7 @@ public class ItemGorgonHeadMixin {
         method = "releaseUsing(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V",
         at = @At("TAIL")
     )
-    private void onReleaseUsingTail(net.minecraft.world.item.ItemStack stack, net.minecraft.world.level.Level worldIn, net.minecraft.world.entity.LivingEntity entity, int timeLeft, CallbackInfo ci) {
+    private void onReleaseUsingTail(ItemStack stack, Level worldIn, LivingEntity entity, int timeLeft, CallbackInfo ci) {
         if (successfullyTurnedToStone && GorgonHeadConfig.gorgonHeadPlayBreakSound.get()) {
             if (!(entity instanceof Player player && player.isCreative())) {
                 worldIn.playSound(
@@ -111,5 +117,30 @@ public class ItemGorgonHeadMixin {
                 );
             }
         }
+    }
+
+    @Redirect(
+        method = "releaseUsing(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"
+        )
+    )
+    private List<Entity> redirectGetEntities(Level world, Entity entity, AABB boundingBox, Predicate<Entity> predicate) {
+        return world.getEntities(entity, boundingBox, new Predicate<Entity>() {
+            
+            @Override
+            public boolean test(Entity targetEntity) {
+                if (targetEntity instanceof LivingEntity livingEntity) {
+                    if (GorgonHeadConfig.gorgonHeadCanPetrifyAllEntities.get()) {
+                        return true;
+                    }
+
+                    boolean isImmune = entity.getType().is(IafEntityTags.IMMUNE_TO_GORGON_STONE) || livingEntity.hasEffect(MobEffects.BLINDNESS);
+                    return !isImmune/*  && targetEntity.isPickable() */ && !livingEntity.isDeadOrDying() && (targetEntity instanceof Player || DragonUtils.isAlive(livingEntity));
+                }
+                return false;
+            }
+        });
     }
 }

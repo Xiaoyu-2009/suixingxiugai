@@ -1,6 +1,7 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity;
 
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DeathWormConfig;
+import com.xiaoyu.suixingxiugai.util.ConfigEntryHelper;
 
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
@@ -18,11 +19,12 @@ public class DeathWormConfigScreen {
     public static List<AbstractConfigListEntry> createDeathWormConfigEntries(ConfigEntryBuilder entryBuilder) {
         List<AbstractConfigListEntry> entries = new ArrayList<>();
 
-        List<String> passableBlocks = new ArrayList<>(DeathWormConfig.deathWormPassableBlocks.get());
-        entries.add(entryBuilder.startStrList(Component.translatable("config.suixingxiugai.iceandfire.entity.deathworm.passable_blocks"), passableBlocks)
-                .setDefaultValue(new ArrayList<>(List.of("minecraft:sand", "minecraft:red_sand")))
-                .setSaveConsumer(list -> DeathWormConfig.deathWormPassableBlocks.set(new ArrayList<>(list)))
-                .build());
+        entries.add(ConfigEntryHelper.createStringList(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.entity.deathworm.passable_blocks"),
+                DeathWormConfig.deathWormPassableBlocks,
+                new ArrayList<>(List.of("minecraft:sand", "minecraft:red_sand"))
+        ));
 
         return entries;
     }

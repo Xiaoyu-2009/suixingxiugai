@@ -4,7 +4,9 @@ import com.github.alexthe666.iceandfire.item.ItemDeathwormGauntlet;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.DeathwormGauntletConfig;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -61,7 +63,7 @@ public abstract class ItemDeathwormGauntletMixin {
     }
 
     @Overwrite
-    public void inventoryTick(ItemStack stack, Level world, net.minecraft.world.entity.Entity entity, int itemSlot, boolean isSelected) {
+    public void inventoryTick(ItemStack stack, Level world, Entity entity, int itemSlot, boolean isSelected) {
         if (!(entity instanceof LivingEntity)) {
             return;
         }
@@ -116,7 +118,7 @@ public abstract class ItemDeathwormGauntletMixin {
                                 double pullForce = DeathwormGauntletConfig.deathwormGauntletPullForce.get();
 
                                 if (DeathwormGauntletConfig.deathwormGauntletKnockbackResistanceReduction.get()) {
-                                    pullForce *= (1.0 - Math.min(1.0, livingEntity.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE)));
+                                    pullForce *= (1.0 - Math.min(1.0, livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)));
                                 }
 
                                 livingEntity.push(

@@ -1,6 +1,6 @@
 package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.WandConfig;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.LifedrainScepterConfig;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
@@ -29,7 +29,7 @@ public class LifedrainScepterItemMixin {
     private void onUse(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (stack.getDamageValue() >= WandConfig.lifedrainScepterUses.get()) {
+        if (stack.getDamageValue() >= LifedrainScepterConfig.lifedrainScepterUses.get()) {
             cir.setReturnValue(InteractionResultHolder.fail(stack));
         }
     }
@@ -40,7 +40,7 @@ public class LifedrainScepterItemMixin {
         cancellable = true
     )
     private void onUseTick(Level level, net.minecraft.world.entity.LivingEntity living, ItemStack stack, int count, CallbackInfo ci) {
-        if (stack.getDamageValue() >= WandConfig.lifedrainScepterUses.get()) {
+        if (stack.getDamageValue() >= LifedrainScepterConfig.lifedrainScepterUses.get()) {
             living.stopUsingItem();
             ci.cancel();
         }
@@ -53,12 +53,12 @@ public class LifedrainScepterItemMixin {
     private void onUseTail(Level level, Player player, @Nonnull InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (!player.isCreative() && stack.getDamageValue() < WandConfig.lifedrainScepterUses.get()) {
-            player.getCooldowns().addCooldown(stack.getItem(), WandConfig.lifedrainScepterCooldown.get());
+        if (!player.isCreative() && stack.getDamageValue() < LifedrainScepterConfig.lifedrainScepterUses.get()) {
+            player.getCooldowns().addCooldown(stack.getItem(), LifedrainScepterConfig.lifedrainScepterCooldown.get());
         }
     }
 
     public int getMaxDamage(ItemStack stack) {
-        return WandConfig.lifedrainScepterUses.get();
+        return LifedrainScepterConfig.lifedrainScepterUses.get();
     }
 }

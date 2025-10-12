@@ -41,6 +41,13 @@ public class GorgonHeadConfigScreen {
                 GorgonHeadConfig.gorgonHeadMustPetrifyToConsume,
                 true
         ));
+        
+        entries.add(ConfigEntryHelper.createBooleanToggle(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadCanPetrifyAllEntities"),
+                GorgonHeadConfig.gorgonHeadCanPetrifyAllEntities,
+                false
+        ));
 
         return entries;
     }

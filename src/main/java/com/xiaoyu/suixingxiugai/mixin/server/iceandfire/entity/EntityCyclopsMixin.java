@@ -3,10 +3,12 @@ package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.entity;
 import com.github.alexthe666.iceandfire.entity.EntityCyclops;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.CyclopsConfig;
 
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -28,7 +30,7 @@ public abstract class EntityCyclopsMixin extends Monster {
             target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"
         )
     )
-    private boolean redirectBiteDamage(Entity entity, net.minecraft.world.damagesource.DamageSource source, float amount) {
+    private boolean redirectBiteDamage(Entity entity, DamageSource source, float amount) {
         return entity.hurt(source, (float) CyclopsConfig.cyclopsBiteStrength.get().doubleValue());
     }
     
@@ -37,7 +39,7 @@ public abstract class EntityCyclopsMixin extends Monster {
         at = @At("HEAD"),
         cancellable = true
     )
-    private void onDoHurtTarget(net.minecraft.world.entity.Entity entityIn, CallbackInfoReturnable<Boolean> cir) {
+    private void onDoHurtTarget(Entity entityIn, CallbackInfoReturnable<Boolean> cir) {
         EntityCyclops cyclops = (EntityCyclops) (Object) this;
 
         boolean canStomp = CyclopsConfig.cyclopsCanStompAttack.get();
@@ -64,7 +66,7 @@ public abstract class EntityCyclopsMixin extends Monster {
         cir.setReturnValue(attackPerformed);
     }
 
-    private boolean tryPerformAttack(EntityCyclops cyclops, net.minecraft.world.entity.Entity target, int attackType, boolean canStomp, boolean canGrab, boolean canKick) {
+    private boolean tryPerformAttack(EntityCyclops cyclops, Entity target, int attackType, boolean canStomp, boolean canGrab, boolean canKick) {
         switch (attackType) {
             case 0:
                 if (canStomp) {
@@ -78,7 +80,7 @@ public abstract class EntityCyclopsMixin extends Monster {
                     if (!target.hasPassenger(cyclops)
                         && target.getBbWidth() < 1.95F
                         && !(target instanceof com.github.alexthe666.iceandfire.entity.EntityDragonBase)
-                        && !target.getType().is((net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.tags().createTagKey(com.github.alexthe666.iceandfire.misc.IafTagRegistry.CYCLOPS_UNLIFTABLES)))) {
+                        && !target.getType().is((ForgeRegistries.ENTITY_TYPES.tags().createTagKey(com.github.alexthe666.iceandfire.misc.IafTagRegistry.CYCLOPS_UNLIFTABLES)))) {
                         cyclops.setAnimation(EntityCyclops.ANIMATION_EATPLAYER);
                         target.stopRiding();
                         target.startRiding(cyclops, true);

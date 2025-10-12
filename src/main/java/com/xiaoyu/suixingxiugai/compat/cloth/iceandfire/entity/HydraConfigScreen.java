@@ -1,6 +1,7 @@
 package com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity;
 
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.HydraConfig;
+import com.xiaoyu.suixingxiugai.util.ConfigEntryHelper;
 
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
@@ -18,35 +19,44 @@ public class HydraConfigScreen {
     public static List<AbstractConfigListEntry> createHydraConfigEntries(ConfigEntryBuilder entryBuilder) {
         List<AbstractConfigListEntry> entries = new ArrayList<>();
 
-        entries.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.enableSingleHitKill"), HydraConfig.enableSingleHitKill.get())
-                .setDefaultValue(false)
-                .setSaveConsumer(HydraConfig.enableSingleHitKill::set)
-                .build());
+        entries.add(ConfigEntryHelper.createBooleanToggle(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.enableSingleHitKill"),
+                HydraConfig.enableSingleHitKill,
+                false
+        ));
         
-        entries.add(entryBuilder.startDoubleField(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.singleHitDamageToKill"), HydraConfig.singleHitDamageToKill.get())
-                .setDefaultValue(2009.0)
-                .setMin(0.0)
-                .setMax(Double.MAX_VALUE)
-                .setSaveConsumer(HydraConfig.singleHitDamageToKill::set)
-                .build());
+        entries.add(ConfigEntryHelper.createDoubleField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.singleHitDamageToKill"),
+                HydraConfig.singleHitDamageToKill,
+                2009.0,
+                0.0,
+                Double.MAX_VALUE
+        ));
 
-        entries.add(entryBuilder.startBooleanToggle(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.enableCumulativeDamageKill"), HydraConfig.enableCumulativeDamageKill.get())
-                .setDefaultValue(false)
-                .setSaveConsumer(HydraConfig.enableCumulativeDamageKill::set)
-                .build());
+        entries.add(ConfigEntryHelper.createBooleanToggle(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.enableCumulativeDamageKill"),
+                HydraConfig.enableCumulativeDamageKill,
+                false
+        ));
                 
-        entries.add(entryBuilder.startDoubleField(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.cumulativeDamageToKill"), HydraConfig.cumulativeDamageToKill.get())
-                .setDefaultValue(2009.0)
-                .setMin(0.0)
-                .setMax(Double.MAX_VALUE)
-                .setSaveConsumer(HydraConfig.cumulativeDamageToKill::set)
-                .build());
+        entries.add(ConfigEntryHelper.createDoubleField(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.cumulativeDamageToKill"),
+                HydraConfig.cumulativeDamageToKill,
+                2009.0,
+                0.0,
+                Double.MAX_VALUE
+        ));
                 
-        List<String> damageTypesToKill = new ArrayList<>(HydraConfig.damageTypesToKill.get());
-        entries.add(entryBuilder.startStrList(Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.damageTypesToKill"), damageTypesToKill)
-                .setDefaultValue(new ArrayList<>(List.of("")))
-                .setSaveConsumer(list -> HydraConfig.damageTypesToKill.set(new ArrayList<>(list)))
-                .build());
+        entries.add(ConfigEntryHelper.createStringList(
+                entryBuilder,
+                Component.translatable("config.suixingxiugai.iceandfire.entity.hydra.damageTypesToKill"),
+                HydraConfig.damageTypesToKill,
+                new ArrayList<>(List.of(""))
+        ));
 
         return entries;
     }
