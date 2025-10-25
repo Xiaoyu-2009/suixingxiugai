@@ -6,6 +6,7 @@ import com.xiaoyu.suixingxiugai.config.alex.item.TendonWhipConfig;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,7 +37,7 @@ public class ItemTendonWhipMixin {
             target = "Lnet/minecraft/world/entity/LivingEntity;getBoundingBox()Lnet/minecraft/world/phys/AABB;"
         )
     )
-    private net.minecraft.world.phys.AABB modifyWhipAttackRange2(LivingEntity entity) {
+    private AABB modifyWhipAttackRange2(LivingEntity entity) {
         double attackRange = TendonWhipConfig.whipAttackRange.get();
         return entity.getBoundingBox().inflate(attackRange);
     }

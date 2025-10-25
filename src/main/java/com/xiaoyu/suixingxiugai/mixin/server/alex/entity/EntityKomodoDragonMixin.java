@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.level.Level;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,7 +21,7 @@ public abstract class EntityKomodoDragonMixin extends TamableAnimal {
 
     private boolean hasBeenAttacked = false;
 
-    protected EntityKomodoDragonMixin(EntityType<? extends TamableAnimal> entityType, net.minecraft.world.level.Level level) {
+    protected EntityKomodoDragonMixin(EntityType<? extends TamableAnimal> entityType, Level level) {
         super(entityType, level);
     }
 

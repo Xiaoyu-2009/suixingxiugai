@@ -1,6 +1,8 @@
 package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.entity;
 
 import com.github.alexthe666.iceandfire.entity.EntityCyclops;
+import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
+import com.github.alexthe666.iceandfire.misc.IafTagRegistry;
 import com.xiaoyu.suixingxiugai.config.iceandfire.entity.CyclopsConfig;
 
 import net.minecraft.world.damagesource.DamageSource;
@@ -79,8 +81,8 @@ public abstract class EntityCyclopsMixin extends Monster {
                 if (canGrab) {
                     if (!target.hasPassenger(cyclops)
                         && target.getBbWidth() < 1.95F
-                        && !(target instanceof com.github.alexthe666.iceandfire.entity.EntityDragonBase)
-                        && !target.getType().is((ForgeRegistries.ENTITY_TYPES.tags().createTagKey(com.github.alexthe666.iceandfire.misc.IafTagRegistry.CYCLOPS_UNLIFTABLES)))) {
+                        && !(target instanceof EntityDragonBase)
+                        && !target.getType().is((ForgeRegistries.ENTITY_TYPES.tags().createTagKey(IafTagRegistry.CYCLOPS_UNLIFTABLES)))) {
                         cyclops.setAnimation(EntityCyclops.ANIMATION_EATPLAYER);
                         target.stopRiding();
                         target.startRiding(cyclops, true);

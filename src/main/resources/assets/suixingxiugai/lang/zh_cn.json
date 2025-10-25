@@ -184,6 +184,33 @@
   "config.suixingxiugai.iceandfire.entity.dragon.wildDragonDefaultSleeping": "野生龙默认是否处于睡眠状态",
   "config.suixingxiugai.iceandfire.entity.dragon.wildDragonDefaultSleepingSurface": "地表生成的野生龙默认是否处于睡眠状态",
   "config.suixingxiugai.iceandfire.entity.dragon.wildDragonDefaultSleepingUnderground": "地下龙巢生成的野生龙默认是否处于睡眠状态",
+  "config.suixingxiugai.iceandfire.entity.dragon.fireDragonSleeping": "火龙是否进入睡眠状态",
+  "config.suixingxiugai.iceandfire.entity.dragon.iceDragonSleeping": "冰龙是否进入睡眠状态",
+  "config.suixingxiugai.iceandfire.entity.dragon.lightningDragonSleeping": "电龙是否进入睡眠状态",
+  
+  "config.suixingxiugai.iceandfire.entity.dragon.fireDragonCategory": "火龙配置",
+  "config.suixingxiugai.iceandfire.entity.dragon.fireDragonDestroyBlocks": "火龙是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedFireDragonDestroyBlocks": "已驯服的火龙是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.fireDragonBreathDestroyBlocks": "火龙的龙息是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedFireDragonBreathDestroyBlocks": "已驯服的火龙的龙息是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.fireDragonCanBreath": "火龙是否能够吐龙息",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedFireDragonCanBreath": "已驯服的火龙是否能够吐龙息",
+
+  "config.suixingxiugai.iceandfire.entity.dragon.iceDragonCategory": "冰龙配置",
+  "config.suixingxiugai.iceandfire.entity.dragon.iceDragonDestroyBlocks": "冰龙是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedIceDragonDestroyBlocks": "已驯服的冰龙是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.iceDragonBreathDestroyBlocks": "冰龙的龙息是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedIceDragonBreathDestroyBlocks": "已驯服的冰龙的龙息是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.iceDragonCanBreath": "冰龙是否能够吐龙息",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedIceDragonCanBreath": "已驯服的冰龙是否能够吐龙息",
+
+  "config.suixingxiugai.iceandfire.entity.dragon.lightningDragonCategory": "电龙配置",
+  "config.suixingxiugai.iceandfire.entity.dragon.lightningDragonDestroyBlocks": "电龙是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedLightningDragonDestroyBlocks": "已驯服的电龙是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.lightningDragonBreathDestroyBlocks": "电龙的龙息是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedLightningDragonBreathDestroyBlocks": "已驯服的电龙的龙息是否会破坏方块",
+  "config.suixingxiugai.iceandfire.entity.dragon.lightningDragonCanBreath": "电龙是否能够吐龙息",
+  "config.suixingxiugai.iceandfire.entity.dragon.tamedLightningDragonCanBreath": "已驯服的电龙是否能够吐龙息",
   
   "config.suixingxiugai.iceandfire.entity.dragon_egg": "龙蛋配置",
   "config.suixingxiugai.iceandfire.entity.dragon_egg.dragonEggHatchTime": "龙蛋孵化时间",
@@ -259,6 +286,11 @@
   "config.suixingxiugai.iceandfire.item.gorgon_head.gorgonHeadCanPetrifyAllEntities": "蛇发女妖头颅是否能石化一切实体",
   "item.suixingxiugai.gorgon_head.uses": "还可以使用%s次",
   
+  "config.suixingxiugai.iceandfire.item.dragon_flute": "龙歌长笛配置",
+  "config.suixingxiugai.iceandfire.item.dragon_flute.dragonFluteAffectsWildDragons": "龙歌长笛是否能影响驯服外的生物",
+  "config.suixingxiugai.iceandfire.item.dragon_flute.dragonFluteCooldown": "龙歌长笛冷却时间（tick）",
+  "config.suixingxiugai.iceandfire.item.dragon_flute.dragonFluteDistance": "龙歌长笛影响范围（区块）",
+
   "config.suixingxiugai.curios": "饰品配置",
   "config.suixingxiugai.curios.iceandfire": "冰火传说饰品配置",
   "config.suixingxiugai.curios.iceandfire.entity": "实体配置",
@@ -306,5 +338,14 @@
   "config.suixingxiugai.cataclysm.entity": "实体配置",
   "config.suixingxiugai.cataclysm.item": "物品配置",
   "config.suixingxiugai.cataclysm.item.meat_shredder": "绞肉锯配置",
-  "config.suixingxiugai.cataclysm.item.meat_shredder_right_click_damage": "绞肉锯右键造成的伤害"
+  "config.suixingxiugai.cataclysm.item.meat_shredder_right_click_damage": "绞肉锯右键造成的伤害",
+
+  "config.suixingxiugai.mutantmonsters": "突变生物配置",
+  "config.suixingxiugai.mutantmonsters.entity": "实体配置",
+  "config.suixingxiugai.mutantmonsters.item": "物品配置",
+  "config.suixingxiugai.mutantmonsters.mutant_zombie": "突变僵尸",
+  "config.suixingxiugai.mutantmonsters.mutant_zombie.resurrection_count": "突变僵尸倒下苏醒次数",
+  "config.suixingxiugai.mutantmonsters.mutant_zombie.enable_slam_ground_attack": "突变僵尸是否能使用冲击波",
+  "config.suixingxiugai.mutantmonsters.mutant_zombie.enable_throw_attack": "突变僵尸是否能使用投掷攻击",
+  "config.suixingxiugai.mutantmonsters.mutant_zombie.enable_roar_attack": "突变僵尸是否能使用怒吼"
 }

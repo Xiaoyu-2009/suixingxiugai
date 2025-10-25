@@ -5,6 +5,7 @@ import com.xiaoyu.suixingxiugai.network.DamageDisplayMessage;
 import com.xiaoyu.suixingxiugai.network.NetworkHandler;
 import com.xiaoyu.suixingxiugai.event.CriticalHitEventHandler;
 
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.server.level.ServerPlayer;
@@ -37,7 +38,7 @@ public class PlayerMixin {
         }
 
         if (damageSrc.getEntity() instanceof ServerPlayer && 
-            damageSrc.is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)
+            damageSrc.is(DamageTypes.PLAYER_ATTACK)
         ) {
             ServerPlayer attacker = (ServerPlayer) damageSrc.getEntity();
             if (attacker != player) {

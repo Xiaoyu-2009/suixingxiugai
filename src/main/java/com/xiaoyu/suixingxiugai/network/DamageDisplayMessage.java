@@ -2,6 +2,7 @@ package com.xiaoyu.suixingxiugai.network;
 
 import com.xiaoyu.suixingxiugai.client.ClientEvents;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -47,7 +48,7 @@ public class DamageDisplayMessage {
     public static void handle(DamageDisplayMessage msg, Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             if (ctx.get().getDirection().getReceptionSide().isClient()) {
-                net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
+                Minecraft mc = Minecraft.getInstance();
                 if (mc.level != null) {
                     Entity entity = mc.level.getEntity(msg.entityId);
                     if (entity != null) {

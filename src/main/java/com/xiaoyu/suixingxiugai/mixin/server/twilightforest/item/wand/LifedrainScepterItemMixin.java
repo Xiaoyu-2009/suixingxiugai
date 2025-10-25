@@ -2,6 +2,7 @@ package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.item.wand;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.LifedrainScepterConfig;
 
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -39,7 +40,7 @@ public class LifedrainScepterItemMixin {
         at = @At("HEAD"), 
         cancellable = true
     )
-    private void onUseTick(Level level, net.minecraft.world.entity.LivingEntity living, ItemStack stack, int count, CallbackInfo ci) {
+    private void onUseTick(Level level, LivingEntity living, ItemStack stack, int count, CallbackInfo ci) {
         if (stack.getDamageValue() >= LifedrainScepterConfig.lifedrainScepterUses.get()) {
             living.stopUsingItem();
             ci.cancel();

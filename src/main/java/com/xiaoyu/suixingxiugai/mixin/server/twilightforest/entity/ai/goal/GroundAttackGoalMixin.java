@@ -2,6 +2,7 @@ package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.ai.goal;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.MinoshroomConfig;
 
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
@@ -33,7 +34,7 @@ public class GroundAttackGoalMixin {
             target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"
         )
     )
-    private boolean redirectHurtCall(Entity entity, net.minecraft.world.damagesource.DamageSource source, float amount) {
+    private boolean redirectHurtCall(Entity entity, DamageSource source, float amount) {
         if (entity.onGround()) {
             double attackDamage = this.attacker.getAttributeValue(Attributes.ATTACK_DAMAGE);
             float modifiedAmount = (float) (attackDamage * MinoshroomConfig.minoshroomGroundAttackDamageMultiplier.get());

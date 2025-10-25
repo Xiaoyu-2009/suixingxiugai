@@ -16,8 +16,8 @@ public class SuixingxiugaiClient {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-                () -> new ConfigScreenHandler.ConfigScreenFactory(
-                        (Minecraft mc, Screen parent) -> SuixingxiugaiConfigScreen.createConfigScreen(parent)));
+        ModLoadingContext.get().registerExtensionPoint(
+            ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((Minecraft mc, Screen parent) -> SuixingxiugaiConfigScreen.createConfigScreen(parent))
+        );
     }
 }

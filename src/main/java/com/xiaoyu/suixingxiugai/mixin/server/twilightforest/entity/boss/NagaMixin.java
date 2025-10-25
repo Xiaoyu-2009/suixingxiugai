@@ -4,16 +4,24 @@ import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
 import com.xiaoyu.suixingxiugai.entity.ai.goal.TeleportToHomeGoal;
 import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.GoalSelector;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,6 +36,7 @@ import twilightforest.entity.boss.Naga;
 import twilightforest.entity.ai.goal.NagaMovementPattern;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 
 @Mixin(Naga.class)
 public class NagaMixin {
@@ -83,11 +92,11 @@ public class NagaMixin {
     }
 
     @Inject(method = "finalizeSpawn", at = @At("RETURN"))
-    private void addDifficultyAttackDamageBoost(net.minecraft.world.level.ServerLevelAccessor accessor, net.minecraft.world.DifficultyInstance difficulty, net.minecraft.world.entity.MobSpawnType type, net.minecraft.world.entity.SpawnGroupData data, net.minecraft.nbt.CompoundTag tag, CallbackInfoReturnable<net.minecraft.world.entity.SpawnGroupData> cir) {
+    private void addDifficultyAttackDamageBoost(ServerLevelAccessor accessor, DifficultyInstance difficulty, MobSpawnType type, SpawnGroupData data, CompoundTag tag, CallbackInfoReturnable<SpawnGroupData> cir) {
         Naga naga = (Naga) (Object) this;
         
-        if (naga.level().getDifficulty() != net.minecraft.world.Difficulty.EASY && naga.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
-            boolean hard = naga.level().getDifficulty() == net.minecraft.world.Difficulty.HARD;
+        if (naga.level().getDifficulty() != Difficulty.EASY && naga.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
+            boolean hard = naga.level().getDifficulty() == Difficulty.HARD;
             AttributeModifier modifier = new AttributeModifier("Difficulty Attack Damage Boost", hard ? NagaConfig.nagaDifficultyAttackDamageBoostHard.get() : NagaConfig.nagaDifficultyAttackDamageBoostNormal.get(), AttributeModifier.Operation.ADDITION);
             if (!Objects.requireNonNull(naga.getAttribute(Attributes.ATTACK_DAMAGE)).hasModifier(modifier)) {
                 Objects.requireNonNull(naga.getAttribute(Attributes.ATTACK_DAMAGE)).addPermanentModifier(modifier);
@@ -113,7 +122,7 @@ public class NagaMixin {
             ordinal = 0
         )
     )
-    private void redirectNormalShieldDamage(net.minecraft.world.item.ItemStack instance, int amount, LivingEntity entity, java.util.function.Consumer<LivingEntity> onBroken) {
+    private void redirectNormalShieldDamage(ItemStack instance, int amount, LivingEntity entity, Consumer<LivingEntity> onBroken) {
         instance.hurtAndBreak(NagaConfig.nagaShieldDamageOnCharge.get(), entity, onBroken);
     }
 
@@ -125,7 +134,7 @@ public class NagaMixin {
             ordinal = 1
         )
     )
-    private void redirectEnragedShieldDamage(net.minecraft.world.item.ItemStack instance, int amount, LivingEntity entity, java.util.function.Consumer<LivingEntity> onBroken) {
+    private void redirectEnragedShieldDamage(ItemStack instance, int amount, LivingEntity entity, Consumer<LivingEntity> onBroken) {
         instance.hurtAndBreak(NagaConfig.nagaShieldDamageOnChargeEnraged.get(), entity, onBroken);
     }
 
@@ -137,7 +146,7 @@ public class NagaMixin {
             ordinal = 0
         )
     )
-    private boolean redirectNagaSelfDamage(Naga naga, net.minecraft.world.damagesource.DamageSource source, float amount) {
+    private boolean redirectNagaSelfDamage(Naga naga, DamageSource source, float amount) {
         if (naga.getMovementAI() != null && naga.getMovementAI().getState() == NagaMovementPattern.MovementState.STUNLESS_CHARGE) {
             return naga.hurt(source, NagaConfig.nagaAttackKnockbackForceEnraged.get().floatValue());
         }
@@ -151,7 +160,7 @@ public class NagaMixin {
             target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"
         )
     )
-    private boolean redirectEnragedPlayerDamage(LivingEntity instance, net.minecraft.world.damagesource.DamageSource source, float amount) {
+    private boolean redirectEnragedPlayerDamage(LivingEntity instance, DamageSource source, float amount) {
         boolean result = instance.hurt(source, amount);
 
         if (source.getDirectEntity() instanceof Naga naga) {
@@ -204,7 +213,7 @@ public class NagaMixin {
             ordinal = 4
         )
     )
-    private void redirectAddAttemptToGoHomeGoal(GoalSelector goalSelector, int priority, net.minecraft.world.entity.ai.goal.Goal goal) {
+    private void redirectAddAttemptToGoHomeGoal(GoalSelector goalSelector, int priority, Goal goal) {
         Naga naga = (Naga) (Object) this;
         goalSelector.addGoal(priority, new TeleportToHomeGoal<>(naga, 1.0D));
     }
@@ -217,10 +226,7 @@ public class NagaMixin {
             ordinal = 0
         )
     )
-    private boolean redirectLeafBlockCheckInCustomServerAiStep(
-        net.minecraft.world.level.block.state.BlockState state, 
-        net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> tagKey
-    ) {
+    private boolean redirectLeafBlockCheckInCustomServerAiStep(BlockState state, TagKey<Block> tagKey) {
         if (!NagaConfig.nagaCanDestroyBlocks.get()) {
             return false;
         }

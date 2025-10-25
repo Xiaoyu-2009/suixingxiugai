@@ -11,6 +11,7 @@ import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.SirenConfigScreen
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.entity.GorgonConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.CyclopsEyeConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.DeathwormGauntletConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.DragonFluteConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.GorgonHeadConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.item.HydraHeartConfigScreen;
 import com.xiaoyu.suixingxiugai.config.iceandfire.GazeImmunityConfig;
@@ -49,7 +50,6 @@ public class IceAndFireConfigScreen {
 
         SubCategoryBuilder gazeImmunitySubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.gaze_immunity"));
         gazeImmunitySubCategoryBuilder.setExpanded(false);
-        List<String> gazeImmunityArmorList = new ArrayList<>(GazeImmunityConfig.gazeImmunityArmorList.get());
         gazeImmunitySubCategoryBuilder.add(ConfigEntryHelper.createStringList(
                 entryBuilder,
                 Component.translatable("config.suixingxiugai.iceandfire.gazeImmunityArmorList"),
@@ -57,7 +57,6 @@ public class IceAndFireConfigScreen {
                 new ArrayList<>()
         ));
                 
-        List<String> gazeImmunityItemList = new ArrayList<>(GazeImmunityConfig.gazeImmunityItemList.get());
         gazeImmunitySubCategoryBuilder.add(ConfigEntryHelper.createStringList(
                 entryBuilder,
                 Component.translatable("config.suixingxiugai.iceandfire.gazeImmunityItemList"),
@@ -65,7 +64,6 @@ public class IceAndFireConfigScreen {
                 new ArrayList<>()
         ));
                 
-        List<String> gazeImmunityCuriosList = new ArrayList<>(GazeImmunityConfig.gazeImmunityCuriosList.get());
         gazeImmunitySubCategoryBuilder.add(ConfigEntryHelper.createStringList(
                 entryBuilder,
                 Component.translatable("config.suixingxiugai.iceandfire.gazeImmunityCuriosList"),
@@ -185,6 +183,14 @@ public class IceAndFireConfigScreen {
             gorgonHeadSubCategoryBuilder.add(entry);
         }
         itemSubCategoryBuilder.add(gorgonHeadSubCategoryBuilder.build());
+
+        SubCategoryBuilder dragonFluteSubCategoryBuilder = entryBuilder.startSubCategory(Component.translatable("config.suixingxiugai.iceandfire.item.dragon_flute"));
+        dragonFluteSubCategoryBuilder.setExpanded(false);
+        List<AbstractConfigListEntry> dragonFluteEntries = DragonFluteConfigScreen.createDragonFluteConfigEntries(entryBuilder);
+        for (AbstractConfigListEntry entry : dragonFluteEntries) {
+            dragonFluteSubCategoryBuilder.add(entry);
+        }
+        itemSubCategoryBuilder.add(dragonFluteSubCategoryBuilder.build());
         
         iceAndFireCategory.addEntry(itemSubCategoryBuilder.build());
     }

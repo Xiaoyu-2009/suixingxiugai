@@ -23,6 +23,7 @@ import com.xiaoyu.suixingxiugai.config.iceandfire.item.CyclopsEyeConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.DeathwormGauntletConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.GorgonHeadConfig;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.HydraHeartConfig;
+import com.xiaoyu.suixingxiugai.config.iceandfire.item.DragonFluteConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.AlphaYetiConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.KnightPhantomConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.LichConfig;
@@ -32,6 +33,8 @@ import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.FortificationWan
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.ZombieWandConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.TwilightWandConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.LifedrainScepterConfig;
+import com.xiaoyu.suixingxiugai.config.mutantmonsters.entity.MutantZombieConfig;
+
 import com.xiaoyu.suixingxiugai.client.ClientEvents;
 import com.xiaoyu.suixingxiugai.network.NetworkHandler;
 import com.xiaoyu.suixingxiugai.event.CriticalHitEventHandler;
@@ -84,10 +87,13 @@ public class SuixingXiugai {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HydraHeartConfig.SPEC, "suixingxiugai/iceandfire/item/hydra_heart-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CyclopsEyeConfig.SPEC, "suixingxiugai/iceandfire/item/cyclops_eye-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GorgonHeadConfig.SPEC, "suixingxiugai/iceandfire/item/gorgon_head-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DragonFluteConfig.SPEC, "suixingxiugai/iceandfire/item/dragon_flute-common.toml");
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GauntletConfig.SPEC, "suixingxiugai/bosses_of_mass_destruction/entity/gauntlet-common.toml");
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MeatShredderConfig.SPEC, "suixingxiugai/cataclysm/item/meat_shredder-common.toml");
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MutantZombieConfig.SPEC, "suixingxiugai/mutantmonsters/entity/mutant_zombie-common.toml");
 
         /* ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CyclopsEyeCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/cyclops_eye-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HydraHeartCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/hydra_heart-common.toml"); */

@@ -2,7 +2,9 @@ package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.ai.goal;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.MinoshroomConfig;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,7 +35,7 @@ public class ChargeAttackGoalMixin {
             target = "Lnet/minecraftforge/event/ForgeEventFactory;getMobGriefingEvent(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;)Z"
         )
     )
-    private boolean redirectMobGriefingEvent(net.minecraft.world.level.Level level, net.minecraft.world.entity.Entity entity) {
+    private boolean redirectMobGriefingEvent(Level level, Entity entity) {
         if (this.charger instanceof Minoshroom && !MinoshroomConfig.minoshroomChargeCanBreakBlocks.get()) {
             return false;
         }

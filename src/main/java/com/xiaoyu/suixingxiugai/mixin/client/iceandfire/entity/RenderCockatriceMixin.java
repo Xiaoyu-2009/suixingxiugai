@@ -2,8 +2,10 @@ package com.xiaoyu.suixingxiugai.mixin.client.iceandfire.entity;
 
 import com.github.alexthe666.iceandfire.client.render.entity.RenderCockatrice;
 import com.github.alexthe666.iceandfire.entity.EntityCockatrice;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.xiaoyu.suixingxiugai.util.iceandfire.entity.GazeImmunityHelper;
 
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.world.entity.LivingEntity;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,12 +25,7 @@ public class RenderCockatriceMixin {
         cancellable = true, 
         remap = false
     )
-    private void onRender(
-        EntityCockatrice entity, float entityYaw, float partialTicks, 
-        com.mojang.blaze3d.vertex.PoseStack matrixStack, 
-        net.minecraft.client.renderer.MultiBufferSource bufferIn, 
-        int packedLightIn, CallbackInfo ci
-    ) {
+    private void onRender(EntityCockatrice entity, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource bufferIn, int packedLightIn, CallbackInfo ci) {
         LivingEntity target = entity.getTargetedEntity();
 
         if (target != null && GazeImmunityHelper.isImmuneToGazeAttack(target)) {

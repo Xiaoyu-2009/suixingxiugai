@@ -12,6 +12,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 
 import java.util.*;
+import java.util.function.BiPredicate;
 
 public class ItemConfigHelper {
 
@@ -71,12 +72,7 @@ public class ItemConfigHelper {
         return isWearingItemsFromConfig(entity, configList, ItemConfigHelper::isSingleCurioEquipped, ItemConfigHelper::isWearingRequiredCuriosSet);
     }
 
-    private static boolean isWearingItemsFromConfig(
-        LivingEntity entity, 
-        List<? extends String> configList,
-        java.util.function.BiPredicate<LivingEntity, String> singleItemChecker,
-        java.util.function.BiPredicate<LivingEntity, String> multiItemChecker
-    ) {
+    private static boolean isWearingItemsFromConfig(LivingEntity entity, List<? extends String> configList, BiPredicate<LivingEntity, String> singleItemChecker, BiPredicate<LivingEntity, String> multiItemChecker) {
         for (String configItem : configList) {
             if (configItem.startsWith("# ")) {
                 continue;
@@ -179,11 +175,7 @@ public class ItemConfigHelper {
         return isWearingRequiredItemSet(entity, curioSetConfig, true);
     }
 
-    private static boolean isWearingRequiredItemSet(
-        LivingEntity entity, 
-        String itemSetConfig,
-        boolean isCurios
-    ) {
+    private static boolean isWearingRequiredItemSet(LivingEntity entity, String itemSetConfig, boolean isCurios) {
         String[] requiredItems = itemSetConfig.contains("&&") ? 
         itemSetConfig.split("&&") : itemSetConfig.split("/");
 

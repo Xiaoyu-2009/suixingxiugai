@@ -11,10 +11,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import twilightforest.capabilities.shield.IShieldCapability;
+import twilightforest.capabilities.shield.ShieldCapabilityHandler;
 import twilightforest.network.TFPacketHandler;
 import twilightforest.network.UpdateShieldPacket;
 
-@Mixin(targets = "twilightforest.capabilities.shield.ShieldCapabilityHandler", remap = false)
+@Mixin(value = ShieldCapabilityHandler.class, remap = false)
 public class ShieldCapabilityHandlerMixin {
     
     @Shadow

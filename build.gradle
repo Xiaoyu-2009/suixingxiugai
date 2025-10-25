@@ -112,8 +112,20 @@ dependencies {
     // Embeddium
     implementation fg.deobf("curse.maven:embeddium-908741:5681725")
 
-    // 血族传说
+    // Better Brightness Slider
+    implementation fg.deobf("curse.maven:better-brightness-slider-685037:4656287")
+
+    // 突变生物
+    implementation fg.deobf("curse.maven:mutant-monsters-852665:5107399")
+
+    // Puzzles Lib
+    implementation fg.deobf("curse.maven:puzzles-lib-495476:6918565")
+
+/*    // 血族传说
     implementation fg.deobf("curse.maven:vampirism-become-a-vampire-233029:6289561")
+
+    // Guide-API
+    implementation fg.deobf("curse.maven:guide-api-village-and-pillage-380771:4799858")*/
 
     // 冰火传说
     implementation fg.deobf("curse.maven:ice-and-fire-dragons-264231:5633453")

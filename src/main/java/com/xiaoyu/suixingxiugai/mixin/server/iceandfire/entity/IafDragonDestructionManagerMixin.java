@@ -30,13 +30,12 @@ public class IafDragonDestructionManagerMixin {
         at = @At(
             value = "INVOKE", 
             target = "Lnet/minecraft/world/level/Level;setBlockAndUpdate(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z", 
-            shift = At.Shift.AFTER, ordinal = 1
+            shift = At.Shift.AFTER, 
+            ordinal = 1
         ), 
         locals = LocalCapture.CAPTURE_FAILSOFT
     )
-    private static void onSetBlockAndUpdate(Level level, EntityDragonBase dragon, BlockPos position, BlockState state, 
-    CallbackInfo ci, BlockState transformed, Block elementalBlock,
-    boolean doPlaceBlock, BlockState stateAbove) {
+    private static void onSetBlockAndUpdate(Level level, EntityDragonBase dragon, BlockPos position, BlockState state, CallbackInfo ci, BlockState transformed, Block elementalBlock, boolean doPlaceBlock, BlockState stateAbove) {
         if (elementalBlock == Blocks.FIRE || elementalBlock == IafBlockRegistry.DRAGON_ICE_SPIKES.get()) {
             UUID ownerUUID = getDragonOwnerUUID(dragon);
             if (ownerUUID != null) {

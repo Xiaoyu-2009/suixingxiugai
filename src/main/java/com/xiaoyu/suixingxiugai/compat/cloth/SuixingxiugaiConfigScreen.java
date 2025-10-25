@@ -5,6 +5,7 @@ import com.xiaoyu.suixingxiugai.compat.cloth.bosses_of_mass_destruction.BossesOf
 import com.xiaoyu.suixingxiugai.compat.cloth.cataclysm.CataclysmConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.iceandfire.IceAndFireConfigScreen;
 import com.xiaoyu.suixingxiugai.compat.cloth.twilightforest.TwilightForestConfigScreen;
+import com.xiaoyu.suixingxiugai.compat.cloth.mutantmonsters.MutantMonstersConfigScreen;
 import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
 import com.xiaoyu.suixingxiugai.config.alex.entity.KomodoDragonConfig;
 import com.xiaoyu.suixingxiugai.config.alex.item.TendonWhipConfig;
@@ -26,6 +27,7 @@ import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.FortificationWan
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.ZombieWandConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.TwilightWandConfig;
 import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.LifedrainScepterConfig;
+import com.xiaoyu.suixingxiugai.config.mutantmonsters.entity.MutantZombieConfig;
 import com.xiaoyu.suixingxiugai.util.ConfigEntryHelper;
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
@@ -72,6 +74,7 @@ public class SuixingxiugaiConfigScreen {
             GauntletConfig.SPEC.save();
             AlphaYetiConfig.SPEC.save();
             MeatShredderConfig.SPEC.save();
+            MutantZombieConfig.SPEC.save();
         });
 
         createMainConfigScreen(builder);
@@ -81,6 +84,7 @@ public class SuixingxiugaiConfigScreen {
         AlexConfigScreen.createAlexConfigScreen(builder);
         BossesOfMassDestructionConfigScreen.createBossesOfMassDestructionConfigScreen(builder);
         CataclysmConfigScreen.createCataclysmConfigScreen(builder);
+        MutantMonstersConfigScreen.createMutantMonstersConfigScreen(builder);
 
         return builder.build();
     }
@@ -175,6 +179,3 @@ public class SuixingxiugaiConfigScreen {
                 false));
     }
 }
-
-//我的X世界大战奥特曼i贝利亚a之宇o宙大y蛇u2009
-/* 奥特X曼宇宙i无敌贝利亚 */

@@ -3,6 +3,7 @@ package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.boss;
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
 import com.xiaoyu.suixingxiugai.util.twilightforest.entity.NagaPhysicsUtil;
 
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -25,14 +26,14 @@ public class NagaSegmentMixin {
             target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"
         )
     )
-    private boolean redirectNagaSegmentAttackDamage(Entity instance, net.minecraft.world.damagesource.DamageSource damageSource, float originalDamage) {
+    private boolean redirectNagaSegmentAttackDamage(Entity instance, DamageSource damageSource, float originalDamage) {
         NagaSegment segment = (NagaSegment) (Object) this;
         Naga naga = segment.getParent();
 
         double segmentAttackDamage = NagaConfig.nagaSegmentAttackDamage.get();
 
-        if (naga.level().getDifficulty() != net.minecraft.world.Difficulty.EASY && naga.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
-            boolean hard = naga.level().getDifficulty() == net.minecraft.world.Difficulty.HARD;
+        if (naga.level().getDifficulty() != Difficulty.EASY && naga.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
+            boolean hard = naga.level().getDifficulty() == Difficulty.HARD;
             double difficultyBoost = hard ? NagaConfig.nagaDifficultySegmentAttackDamageBoostHard.get() : NagaConfig.nagaDifficultySegmentAttackDamageBoostNormal.get();
             segmentAttackDamage += difficultyBoost;
         }

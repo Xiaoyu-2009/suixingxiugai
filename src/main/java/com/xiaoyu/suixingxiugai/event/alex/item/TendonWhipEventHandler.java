@@ -1,4 +1,4 @@
-package com.xiaoyu.suixingxiugai.event.alex;
+package com.xiaoyu.suixingxiugai.event.alex.item;
 
 import com.xiaoyu.suixingxiugai.SuixingXiugai;
 import com.xiaoyu.suixingxiugai.config.alex.item.TendonWhipConfig;
@@ -61,9 +61,7 @@ public class TendonWhipEventHandler {
             if (lastTendon != null) {
                 setTendonChainRetracting(lastTendon);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
     }
     
     private static void setTendonChainRetracting(Object tendonSegment) {
@@ -79,8 +77,6 @@ public class TendonWhipEventHandler {
             if (fromEntity != null && fromEntity.getClass() == tendonSegmentClass) {
                 setTendonChainRetracting(fromEntity);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
     }
 }

@@ -2,12 +2,15 @@ package com.xiaoyu.suixingxiugai.mixin.server.twilightforest.entity.boss;
 
 import com.xiaoyu.suixingxiugai.config.twilightforest.entity.KnightPhantomConfig;
 
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -52,7 +55,7 @@ public abstract class KnightPhantomMixin {
     }
     
     @Inject(method = "populateDefaultEquipmentSlots", at = @At("HEAD"), cancellable = true)
-    private void modifyEquipmentSlots(net.minecraft.util.RandomSource random, net.minecraft.world.DifficultyInstance difficulty, CallbackInfo ci) {
+    private void modifyEquipmentSlots(RandomSource random, DifficultyInstance difficulty, CallbackInfo ci) {
         KnightPhantom knightPhantom = (KnightPhantom) (Object) this;
 
         String helmetItemStr = KnightPhantomConfig.knightPhantomHelmetItem.get();
@@ -69,19 +72,19 @@ public abstract class KnightPhantomMixin {
 
         String leggingsItemStr = KnightPhantomConfig.knightPhantomLeggingsItem.get();
         ItemStack leggingsStack = getItemStackFromString(leggingsItemStr);
-        if (!leggingsStack.isEmpty() && !leggingsStack.getItem().equals(net.minecraft.world.item.Items.AIR)) {
+        if (!leggingsStack.isEmpty() && !leggingsStack.getItem().equals(Items.AIR)) {
             knightPhantom.setItemSlot(EquipmentSlot.LEGS, leggingsStack);
         }
 
         String bootsItemStr = KnightPhantomConfig.knightPhantomBootsItem.get();
         ItemStack bootsStack = getItemStackFromString(bootsItemStr);
-        if (!bootsStack.isEmpty() && !bootsStack.getItem().equals(net.minecraft.world.item.Items.AIR)) {
+        if (!bootsStack.isEmpty() && !bootsStack.getItem().equals(Items.AIR)) {
             knightPhantom.setItemSlot(EquipmentSlot.FEET, bootsStack);
         }
 
         String offHandItemStr = KnightPhantomConfig.knightPhantomOffHandItem.get();
         ItemStack offHandStack = getItemStackFromString(offHandItemStr);
-        if (!offHandStack.isEmpty() && !offHandStack.getItem().equals(net.minecraft.world.item.Items.AIR)) {
+        if (!offHandStack.isEmpty() && !offHandStack.getItem().equals(Items.AIR)) {
             knightPhantom.setItemSlot(EquipmentSlot.OFFHAND, offHandStack);
         }
 
@@ -136,7 +139,7 @@ public abstract class KnightPhantomMixin {
         }
 
         if (itemStr.equals("minecraft:air")) {
-            return new ItemStack(net.minecraft.world.item.Items.AIR);
+            return new ItemStack(Items.AIR);
         }
         
         try {

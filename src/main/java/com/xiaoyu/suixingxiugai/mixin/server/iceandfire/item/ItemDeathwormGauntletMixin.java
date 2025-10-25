@@ -1,6 +1,8 @@
 package com.xiaoyu.suixingxiugai.mixin.server.iceandfire.item;
 
+import com.github.alexthe666.iceandfire.entity.props.EntityDataProvider;
 import com.github.alexthe666.iceandfire.item.ItemDeathwormGauntlet;
+import com.github.alexthe666.iceandfire.misc.IafSoundRegistry;
 import com.xiaoyu.suixingxiugai.config.iceandfire.item.DeathwormGauntletConfig;
 
 import net.minecraft.nbt.CompoundTag;
@@ -41,7 +43,7 @@ public abstract class ItemDeathwormGauntletMixin {
 
                 if (player.getCooldowns().getCooldownPercent(stack.getItem(), 0.0F) == 0) {
                     player.getCooldowns().addCooldown(stack.getItem(), DeathwormGauntletConfig.deathwormGauntletCooldown.get());
-                    player.playSound(com.github.alexthe666.iceandfire.misc.IafSoundRegistry.DEATHWORM_ATTACK, 1F, 1F);
+                    player.playSound(IafSoundRegistry.DEATHWORM_ATTACK, 1F, 1F);
                     deathwormReceded = false;
                     deathwormLaunched = true;
                 }
@@ -68,7 +70,7 @@ public abstract class ItemDeathwormGauntletMixin {
             return;
         }
 
-        com.github.alexthe666.iceandfire.entity.props.EntityDataProvider.getCapability(entity).ifPresent(data -> {
+        EntityDataProvider.getCapability(entity).ifPresent(data -> {
             int tempLungeTicks = data.miscData.lungeTicks;
 
             if (deathwormReceded) {

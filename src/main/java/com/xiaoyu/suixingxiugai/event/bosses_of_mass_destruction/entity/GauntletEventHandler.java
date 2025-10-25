@@ -1,4 +1,4 @@
-package com.xiaoyu.suixingxiugai.event.bosses_of_mass_destruction;
+package com.xiaoyu.suixingxiugai.event.bosses_of_mass_destruction.entity;
 
 import com.xiaoyu.suixingxiugai.config.bosses_of_mass_destruction.entity.GauntletConfig;
 

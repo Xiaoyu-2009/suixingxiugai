@@ -7,6 +7,7 @@ import com.xiaoyu.suixingxiugai.network.DamageDisplayMessage;
 import com.xiaoyu.suixingxiugai.network.NetworkHandler;
 import com.xiaoyu.suixingxiugai.event.CriticalHitEventHandler;
 
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.damagesource.DamageSource;
@@ -92,7 +93,7 @@ public class LivingEntityMixin {
 
         if (!entity.level().isClientSide && matchesEntityType && matchesEntityList && damageAmount != 0) {
             boolean isCrit = false;
-            if (damageSrc.is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)) {
+            if (damageSrc.is(DamageTypes.PLAYER_ATTACK)) {
                 isCrit = CriticalHitEventHandler.isLastAttackCritical(entity);
             }
             

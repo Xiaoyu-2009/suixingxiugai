@@ -25,6 +25,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
 import static com.xiaoyu.suixingxiugai.config.iceandfire.item.CyclopsEyeConfig.*;
 
 @Mixin(ItemCyclopsEye.class)
@@ -101,7 +105,7 @@ public class ItemCyclopsEyeMixin {
             target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Ljava/util/function/Consumer;)V"
         )
     )
-    private void redirectDurabilityReduction(ItemStack stack, int amount, LivingEntity entity, java.util.function.Consumer<LivingEntity> onBroken) {
+    private void redirectDurabilityReduction(ItemStack stack, int amount, LivingEntity entity, Consumer<LivingEntity> onBroken) {
         stack.hurtAndBreak(
             cyclopsEyeDurabilityReduction.get(),
             entity,
@@ -116,8 +120,8 @@ public class ItemCyclopsEyeMixin {
             target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"
         )
     )
-    private <T extends Entity> java.util.List<T> redirectGetEntitiesOfClass(Level world, Class<T> entityClass, AABB boundingBox) {
-        return new java.util.ArrayList<>();
+    private <T extends Entity> List<T> redirectGetEntitiesOfClass(Level world, Class<T> entityClass, AABB boundingBox) {
+        return new ArrayList<>();
     }
 
     @Inject(
@@ -128,8 +132,7 @@ public class ItemCyclopsEyeMixin {
             shift = At.Shift.AFTER
         )
     )
-    private void injectCustomLogic(ItemStack stack, Level world, Entity entity, int itemSlot, boolean isSelected,
-        CallbackInfo ci) {
+    private void injectCustomLogic(ItemStack stack, Level world, Entity entity, int itemSlot, boolean isSelected, CallbackInfo ci) {
         if (!(entity instanceof LivingEntity)) {
             return;
         }
@@ -146,7 +149,7 @@ public class ItemCyclopsEyeMixin {
         int minMobs = cyclopsEyeMinAffectedMobs.get();
 
         Class<? extends Entity> targetClass = getTargetClass(targetType);
-        java.util.List<? extends Entity> entities = world.getEntitiesOfClass(targetClass,
+        List<? extends Entity> entities = world.getEntitiesOfClass(targetClass,
             new AABB(
                 living.getX() - range, living.getY() - range, living.getZ() - range,
                 living.getX() + range, living.getY() + range, living.getZ() + range

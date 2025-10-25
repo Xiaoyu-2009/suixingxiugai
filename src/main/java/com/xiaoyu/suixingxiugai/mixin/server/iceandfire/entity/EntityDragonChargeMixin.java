@@ -33,7 +33,7 @@ public abstract class EntityDragonChargeMixin {
         method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;Lcom/github/alexthe666/iceandfire/entity/EntityDragonBase;DDD)V", 
         at = @At("TAIL")
     )
-    private void onInitWithShooter(EntityType<? extends EntityDragonCharge> type, Level worldIn, com.github.alexthe666.iceandfire.entity.EntityDragonBase shooter, double accelX, double accelY, double accelZ, CallbackInfo ci) {
+    private void onInitWithShooter(EntityType<? extends EntityDragonCharge> type, Level worldIn, EntityDragonBase shooter, double accelX, double accelY, double accelZ, CallbackInfo ci) {
         setOwnerUUIDFromShooter();
     }
 

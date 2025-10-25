@@ -9,6 +9,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -45,7 +46,7 @@ public class StatueRestoreCommand {
             String entityTypeString = statue.getTrappedEntityTypeString();
             CompoundTag entityData = statue.getTrappedTag();
 
-            EntityType<?> entityType = ForgeRegistries.ENTITY_TYPES.getValue(net.minecraft.resources.ResourceLocation.tryParse(entityTypeString));
+            EntityType<?> entityType = ForgeRegistries.ENTITY_TYPES.getValue(ResourceLocation.tryParse(entityTypeString));
             if (entityType == null) {
                 context.getSource().sendFailure(Component.translatable("commands.iceandfire.statuerestore.invalid_entity_type"));
                 continue;
