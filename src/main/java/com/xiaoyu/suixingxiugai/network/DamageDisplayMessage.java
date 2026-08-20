@@ -1,6 +1,6 @@
 package com.xiaoyu.suixingxiugai.network;
 
-import com.xiaoyu.suixingxiugai.client.ClientEvents;
+import com.xiaoyu.suixingxiugai.client.ClientInit;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
@@ -53,7 +53,7 @@ public class DamageDisplayMessage {
                     Entity entity = mc.level.getEntity(msg.entityId);
                     if (entity != null) {
                         entity.level().addParticle(
-                            ClientEvents.DAMAGE_NUMBER.get(),
+                            ClientInit.DAMAGE_NUMBER.get(),
                             entity.getX(),
                             entity.getY() + entity.getBbHeight() / 2,
                             entity.getZ(),

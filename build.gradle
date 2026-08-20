@@ -9,7 +9,6 @@ plugins {
 version = "${minecraft_version}-${mod_loader}-${mod_version}"
 group = "${mod_group_id}"
 
-// 禁用测试源集
 sourceSets {
     test {
         java.srcDirs = []
@@ -17,10 +16,8 @@ sourceSets {
     }
 }
 
-// 确保所有任务使用UTF-8编码
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-    // 禁用所有编译警告
     options.compilerArgs += ["-Xlint:none"]
 }
 
@@ -179,9 +176,11 @@ dependencies {
     // 玉
     implementation fg.deobf("maven.modrinth:jade:11.13.1+forge")
 
-    // 灾变
-    implementation fg.deobf("curse.maven:lendercataclysm-551586:6729683")
-    implementation fg.deobf("curse.maven:lionfish-api-1001614:5922047")
+    // 灾变[3.31]
+    implementation fg.deobf("curse.maven:lendercataclysm-551586:8246047")
+
+    // Lionfish API[3.0]
+    implementation fg.deobf("curse.maven:lionfish-api-1001614:8095554")
 
     // Curios
     implementation fg.deobf("curse.maven:curios-309927:6418456")
@@ -238,7 +237,6 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     finalizedBy 'reobfJar'
 
-    // 设置自定义文件名
     archiveFileName = "${mod_id}-${version}.jar"
 }
 

@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = SuixingXiugai.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class ClientEvents {
+public class ClientInit {
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = 
         DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, SuixingXiugai.MOD_ID);
     

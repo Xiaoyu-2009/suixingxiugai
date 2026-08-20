@@ -1,44 +1,19 @@
 package com.xiaoyu.suixingxiugai;
 
 import com.xiaoyu.suixingxiugai.config.SuixingxiugaiConfig;
-import com.xiaoyu.suixingxiugai.config.alex.entity.KomodoDragonConfig;
-import com.xiaoyu.suixingxiugai.config.alex.item.BloodSprayerConfig;
-import com.xiaoyu.suixingxiugai.config.alex.item.HemolymphBlasterConfig;
-import com.xiaoyu.suixingxiugai.config.alex.item.PocketSandConfig;
-import com.xiaoyu.suixingxiugai.config.alex.item.TendonWhipConfig;
-import com.xiaoyu.suixingxiugai.config.bosses_of_mass_destruction.entity.GauntletConfig;
-import com.xiaoyu.suixingxiugai.config.cataclysm.item.MeatShredderConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.GazeImmunityConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.IceandfireConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.DragonDenConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.CyclopsConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DeathWormConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DragonConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DragonEggConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.DreadMobConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.HydraConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.SirenConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.entity.GorgonConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.item.CyclopsEyeConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.item.DeathwormGauntletConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.item.GorgonHeadConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.item.HydraHeartConfig;
-import com.xiaoyu.suixingxiugai.config.iceandfire.item.DragonFluteConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.AlphaYetiConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.KnightPhantomConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.LichConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.MinoshroomConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.entity.NagaConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.FortificationWandConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.ZombieWandConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.TwilightWandConfig;
-import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.LifedrainScepterConfig;
-import com.xiaoyu.suixingxiugai.config.mutantmonsters.entity.MutantZombieConfig;
-
-import com.xiaoyu.suixingxiugai.client.ClientEvents;
+import com.xiaoyu.suixingxiugai.config.alex.entity.*;
+import com.xiaoyu.suixingxiugai.config.alex.item.*;
+import com.xiaoyu.suixingxiugai.config.bosses_of_mass_destruction.entity.*;
+import com.xiaoyu.suixingxiugai.config.cataclysm.item.*;
+import com.xiaoyu.suixingxiugai.config.iceandfire.*;
+import com.xiaoyu.suixingxiugai.config.iceandfire.entity.*;
+import com.xiaoyu.suixingxiugai.config.iceandfire.item.*;
+import com.xiaoyu.suixingxiugai.config.twilightforest.entity.*;
+import com.xiaoyu.suixingxiugai.config.twilightforest.item.wand.*;
+import com.xiaoyu.suixingxiugai.config.mutantmonsters.entity.*;
+import com.xiaoyu.suixingxiugai.client.ClientInit;
 import com.xiaoyu.suixingxiugai.network.NetworkHandler;
 import com.xiaoyu.suixingxiugai.event.CriticalHitEventHandler;
-
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +21,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.common.MinecraftForge;
 
+@SuppressWarnings("removal")
 @Mod(SuixingXiugai.MOD_ID)
 public class SuixingXiugai {
     public static final String MOD_ID = "suixingxiugai";
@@ -98,7 +74,7 @@ public class SuixingXiugai {
         /* ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CyclopsEyeCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/cyclops_eye-common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HydraHeartCuriosConfig.SPEC, "suixingxiugai/curios/iceandfire/hydra_heart-common.toml"); */
         
-        ClientEvents.PARTICLE_TYPES.register(modEventBus);
+        ClientInit.PARTICLE_TYPES.register(modEventBus);
         
         NetworkHandler.registerMessages();
 

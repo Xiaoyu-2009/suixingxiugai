@@ -13,27 +13,17 @@ import net.minecraft.world.entity.FlyingMob;
 public class EntityTypeHelper {
 
     public static Class<? extends Entity> getTargetClass(String targetType) {
-        switch (targetType.toLowerCase()) {
-            case "living":
-                return LivingEntity.class;
-            case "player":
-                return Player.class;
-            case "all":
-                return Entity.class;
-            case "animal":
-                return Animal.class;
-            case "monster":
-                return Monster.class;
-            case "ambient":
-                return AmbientCreature.class;
-            case "water_animal":
-                return WaterAnimal.class;
-            case "flying":
-                return FlyingMob.class;
-            case "mob":
-            default:
-                return Mob.class;
-        }
+        return switch (targetType.toLowerCase()) {
+            case "living" -> LivingEntity.class;
+            case "player" -> Player.class;
+            case "all" -> Entity.class;
+            case "animal" -> Animal.class;
+            case "monster" -> Monster.class;
+            case "ambient" -> AmbientCreature.class;
+            case "water_animal" -> WaterAnimal.class;
+            case "flying" -> FlyingMob.class;
+            default -> Mob.class;
+        };
     }
 
     public static boolean isEntityOfType(LivingEntity entity, String entityType) {

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 public class BlockOwnerTracker {
     private static final Map<BlockPos, UUID> blockOwners = new ConcurrentHashMap<>();
     private static final Map<Level, Map<BlockPos, UUID>> worldBlockOwners = new ConcurrentHashMap<>();
